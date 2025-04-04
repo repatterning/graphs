@@ -184,8 +184,7 @@ function generateChart(fileNameKey){
             },
 
             subtitle: {
-                text: '<p>Scotland</p> <br/> ' +
-                    '<p><b>Water Levels</b>: Predictions</p>'
+                text: '<p>Water Level Prediction</p> <br/><br/>'
             },
 
             time: {
@@ -404,7 +403,7 @@ function generateChart(fileNameKey){
             },
             {
                 type: 'spline',
-                name: 'Percentage Error (Training)',
+                name: 'Percentage Error (TR)',
                 data: percentage,
                 color: '#6B8E23',
                 yAxis: 1,
@@ -418,7 +417,7 @@ function generateChart(fileNameKey){
             },
             {
                 type: 'spline',
-                name: 'Percentage Error (Testing)',
+                name: 'Percentage Error (TE)',
                 data: t_percentage,
                 color: '#917808',
                 yAxis: 1,
