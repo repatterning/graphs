@@ -269,157 +269,167 @@ function generateChart(fileNameKey){
             },
 
             series: [{
-                type: 'arearange',
-                name: 'The training phase predictions',
-                    data: boundary,
-                    dataGrouping: {
-                        units: groupingUnits,
-                        dateTimeLabelFormats: {
-                            millisecond: ['%A, %e %b, %H:%M:%S.%L', '%A, %b %e, %H:%M:%S.%L', '-%H:%M:%S.%L'],
-                            second: ['%A, %e %b, %H:%M:%S', '%A, %b %e, %H:%M:%S', '-%H:%M:%S'],
-                            minute: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
-                            hour: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
-                            day: ['%A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
-                            week: ['Week from %A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
-                            month: ['%B %Y', '%B', '-%B %Y'],
-                            year: ['%Y', '%Y', '-%Y']
-                        }
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b><br/>' +
-                            'Upper Boundary: {point.high:,.2f}<br/>' +
-                            'Lower Boundary: {point.low:,.2f}' + '<br/>'
-                    }
+                type: 'spline',
+                name: 'Predictions (TR)',
+                data: estimate,
+                color: '#6B8E23',
+                yAxis: 0,
+                dataGrouping: {
+                    units: groupingUnits
                 },
-                {
-                    type: 'spline',
-                    name: 'Trend',
-                    data: observations,
-                    color: '#6B8E23',
-                    yAxis: 0,
-                    dataGrouping: {
-                        units: groupingUnits
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f}<br/>'
-                    }
-                },
-                {
-                    type: 'spline',
-                    name: 'Trend',
-                    data: estimate,
-                    yAxis: 0,
-                    dataGrouping: {
-                        units: groupingUnits
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f}<br/>'
-                    }
-                },
-                {
-                    type: 'arearange',
-                    name: 'Predictions Boundary (Test)',
-                    data: t_boundary,
-                    color: '#000000',
-                    visible: true,
-                    yAxis: 0,
-                    dataGrouping: {
-                        units: groupingUnits
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b><br/>' +
-                            'Upper Boundary: {point.high:,.2f}<br/>' +
-                            'Lower Boundary: {point.low:,.2f}' + '<br/>'
-                    }
-                },
-                {
-                    type: 'spline',
-                    name: 'Observations (Test)',
-                    data: t_observations,
-                    color: '#6B8E23',
-                    yAxis: 0,
-                    dataGrouping: {
-                        units: groupingUnits
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f}<br/>'
-                    }
-                },
-                {
-                    type: 'spline',
-                    name: 'Predictions (Test)',
-                    data: t_estimate,
-                    color: '#6B8E23',
-                    yAxis: 0,
-                    dataGrouping: {
-                        units: groupingUnits
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f}<br/>'
-                    }
-                },
-
-                {
-                    type: 'arearange',
-                    name: 'Futures Boundaries',
-                    data: f_boundary,
-                    color: '#A08E23',
-                    visible: true,
-                    yAxis: 0,
-                    dataGrouping: {
-                        units: groupingUnits
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b><br/>' +
-                            'Upper Boundary: {point.high:,.2f}<br/>' +
-                            'Lower Boundary: {point.low:,.2f}' + '<br/>'
-                    }
-                },
-                {
-                    type: 'spline',
-                    name: 'Futures',
-                    data: f_estimate,
-                    color: '#6B8E23',
-                    yAxis: 0,
-                    dataGrouping: {
-                        units: groupingUnits
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f}<br/>'
-                    }
-                },
-                {
-                    type: 'spline',
-                    name: 'Percentage Error (Training)',
-                    data: percentage,
-                    color: '#6B8E23',
-                    yAxis: 1,
-                    dataGrouping: {
-                        units: groupingUnits
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name}</b>: ' +
-                            '{point.y:,.2f} unitless<br/>'
-                    }
-                },
-                {
-                    type: 'spline',
-                    name: 'Percentage Error (Testing)',
-                    data: t_percentage,
-                    yAxis: 1,
-                    dataGrouping: {
-                        units: groupingUnits
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name}</b>: ' +
-                            '{point.y:,.2f} unitless<br/>'
-                    }
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
+                        '{point.y:,.2f}<br/>'
                 }
+            },
+            {
+                type: 'arearange',
+                name: 'Predictions Boundaries (TR)',
+                data: boundary,
+                color: '#6B8E23',
+                dataGrouping: {
+                    units: groupingUnits,
+                    dateTimeLabelFormats: {
+                        millisecond: ['%A, %e %b, %H:%M:%S.%L', '%A, %b %e, %H:%M:%S.%L', '-%H:%M:%S.%L'],
+                        second: ['%A, %e %b, %H:%M:%S', '%A, %b %e, %H:%M:%S', '-%H:%M:%S'],
+                        minute: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                        hour: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                        day: ['%A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
+                        week: ['Week from %A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
+                        month: ['%B %Y', '%B', '-%B %Y'],
+                        year: ['%Y', '%Y', '-%Y']
+                    }
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b><br/>' +
+                        'Upper Boundary: {point.high:,.2f}<br/>' +
+                        'Lower Boundary: {point.low:,.2f}' + '<br/>'
+                }
+            },
+            {
+                type: 'spline',
+                name: 'Ground Truth (TR)',
+                data: observations,
+                marker: {
+                    enabled: true
+                },
+                lineWidth: 0,
+                color: '#000000',
+                yAxis: 0,
+                dataGrouping: {
+                    units: groupingUnits
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
+                        '{point.y:,.2f}<br/>'
+                }
+            },
+            {
+                type: 'spline',
+                name: 'Predictions (TE)',
+                data: t_estimate,
+                color: '#917808',
+                yAxis: 0,
+                dataGrouping: {
+                    units: groupingUnits
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
+                        '{point.y:,.2f}<br/>'
+                }
+            },
+            {
+                type: 'arearange',
+                name: 'Predictions Boundaries (TE)',
+                data: t_boundary,
+                color: '#917808',
+                visible: true,
+                yAxis: 0,
+                dataGrouping: {
+                    units: groupingUnits
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b><br/>' +
+                        'Upper Boundary: {point.high:,.2f}<br/>' +
+                        'Lower Boundary: {point.low:,.2f}' + '<br/>'
+                }
+            },
+            {
+                type: 'spline',
+                name: 'Ground Truth (TE)',
+                data: t_observations,
+                marker: {
+                    enabled: true
+                },
+                lineWidth: 0,
+                color: '#000000',
+                yAxis: 0,
+                dataGrouping: {
+                    units: groupingUnits
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
+                        '{point.y:,.2f}<br/>'
+                }
+            },
+            {
+                type: 'spline',
+                name: 'Future Predictions',
+                data: f_estimate,
+                color: '#ffa500',
+                yAxis: 0,
+                dataGrouping: {
+                    units: groupingUnits
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
+                        '{point.y:,.2f}<br/>'
+                }
+            },
+            {
+                type: 'arearange',
+                name: 'Future Predictions Boundaries',
+                data: f_boundary,
+                color: '#ffa500',
+                visible: true,
+                yAxis: 0,
+                dataGrouping: {
+                    units: groupingUnits
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b><br/>' +
+                        'Upper Boundary: {point.high:,.2f}<br/>' +
+                        'Lower Boundary: {point.low:,.2f}' + '<br/>'
+                }
+            },
+            {
+                type: 'spline',
+                name: 'Percentage Error (Training)',
+                data: percentage,
+                color: '#6B8E23',
+                yAxis: 1,
+                dataGrouping: {
+                    units: groupingUnits
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name}</b>: ' +
+                        '{point.y:,.2f} unitless<br/>'
+                }
+            },
+            {
+                type: 'spline',
+                name: 'Percentage Error (Testing)',
+                data: t_percentage,
+                color: '#917808',
+                yAxis: 1,
+                dataGrouping: {
+                    units: groupingUnits
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name}</b>: ' +
+                        '{point.y:,.2f} unitless<br/>'
+                }
+            }
             ],
             responsive: {
                 rules: [{
