@@ -279,7 +279,7 @@ function generateChart(fileNameKey){
                 },
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                        '{point.y:,.2f}<br/>'
+                        '{point.y:,.2f}m<br/>'
                 }
             },
             {
@@ -302,8 +302,8 @@ function generateChart(fileNameKey){
                 },
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b><br/>' +
-                        'Upper Boundary: {point.high:,.2f}<br/>' +
-                        'Lower Boundary: {point.low:,.2f}' + '<br/>'
+                        'Upper Boundary: {point.high:,.2f}m<br/>' +
+                        'Lower Boundary: {point.low:,.2f}m' + '<br/>'
                 }
             },
             {
@@ -321,7 +321,7 @@ function generateChart(fileNameKey){
                 },
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                        '{point.y:,.2f}<br/>'
+                        '{point.y:,.2f}m<br/>'
                 }
             },
             {
@@ -335,7 +335,7 @@ function generateChart(fileNameKey){
                 },
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                        '{point.y:,.2f}<br/>'
+                        '{point.y:,.2f}m<br/>'
                 }
             },
             {
@@ -350,8 +350,8 @@ function generateChart(fileNameKey){
                 },
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b><br/>' +
-                        'Upper Boundary: {point.high:,.2f}<br/>' +
-                        'Lower Boundary: {point.low:,.2f}' + '<br/>'
+                        'Upper Boundary: {point.high:,.2f}m<br/>' +
+                        'Lower Boundary: {point.low:,.2f}m' + '<br/>'
                 }
             },
             {
@@ -369,7 +369,7 @@ function generateChart(fileNameKey){
                 },
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                        '{point.y:,.2f}<br/>'
+                        '{point.y:,.2f}m<br/>'
                 }
             },
             {
@@ -383,7 +383,7 @@ function generateChart(fileNameKey){
                 },
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                        '{point.y:,.2f}<br/>'
+                        '{point.y:,.2f}m<br/>'
                 }
             },
             {
@@ -398,8 +398,8 @@ function generateChart(fileNameKey){
                 },
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b><br/>' +
-                        'Upper Boundary: {point.high:,.2f}<br/>' +
-                        'Lower Boundary: {point.low:,.2f}' + '<br/>'
+                        'Upper Boundary: {point.high:,.2f}m<br/>' +
+                        'Lower Boundary: {point.low:,.2f}m' + '<br/>'
                 }
             },
             {
@@ -413,7 +413,7 @@ function generateChart(fileNameKey){
                 },
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name}</b>: ' +
-                        '{point.y:,.2f} unitless<br/>'
+                        '{point.y:,.2f}%<br/>'
                 }
             },
             {
@@ -427,7 +427,7 @@ function generateChart(fileNameKey){
                 },
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name}</b>: ' +
-                        '{point.y:,.2f} unitless<br/>'
+                        '{point.y:,.2f}%<br/>'
                 }
             }
             ],
