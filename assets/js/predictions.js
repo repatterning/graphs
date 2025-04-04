@@ -225,11 +225,25 @@ function generateChart(fileNameKey){
                     x: 0
                 },
                 // min: 0,
-                height: '90%',
+                height: '60%',
                 lineWidth: 2,
                 resize: {
                     enabled: true
                 }
+            }, {
+                labels: {
+                    align: 'left',
+                    x: 5
+                },
+                title: {
+                    text: 'Error',
+                    align: 'middle',
+                    x: 7
+                },
+                top: '65%',
+                height: '30%',
+                offset: 0,
+                lineWidth: 2
             }
             ],
 
@@ -379,6 +393,33 @@ function generateChart(fileNameKey){
                             '{point.y:,.2f}<br/>'
                     }
                 },
+                {
+                    type: 'spline',
+                    name: 'Percentage Error (Training)',
+                    data: percentage,
+                    color: '#6B8E23',
+                    yAxis: 1,
+                    dataGrouping: {
+                        units: groupingUnits
+                    },
+                    tooltip: {
+                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name}</b>: ' +
+                            '{point.y:,.2f} unitless<br/>'
+                    }
+                },
+                {
+                    type: 'spline',
+                    name: 'Percentage Error (Testing)',
+                    data: t_percentage,
+                    yAxis: 1,
+                    dataGrouping: {
+                        units: groupingUnits
+                    },
+                    tooltip: {
+                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name}</b>: ' +
+                            '{point.y:,.2f} unitless<br/>'
+                    }
+                }
             ],
             responsive: {
                 rules: [{
