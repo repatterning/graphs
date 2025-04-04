@@ -1,0 +1,33 @@
+name: 'Hydrography: Project Briefing Pages'
+
+on: [push]
+
+jobs:
+  deliver:
+    name: Amazon S3
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Actions
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ENTRY }}:role/${{ secrets.AWS_ARN_S3_ACTIONS }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Upload
+        run: |
+          aws s3 cp ./index.html s3://${{ secrets.AWS_BUCKET_EXTERNAL }}/
+          pwd
+          ls
+          aws s3 rm s3://${{ secrets.AWS_BUCKET_EXTERNAL }}/src --recursive
+          aws s3 cp src s3://${{ secrets.AWS_BUCKET_EXTERNAL }}/src --recursive
+          aws s3 rm s3://${{ secrets.AWS_BUCKET_EXTERNAL }}/assets --recursive
+          aws s3 cp assets s3://${{ secrets.AWS_BUCKET_EXTERNAL }}/assets --recursive
