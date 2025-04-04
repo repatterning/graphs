@@ -220,7 +220,7 @@ function generateChart(fileNameKey){
                     x: 9
                 },
                 title: {
-                    text: optionSelected,
+                    text: 'river level<br>(metres)',
                     x: 0
                 },
                 // min: 0,
@@ -235,7 +235,7 @@ function generateChart(fileNameKey){
                     x: 5
                 },
                 title: {
-                    text: 'Error',
+                    text: 'error<br>(%)',
                     align: 'middle',
                     x: 7
                 },
