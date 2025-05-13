@@ -137,3 +137,4 @@ dist
 
 # Exclude
 script.sh
+.idea
