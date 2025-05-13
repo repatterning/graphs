@@ -101,11 +101,11 @@ function generateChart(fileNameKey){
             },
 
             title: {
-                text: 'Predictions: ' + optionSelected
+                text: 'Spot: ' + optionSelected
             },
 
             subtitle: {
-                text: '<p>River Level Prediction</p> <br/><br/>'
+                text: '<p>Drift Metrics</p> <br/><br/>'
             },
 
             time: {
