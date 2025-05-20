@@ -1,16 +1,17 @@
-@import"https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap";
-@import"https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap";
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /*
  * Body
  */
 body {
     background-color: #ffffff;
-    font-family: Alegreya, sans-serif, 'Noto Sans', 'Cormorant Garamond', 'EB Garamond', Vollkorn, -apple-system, Inter, BlinkMacSystemFont, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    font-family: "Noto Sans Display", sans-serif, Inter, 'Cormorant Garamond', 'EB Garamond', Vollkorn, -apple-system, Inter, BlinkMacSystemFont, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     line-height: 1.5;
-    width: 1200px;
-    margin: 0 auto;
-    font-size: 17px;
+    width: 1500px;
+    margin: 10px auto auto 95px;
+    font-size: 15px;
 }
 
 a:link,
@@ -33,7 +34,7 @@ img {
 
 .layout {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 2fr 5fr;
     grid-template-rows: 185px auto auto;
     align-content: flex-start;
     gap: 35px
@@ -60,7 +61,7 @@ img {
     padding: 5px;
     text-align: right;
     align-content: flex-end;
-    font-size: medium;
+    font-size: 15px;
 }
 
 .layout-reference-parts {
