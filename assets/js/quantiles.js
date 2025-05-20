@@ -168,7 +168,6 @@ function generateChart(fileNameKey) {
                     text: 'river levels<br>(metres)',
                     x: 0
                 },
-                // min: 0,
                 height: '65%',
                 lineWidth: 2,
                 resize: {
