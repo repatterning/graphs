@@ -1,7 +1,7 @@
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var url = '../warehouse/inspect/menu/menu.json';
+var url = '../warehouse/autoregressive/menu/menu.json';
 
 
 $.getJSON(url, function (data) {
@@ -37,7 +37,7 @@ dropdown.on('change', function (e) {
 // Generate graphs
 function generateChart(fileNameKey){
 
-    $.getJSON('../warehouse/inspect/points/predictions/' + fileNameKey + '.json', function (source)  {
+    $.getJSON('../warehouse/autoregressive/points/predictions/' + fileNameKey + '.json', function (source)  {
 
         // https://api.highcharts.com/highstock/plotOptions.series.dataLabels
         // https://api.highcharts.com/class-reference/Highcharts.Point#.name
