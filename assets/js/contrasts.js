@@ -56,6 +56,9 @@ function generateChart(fileNameKey){
 
         for (var i = 0; i < source.data.length; i += 1) {
 
+            let state;
+            state = i < 2;
+
             sectors.push({
                 name: source.attributes.data[i][i_station],
                 data: source.data[i],
@@ -63,7 +66,8 @@ function generateChart(fileNameKey){
                 dataGrouping: {
                     enabled: true,
                     units: groupingUnits
-                }
+                },
+                visible: state
             });
 
         }
