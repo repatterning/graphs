@@ -127,7 +127,7 @@ function generateChart(fileNameKey){
 
             caption: {
                 text: '<p>Each spline represents a gauge\'s river level measures ' +
-                    'across time.</p>'
+                    'during a single year.</p>'
             },
 
             exporting: {
