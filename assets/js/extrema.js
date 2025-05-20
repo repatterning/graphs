@@ -107,12 +107,11 @@ function generateChart(fileNameKey) {
             },
 
             title: {
-                text: 'Extrema, etc., of: ' + optionSelected
+                text: 'River Level Extrema, etc., of: ' + optionSelected
             },
 
             subtitle: {
-                text: '<p><br/>River levels relative to <b>ordance datum</b>, i.e.,</p><br/> ' +
-                    '<p><i>river level relative to gauge datum + gauge datum</i></p>'
+                text: '<p><br/>Relative to <b>Ordance Datum</b></p><br/>'
             },
 
             time: {
@@ -135,9 +134,10 @@ function generateChart(fileNameKey) {
             },
 
             caption: {
-                // verticalAlign: "top",
-                text: '<p>Each candlestick illustrates the spread of river level measures ' +
-                    'across 24 hours.</p>'
+                text: '<p>The river levels relative to an Ordance Datum.  An ordance datum river level is ' +
+                    'the sum of (a) a river level relative to a gauge datum, and (b) the gauge datum of ' +
+                    'the gauge site.  SEPA (Scottish Environment Protection Agency) publishes river levels ' +
+                    'relative to a gauge datum</p>'
             },
 
             exporting: {
@@ -156,7 +156,7 @@ function generateChart(fileNameKey) {
                     x: 9
                 },
                 title: {
-                    text: 'river levels<br>(metres)',
+                    text: 'extrema<br>(metres)',
                     x: 0
                 },
                 height: '65%',
