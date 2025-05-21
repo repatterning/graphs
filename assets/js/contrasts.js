@@ -56,8 +56,7 @@ function generateChart(fileNameKey){
 
         for (var i = 0; i < source.data.length; i += 1) {
 
-            let state;
-            state = i < 2;
+
 
             sectors.push({
                 name: source.attributes.data[i][i_station],
@@ -67,7 +66,7 @@ function generateChart(fileNameKey){
                     enabled: true,
                     units: groupingUnits
                 },
-                visible: state
+                visible: i < 1
             });
 
         }
@@ -118,7 +117,27 @@ function generateChart(fileNameKey){
             },
 
             legend: {
-                enabled: true
+                enabled: true,
+                align: 'right',
+                verticalAlign: 'top',
+                layout: 'vertical',
+                x: 25,
+                y: 60
+            },
+
+            yAxis: {
+                labels: {
+                    align: 'left',
+                    x: 9
+                },
+                title: {
+                    text: 'level (metres)',
+                    x: 0
+                },
+                lineWidth: 2,
+                resize: {
+                    enabled: false
+                }
             },
 
             xAxis: {
