@@ -39,7 +39,7 @@ function generateChart(fileNameKey){
 
     $.getJSON('../warehouse/measurements/points/annual/' + fileNameKey + '.json', function (source)  {
 
-        let fields = source.attributes.columns;
+        let fields = source['attributes']['columns'];
         let i_station = fields.indexOf('station_name'),
             i_catchment = fields.indexOf('catchment_name'),
             i_river = fields.indexOf('river_name');
@@ -119,7 +119,7 @@ function generateChart(fileNameKey){
             },
 
             subtitle: {
-                text: 'within a catchment'
+                text: 'Gauge River/Water Spot: ' + source['attributes']['data'][0][i_river]
             },
 
             credits: {
