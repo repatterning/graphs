@@ -115,7 +115,7 @@ function generateChart(fileNameKey){
             },
 
             title: {
-                text: 'River Levels'
+                text: optionSelected
             },
 
             subtitle: {
