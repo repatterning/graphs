@@ -99,7 +99,7 @@ function generateChart(fileNameKey){
         Highcharts.stockChart('container0005', {
 
             rangeSelector: {
-                selected: 4,
+                selected: 3,
                 verticalAlign: 'top',
                 floating: false,
                 inputPosition: {
