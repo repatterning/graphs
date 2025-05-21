@@ -208,6 +208,10 @@ function generateChart(fileNameKey){
                 // x: 35
             },
 
+            caption: {
+                text: '<p>TR: Training, TE: Testing</p>'
+            },
+
             exporting: {
                 buttons: {
                     contextButton: {
