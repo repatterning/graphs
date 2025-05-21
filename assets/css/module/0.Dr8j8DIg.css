@@ -69,6 +69,10 @@ img {
     margin-bottom: 5px;
 }
 
+.highcharts-legend-box {
+    width: 235px;
+}
+
 h2 {
     font-variant: small-caps;
 }
