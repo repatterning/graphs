@@ -54,13 +54,29 @@ function generateChart(fileNameKey){
         for (var i = 0; i < source.data.length; i += 1) {
 
             sectors.push({
-                name: source['periods'][i],
+                name: source['periods'][i].substring(0, 4),
                 data: source.data[i],
                 type: 'spline',
                 dataGrouping: {
-                    enabled: true
+                    enabled: true,
+                    units: groupingUnits,
+                    dateTimeLabelFormats: {
+                        millisecond: ['%A, %e %b, %H:%M:%S.%L', '%A, %b %e, %H:%M:%S.%L', '-%H:%M:%S.%L'],
+                        second: ['%A, %e %b, %H:%M:%S', '%A, %b %e, %H:%M:%S', '-%H:%M:%S'],
+                        minute: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                        hour: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                        day: ['%A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
+                        week: ['Week from %A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
+                        month: ['%B %Y', '%B', '-%B %Y'],
+                        year: ['%Y', '%Y', '-%Y']
+                    }
                 },
-                units: groupingUnits
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
+                        '{point.y:,.3f}m<br/>'
+                },
+                visible: i > 3
+
             });
 
         }
@@ -114,6 +130,21 @@ function generateChart(fileNameKey){
                 enabled: true
             },
 
+            yAxis: {
+                labels: {
+                    align: 'left',
+                    x: 9
+                },
+                title: {
+                    text: 'level (metres)',
+                    x: 0
+                },
+                lineWidth: 2,
+                resize: {
+                    enabled: true
+                }
+            },
+
             xAxis: {
                 type: 'datetime',
                 dateTimeLabelFormats: {
@@ -141,15 +172,7 @@ function generateChart(fileNameKey){
             },
 
             tooltip: {
-                split: true,
-                dateTimeLabelFormats: {
-                    minute: "%e %b, %H:%M",
-                    hour: "%e %b, %H:%M",
-                    day: "%e %B",
-                    week: "%e %b",
-                    month: "%e %B",
-                    year: "%Y"
-                }
+                split: true
             },
 
             plotOptions: {
