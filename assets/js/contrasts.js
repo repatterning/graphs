@@ -64,9 +64,24 @@ function generateChart(fileNameKey){
                 description: source.attributes.data[i][i_river],
                 dataGrouping: {
                     enabled: true,
-                    units: groupingUnits
+                    units: groupingUnits,
+                    dateTimeLabelFormats: {
+                        millisecond: ['%A, %e %b, %H:%M:%S.%L', '%A, %b %e, %H:%M:%S.%L', '-%H:%M:%S.%L'],
+                        second: ['%A, %e %b, %H:%M:%S', '%A, %b %e, %H:%M:%S', '-%H:%M:%S'],
+                        minute: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                        hour: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                        day: ['%A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
+                        week: ['Week from %A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
+                        month: ['%B %Y', '%B', '-%B %Y'],
+                        year: ['%Y', '%Y', '-%Y']
+                    }
                 },
-                visible: i < 1
+                tooltip: {
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
+                        '{point.y:,.3f}m<br/>'
+                },
+                visible: i < 1,
+                showInLegend: true
             });
 
         }
@@ -84,7 +99,7 @@ function generateChart(fileNameKey){
         Highcharts.stockChart('container0005', {
 
             rangeSelector: {
-                selected: 3,
+                selected: 4,
                 verticalAlign: 'top',
                 floating: false,
                 inputPosition: {
@@ -101,15 +116,18 @@ function generateChart(fileNameKey){
 
             chart: {
                 type: 'spline',
-                zoomType: 'xy'
+                zoomType: 'xy',
+                height: 405,
+                width: 665,
+                marginRight: 195
             },
 
             title: {
-                text: 'River Levels'
+                text: 'Hourly River Levels'
             },
 
             subtitle: {
-                text: 'within a catchment'
+                text: 'Catchment: ' + optionSelected
             },
 
             credits: {
@@ -117,12 +135,25 @@ function generateChart(fileNameKey){
             },
 
             legend: {
-                enabled: true,
+                layout: 'vertical',
                 align: 'right',
                 verticalAlign: 'top',
-                layout: 'vertical',
+                enabled: true,
+                // floating: true,
+                useHTML: true,
                 x: 25,
-                y: 60
+                y: -5,
+                navigation: {
+                    activeColor: '#3E576F',
+                    animation: true,
+                    arrowSize: 12,
+                    inactiveColor: '#CCC',
+                    enabled: true,
+                    style: {
+                        fontWeight: 'bold',
+                        color: '#333'
+                    }
+                }
             },
 
             yAxis: {
@@ -142,11 +173,6 @@ function generateChart(fileNameKey){
 
             xAxis: {
                 type: 'datetime'
-            },
-
-            caption: {
-                text: '<p>Each spline represents a gauge\'s river level measures ' +
-                    'across time.</p>'
             },
 
             exporting: {
