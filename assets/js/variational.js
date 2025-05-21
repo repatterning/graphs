@@ -283,7 +283,8 @@ function generateChart(fileNameKey){
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
                         '{point.y:,.2f}m<br/>'
-                }
+                },
+                visible: false
             },
                 {
                     type: 'arearange',
@@ -307,7 +308,8 @@ function generateChart(fileNameKey){
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b><br/>' +
                             'Upper Boundary: {point.high:,.2f}m<br/>' +
                             'Lower Boundary: {point.low:,.2f}m' + '<br/>'
-                    }
+                    },
+                    visible: false
                 },
                 {
                     type: 'spline',
@@ -325,7 +327,8 @@ function generateChart(fileNameKey){
                     tooltip: {
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
                             '{point.y:,.2f}m<br/>'
-                    }
+                    },
+                    visible: false
                 },
                 {
                     type: 'spline',
@@ -418,7 +421,8 @@ function generateChart(fileNameKey){
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name}</b>: ' +
                             'Upper Boundary: {point.high:,.2f}%<br/>' +
                             'Lower Boundary: {point.low:,.2f}%' + '<br/>'
-                    }
+                    },
+                    visible: false
                 },
                 {
                     type: 'arearange',
