@@ -46,31 +46,37 @@
     <div class="layout-item">
       <div class="frames-grid-item svelte-1jxvby2">
 
-        <h2 id="002">Insights: Forecasting River Levels</h2>
 
-        <h3 id="003">Structural Time Series + Variational Inference</h3>
+        <table style="width: 80%; margin-left: 65px;">
+          <colgroup>
+            <col span="1" style="width: 85%;">
+          </colgroup>
+          <tr>
+            <td><h2>Insights: River Level Forecasts</h2></td>
+          </tr>
+          <tr><td><br>
+            <label for="option_selector"></label>
+            <select id="option_selector">
+              <!-- <option id="option_selector_title">Please select a ...</option> -->
+            </select>
+            <br>
+            <br>
+            <br>
+            <div><div id="container0002" style="width: 620px; height: 665px; margin-left: 65px;"></div></div>
+            <script src="../assets/js/variational.js" type="text/javascript"></script><br><br></td>
+          </tr>
+          <tr><td><br>The forecasts are based on <i>Structural Time Series + Variational Inference</i>
+            Brief key:
 
-        <label for="option_selector"></label>
-        <select id="option_selector">
-          <!-- <option id="option_selector_title">Please select a ...</option> -->
-        </select>
-        <br>
-        <br>
-        <br>
-        <div><div id="container0002" style="width: 510px; height: 665px; margin-left: 65px;"></div></div>
-        <script src="../assets/js/variational.js" type="text/javascript"></script>
-
-        <br>
-        <br>
-
-        Brief key:
-
-        <ul>
-          <li>Each graph's title denotes <b>Predictions: River Level Gauge Location/Catchment Area</b>.  Each river level measuring device is located within, assigned to, a catchment area. An upcoming map will help, additionally <a href="https://waterlevels.sepa.org.uk">SEPA</a> (Scottish Environment Protection Agency) provides gauge station location details/maps.</li>
-          <li>The river level unit of measure is metres ($m$).  The river level values are the values relative to Ordnance Datum, i.e., <i>relative water level</i> + <i>gauge datum</i>.</li>
-          <li>TR: Training.  Prediction errors with respect to model-training-data are expected to be small.  The testing phase observations, i.e., Ground Truth (TE), were not used for training.  Hence, the predictions relative to the testing phase observations hint at model performance.  There are more metrics within the Project/Model Details pages.</li>
-          <li>TE: Testing.</li>
-        </ul>
+            <ul>
+              <li>Each graph's title denotes <b>Predictions: River Level Gauge Location/Catchment Area</b>.  Each river level measuring device is located within, assigned to, a catchment area. An upcoming map will help, additionally <a href="https://waterlevels.sepa.org.uk">SEPA</a> (Scottish Environment Protection Agency) provides gauge station location details/maps.</li>
+              <li>The river level unit of measure is metres ($m$).  The river level values are the values relative to Ordnance Datum, i.e., <i>relative water level</i> + <i>gauge datum</i>.</li>
+              <li>TR: Training.  Prediction errors with respect to model-training-data are expected to be small.  The testing phase observations, i.e., Ground Truth (TE), were not used for training.  Hence, the predictions relative to the testing phase observations hint at model performance.  There are more metrics within the Project/Model Details pages.</li>
+              <li>TE: Testing.</li>
+            </ul>
+            <br><br></td>
+          </tr>
+        </table>
 
 
         <br/>
