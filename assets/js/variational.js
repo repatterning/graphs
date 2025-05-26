@@ -162,7 +162,7 @@ function generateChart(fileNameKey){
         Highcharts.stockChart('container0002', {
 
             rangeSelector: {
-                selected: 2,
+                selected: 0,
                 verticalAlign: 'top',
                 floating: false,
                 inputPosition: {
@@ -288,7 +288,7 @@ function generateChart(fileNameKey){
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
                         '{point.y:,.2f}m<br/>'
                 },
-                visible: false
+                visible: true
             },
                 {
                     type: 'arearange',
@@ -313,7 +313,7 @@ function generateChart(fileNameKey){
                             'Upper Boundary: {point.high:,.2f}m<br/>' +
                             'Lower Boundary: {point.low:,.2f}m' + '<br/>'
                     },
-                    visible: false
+                    visible: true
                 },
                 {
                     type: 'spline',
@@ -332,7 +332,7 @@ function generateChart(fileNameKey){
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
                             '{point.y:,.2f}m<br/>'
                     },
-                    visible: false
+                    visible: true
                 },
                 {
                     type: 'spline',
@@ -426,7 +426,7 @@ function generateChart(fileNameKey){
                             'Upper Boundary: {point.high:,.2f}%<br/>' +
                             'Lower Boundary: {point.low:,.2f}%' + '<br/>'
                     },
-                    visible: false
+                    visible: true
                 },
                 {
                     type: 'arearange',
