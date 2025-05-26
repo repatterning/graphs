@@ -1,0 +1,364 @@
+/* Core */
+@font-face {
+    font-family: 'Montserrat';
+    src: url("fonts/Montserrat-Black.eot");
+    src: local("☺"), url("fonts/Montserrat-Black.woff") format("woff"), url("fonts/Montserrat-Black.ttf") format("truetype"), url("fonts/Montserrat-Black.svg") format("svg");
+    font-weight: 900;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("fonts/Montserrat-Bold.eot");
+    src: local("☺"), url("fonts/Montserrat-Bold.woff") format("woff"), url("fonts/Montserrat-Bold.ttf") format("truetype"), url("fonts/Montserrat-Bold.svg") format("svg");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("fonts/Montserrat-Regular.eot");
+    src: local("☺"), url("fonts/Montserrat-Regular.woff") format("woff"), url("fonts/Montserrat-Regular.ttf") format("truetype"), url("fonts/Montserrat-Regular.svg") format("svg");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("fonts/Montserrat-Light.eot");
+    src: local("☺"), url("fonts/Montserrat-Light.woff") format("woff"), url("fonts/Montserrat-Light.ttf") format("truetype"), url("fonts/Montserrat-Light.svg") format("svg");
+    font-weight: 300;
+    font-style: normal
+}
+
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    font-weight: lighter;
+    line-height: 1.6;
+    font-family: "Montserrat", sans-serif;
+    color: #282828;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block
+}
+
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0
+}
+
+[hidden],
+template {
+    display: none
+}
+
+a {
+    background-color: transparent;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #ce534d;
+    text-decoration: none
+}
+
+
+iframe {
+    border: 0;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted
+}
+
+b,
+strong {
+    font-weight: bold
+}
+
+dfn {
+    font-style: italic
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0
+}
+
+mark {
+    background: #ff0;
+    color: #000
+}
+
+small {
+    font-size: 80%
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sup {
+    top: -0.5em
+}
+
+sub {
+    bottom: -0.25em
+}
+
+img {
+    border: 0
+}
+
+svg:not(:root) {
+    overflow: hidden
+}
+
+figure {
+    margin: 1em 40px
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0
+}
+
+pre {
+    overflow: auto
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0
+}
+
+button {
+    overflow: visible
+}
+
+button,
+select {
+    text-transform: none
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+input {
+    line-height: normal
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto
+}
+
+input[type="search"] {
+    box-sizing: content-box
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em
+}
+
+legend {
+    border: 0;
+    padding: 0
+}
+
+textarea {
+    overflow: auto
+}
+
+optgroup {
+    font-weight: bold
+}
+
+td,
+th {
+    padding: 0
+}
+
+.highcharts-legend-box {
+    width: 265px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 auto;
+}
+
+
+/* Aside */
+table.aside {
+    border-spacing: 11px;
+    border: 0;
+    margin-left: 5px;
+    margin-top: 25px;
+    table-layout: fixed;
+    width: 90%;
+    text-wrap: wrap;
+}
+
+
+a.aside {
+    text-decoration: none;
+    color: #afacac;
+    -webkit-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out
+}
+
+a.aside:hover {
+    color: #282828;
+}
+
+a[title].aside:hover:after {
+    content: attr(title);
+    border: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.aside h3 {
+    opacity: 0.9;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.aside p {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* Select */
+button,
+select {
+    text-transform: none;
+    border: none;
+    font-family: Montserrat, sans-serif;
+}
+
+#option_selector {
+    display: block;
+    padding: 13px 16px;
+    width: 200px;
+    margin: 0 8px 8px 5px;
+    position: page;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    border-left: 4px solid #739cda;
+    background: #fff;
+    color: #656565;
+    font-weight: normal;
+    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    -webkit-transition: all 0.15s linear;
+    -moz-transition: all 0.15s linear;
+    -ms-transition: all 0.15s linear;
+    -o-transition: all 0.15s linear;
+    transition: all 0.15s linear;
+    font-size: 13px;
+}
+
+#option_selector:hover {
+    color: #100f10;
+}
+
+#option_selector:focus-within {
+    border: 0;
+    left: -9999px;
+    top: -9999px;
+    list-style-type: none;
+    z-index: 0;
+    font-family: Montserrat, sans-serif;
+}

@@ -1,7 +1,7 @@
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var url = '../warehouse/measurements/menu/annual/menu.json';
+var url = '../warehouse/measures/menu/menu.json';
 
 
 $.getJSON(url, function (data) {
@@ -37,12 +37,8 @@ dropdown.on('change', function (e) {
 // Generate graphs
 function generateChart(fileNameKey){
 
-    $.getJSON('../warehouse/measurements/points/annual/' + fileNameKey + '.json', function (source)  {
+    $.getJSON('../warehouse/measures/points/split/' + fileNameKey + '.json', function (source)  {
 
-        let fields = source['attributes']['columns'];
-        let i_station = fields.indexOf('station_name'),
-            i_catchment = fields.indexOf('catchment_name'),
-            i_river = fields.indexOf('river_name');
 
         // split the data set into ...
         let sectors = [],
@@ -119,7 +115,7 @@ function generateChart(fileNameKey){
             },
 
             subtitle: {
-                text: 'Gauge River/Water Spot: ' + source['attributes']['data'][0][i_river]
+                text: 'Gauge River/Water Spot: ' + source['attributes']['river_name']
             },
 
             credits: {
