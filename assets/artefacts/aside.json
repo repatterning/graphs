@@ -1,8 +1,10 @@
 {
   "content": [
-    {"label":  "<a href='../../index.html' class='aside'><h3>Introduction</h3><p>A brief introduction to the hub.</p></a>"},
-    {"label":  "<a href='../../src/variational.html' class='aside'><h3>PREDICTIONS</h3><p>Via Structural Time Series + Variational Inference.  The models predict 246 hours ahead</p></a>"},
-    {"label":  "<a href='../../src/drift.html' class='aside'><h3>DRIFT</h3><p>Via Jensen-Shannon Divergence and Wasserstein Distance algorithms.</p></a>"},
-    {"label":  "<a href='../../src/contrasts.html' class='aside'><h3>contrasts</h3><p>Percentage change comparisons.  In preparation for possible Bayesian hierarchical models.  The percentage changes of gauges within the same catchment share the same graph.</p></a>"}
+    {"label":  "<a href='../../index.html' class='aside' title='INTRODUCTION: A brief introduction to the hub.'><h3>01</h3></a>"},
+    {"label":  "<a href='../../src/variational.html' class='aside' title='PREDICTIONS: Via Structural Time Series + Variational Inference.  The models predict 246 hours ahead'><h3>02</h3></a>"},
+    {"label":  "<a href='../../src/drift.html' class='aside' title='DRIFT: Via Jensen-Shannon Divergence & Wasserstein Distance Algorithms'><h3>03</h3></a>"},
+    {"label":  "<a href='../../src/contrasts.html' class='aside' title='CONTRASTS: Percentage change comparisons.  In preparation for possible Bayesian hierarchical models.  The percentage changes of gauges within the same catchment share the same graph.'><h3>04</h3></a>"},
+    {"label":  "<a href='../../src/extrema.html' class='aside' title='EXTREMA: The daily minima, maxima, etc.'><h3>05</h3></a>"},
+    {"label":  "<a href='../../src/split.html' class='aside' title='SPLIT: Comparing the annual river level patterns at a gauge spot.'><h3>06</h3></a>"}
   ]
 }
