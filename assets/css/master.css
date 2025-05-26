@@ -291,6 +291,14 @@ a.aside:hover {
     color: #282828;
 }
 
+a[title].aside:hover:after {
+    content: attr(title);
+    border: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
 .aside h3 {
     opacity: 0.9;
     font-family: Montserrat, sans-serif;
