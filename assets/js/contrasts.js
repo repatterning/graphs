@@ -1,7 +1,7 @@
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var url = '../../warehouse/measurements/menu/contrasts/menu.json';
+var url = '../../../warehouse/contrasts/menu/menu.json';
 
 
 $.getJSON(url, function (data) {
@@ -38,13 +38,14 @@ dropdown.on('change', function (e) {
 function generateChart(fileNameKey){
 
 
-    $.getJSON('../../warehouse/measurements/points/contrasts/' + fileNameKey + '.json', function (source)  {
+    $.getJSON('../../../warehouse/contrasts/points/' + fileNameKey + '.json', function (source)  {
 
 
         // Descriptors
         let fields = source.attributes.columns;
         let i_station = fields.indexOf('station_name'),
-            i_river = fields.indexOf('river_name');
+            i_river = fields.indexOf('river_name'),
+            i_catchment = fields.indexOf('catchment_name');
 
 
         // split the data set into ...
@@ -55,7 +56,6 @@ function generateChart(fileNameKey){
             ]];
 
         for (var i = 0; i < source.data.length; i += 1) {
-
 
 
             sectors.push({
@@ -77,10 +77,10 @@ function generateChart(fileNameKey){
                     }
                 },
                 tooltip: {
-                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                        '{point.y:,.3f}m<br/>'
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.y:,.3f}% </b> ' +
+                        '<b>|</b> {series.name} <b>|</b> ' + source.attributes.data[i][i_river]
                 },
-                visible: i < 1,
+                visible: i < 2,
                 showInLegend: true
             });
 
@@ -99,7 +99,7 @@ function generateChart(fileNameKey){
         Highcharts.stockChart('container0005', {
 
             rangeSelector: {
-                selected: 3,
+                selected: 0,
                 verticalAlign: 'top',
                 floating: false,
                 inputPosition: {
@@ -123,7 +123,7 @@ function generateChart(fileNameKey){
             },
 
             title: {
-                text: 'Hourly River Levels'
+                text: '% Change'
             },
 
             subtitle: {
@@ -162,7 +162,7 @@ function generateChart(fileNameKey){
                     x: 9
                 },
                 title: {
-                    text: 'level (metres)',
+                    text: 'percentage change',
                     x: 0
                 },
                 lineWidth: 2,
@@ -172,7 +172,10 @@ function generateChart(fileNameKey){
             },
 
             xAxis: {
-                type: 'datetime'
+                type: 'datetime',
+                crosshair: {
+                    enabled: true
+                }
             },
 
             exporting: {
@@ -186,7 +189,7 @@ function generateChart(fileNameKey){
             },
 
             tooltip: {
-                split: true,
+                shared: true,
                 dateTimeLabelFormats: {
                     millisecond:"%A, %e %b, %H:%M:%S.%L",
                     second:"%A, %e %b, %H:%M:%S",
