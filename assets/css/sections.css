@@ -91,11 +91,12 @@
 }
 
 .hints>a {
-    max-width: 250px;
+    width: 250px;
     text-decoration: none;
     color: #cac9c9;
     -webkit-transition: color .2s ease-in-out;
-    transition: color .2s ease-in-out
+    transition: color .2s ease-in-out;
+    margin-bottom: 35px;
 }
 
 .hints>a:hover {
