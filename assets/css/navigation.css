@@ -1,0 +1,93 @@
+/* Initial Navigation */
+.side-nav {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100px;
+    height: 70%;
+    max-height: 750px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+    z-index: 10
+}
+
+.side-nav>li {
+    position: relative;
+    top: -5px;
+    color: #fff;
+    font-size: 6px;
+    cursor: pointer
+}
+
+.side-nav>li span {
+    position: relative;
+    top: 3px;
+    left: 10px;
+    color: #282828;
+    font-size: 14px;
+    font-weight: 300;
+    opacity: 0;
+    visibility: hidden
+}
+
+.side-nav>li::before {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    color: #555;
+    font-size: 14px;
+    font-weight: 300
+}
+
+.side-nav li:nth-child(1)::before {
+    content: "01"
+}
+
+.side-nav li:nth-child(2)::before {
+    content: "02"
+}
+
+.side-nav li:nth-child(3)::before {
+    content: "03"
+}
+
+.side-nav li:nth-child(4)::before {
+    content: "04"
+}
+
+.side-nav li:nth-child(5)::before {
+    content: "05"
+}
+
+.side-nav li:nth-child(6)::before {
+    content: "06"
+}
+
+.side-nav li.is-active {
+    color: #0f0f0f;
+    -webkit-transition: color .4s ease-in-out;
+    transition: color .4s ease-in-out
+}
+
+.side-nav li.is-active span {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity .4s ease-in-out;
+    transition: opacity .4s ease-in-out
+}
+
+.side-nav li.is-active::before {
+    left: -33px;
+    color: #282828
+}
