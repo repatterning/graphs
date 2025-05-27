@@ -9,6 +9,12 @@ Model development considerations:
 * The behaviour of features that are predictive of the response.  A known predictor is rainfall.  Unfortunately, appropriate contemporaneous rainfall measures do not yet exist.
 * Model parameters priors.
 
+And
+
+* [Structural Time Series Modelling](https://blog.tensorflow.org/2019/03/structural-time-series-modeling-in.html)
+* [Linear Gaussian State Space Model](https://github.com/tensorflow/probability/blob/v0.23.0/tensorflow_probability/python/distributions/linear_gaussian_ssm.py)
+* [sts.Seasonal](https://github.com/tensorflow/probability/blob/v0.23.0/tensorflow_probability/python/sts/components/seasonal.py)
+
 
 ### Server
 
