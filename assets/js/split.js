@@ -57,11 +57,11 @@ function generateChart(fileNameKey){
                     enabled: true,
                     units: groupingUnits,
                     dateTimeLabelFormats: {
-                        millisecond: ['%A, %e %b, %H:%M:%S.%L', '%A, %b %e, %H:%M:%S.%L', '-%H:%M:%S.%L'],
-                        second: ['%A, %e %b, %H:%M:%S', '%A, %b %e, %H:%M:%S', '-%H:%M:%S'],
-                        minute: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
-                        hour: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
-                        day: ['%A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
+                        millisecond: ['%e %b, %H:%M:%S.%L', '%A, %b %e, %H:%M:%S.%L', '-%H:%M:%S.%L'],
+                        second: ['%e %b, %H:%M:%S', '%A, %b %e, %H:%M:%S', '-%H:%M:%S'],
+                        minute: ['%e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                        hour: ['%e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                        day: ['%e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
                         week: ['Week from %A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
                         month: ['%B %Y', '%B', '-%B %Y'],
                         year: ['%Y', '%Y', '-%Y']
