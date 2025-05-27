@@ -3,8 +3,10 @@
 
 ### Notes
 
+Model development considerations:
 
-
+* The mechanics, behaviour, of the response time series
+* The behaviour of features that are predictive of the response.  A known predictor is rainfall.  Unfortunately, appropriate rainfall measures do not yet exist.
 
 
 ### Server
