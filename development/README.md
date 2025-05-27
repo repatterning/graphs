@@ -15,6 +15,10 @@ And
 * [Linear Gaussian State Space Model](https://github.com/tensorflow/probability/blob/v0.23.0/tensorflow_probability/python/distributions/linear_gaussian_ssm.py)
 * [sts.Seasonal](https://github.com/tensorflow/probability/blob/v0.23.0/tensorflow_probability/python/sts/components/seasonal.py)
 
+Text
+
+* [Forecasting, Structural Time Series Models and the Kalman Filter](https://www.cambridge.org/core/books/forecasting-structural-time-series-models-and-the-kalman-filter/CE5E112570A56960601760E786A5E631)
+
 
 ### Server
 
