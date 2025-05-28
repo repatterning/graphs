@@ -123,6 +123,11 @@ h1 {
     margin: 0.67em 0
 }
 
+h2 {
+    font-family: Montserrat, sans-serif;
+    font-variant: small-caps;
+}
+
 mark {
     background: #ff0;
     color: #000
