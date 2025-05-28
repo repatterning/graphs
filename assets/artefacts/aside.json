@@ -5,6 +5,7 @@
     {"label":  "<a href='../../src/drift.html' class='aside'><h3>Drift</h3><p>Via Jensen-Shannon Divergence & Wasserstein Distance Algorithms</p></a>"},
     {"label":  "<a href='../../src/contrasts.html' class='aside'><h3>Contrasts</h3><p>Percentage change comparisons.  In preparation for possible Bayesian hierarchical models.  The percentage changes of gauges within the same catchment share the same graph.</p></a>"},
     {"label":  "<a href='../../src/extrema.html' class='aside'><h3>Extrema</h3><p>The daily minima, maxima, etc.</p></a>"},
-    {"label":  "<a href='../../src/split.html' class='aside'><h3>Split</h3>SPLIT: Comparing the annual river level patterns at a gauge spot.</a>"}
+    {"label":  "<a href='../../src/split.html' class='aside'><h3>Split</h3><p>Comparing the annual river level patterns at a gauge spot.</p></a>"},
+    {"label":  "<a href='../../src/algorithms.html' class='aside'><h3>Algorithms, etc.</h3><p>The project's algorithms, etc.</p></a>"}
   ]
 }
