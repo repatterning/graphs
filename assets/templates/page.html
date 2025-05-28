@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <link rel="icon" href="/assets/images/automata.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="The article - River Levels, Scotland">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="../assets/css/master.css">
+  <link rel="stylesheet" href="../assets/css/head.css">
+  <link rel="stylesheet" href="../assets/css/sections.css">
+  <link rel="stylesheet" href="../assets/css/tooltips.css" >
+
+  <script src="../assets/js/libraries/latex.js" async></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <title>ARTICLE</title>
+
+</head>
+<body>
+
+<div style="display: contents">
+
+  <div class="layout">
+
+    <!-- head -->
+    <div class="layout-item">
+
+      <div class="frames-grid svelte-1jxvby2">
+        <div class="frames-grid-item svelte-1jxvby2">
+          <header class="header">
+            <p>An artificial intelligence unit development<br>for members of the resilience unit</p>
+          </header>
+        </div>
+        <div class="frames-grid-item svelte-1jxvby2"></div>
+        <div class="frames-grid-item svelte-1jxvby2"></div>
+      </div>
+
+    </div>
+
+    <!-- substance -->
+    <div class="layout-item">
+
+      <div class="frames-grid svelte-1jxvby2">
+
+        <!-- cells -->
+        <div class="frames-grid-item-head svelte-1jxvby2">
+          <div>
+            <h1>Page</h1>
+          </div>
+        </div>
+        <div class="frames-grid-item svelte-1jxvby2"></div>
+        <div class="frames-grid-item svelte-1jxvby2"></div>
+
+
+        <!-- cells -->
+        <div class="frames-grid-item svelte-1jxvby2"></div>
+        <div class="frames-grid-item svelte-1jxvby2"></div>
+
+        <div class="frames-grid-item svelte-1jxvby2">
+          <pre id="toc"></pre>
+          <script>
+              fetch('../assets/artefacts/aside.json')
+                  .then(response => response.json())
+                  .then(data => {
+                      createTOC(data.content);
+                  })
+                  .catch(error => console.error('Error:', error));
+
+              function createTOC(data) {
+                  const table = document.createElement('table');
+                  table.classList.add('aside');
+                  const colGroup = document.createElement('colgroup');
+                  const col = document.createElement('col');
+                  col.setAttribute('span', '1');
+                  col.setAttribute('style', 'width: 21.5%;');
+
+                  const tableHead = document.createElement('thead');
+                  const tableBody = document.createElement('tbody');
+
+                  // Append the table head and body to table
+                  table.appendChild(colGroup);
+                  colGroup.appendChild(col);
+                  table.appendChild(tableHead);
+                  table.appendChild(tableBody);
+
+                  // Creating table head
+                  let row = tableHead.insertRow();
+                  let th = document.createElement('th');
+                  th.setAttribute('style', 'border-bottom: 0;')
+                  th.textContent = '';
+                  row.appendChild(th);
+
+                  // Creating table body
+                  data.forEach(item => {
+                      let row = tableBody.insertRow();
+                      Object.values(item).forEach(value => {
+                          let cell = row.insertCell();
+                          cell.setAttribute('style', 'border-bottom: 0;')
+                          // noinspection JSValidateTypes
+                          cell.innerHTML = value;
+                      });
+                  });
+
+                  // Append the table to the HTML document
+                  document.getElementById('toc').appendChild(table);
+              }
+          </script>
+        </div>
+
+
+        <!-- extraneous -->
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+</body>
+</html>

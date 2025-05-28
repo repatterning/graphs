@@ -1,7 +1,17 @@
 window.MathJax = {
+	loader: {
+		load: ['[tex]/tagformat']
+	},
 	tex: {
 		inlineMath: [['$', '$'], ['\\(', '\\)']],
-		processEscapes: true
+		processEscapes: true,
+		packages:  {
+			'[+]': ['tagformat']
+		},
+		tags: 'ams',
+		tagformat: {
+			tag: (n) => ' ' + n + ' '
+		}
 	},
 	svg: {
 		fontCache: 'global'

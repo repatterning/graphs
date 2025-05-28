@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="icon" href="/assets/images/automata.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="The article - River Levels, Scotland">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="../assets/css/master.css">
+    <link rel="stylesheet" href="../assets/css/head.css">
+    <link rel="stylesheet" href="../assets/css/sections.css">
+    <link rel="stylesheet" href="../assets/css/tooltips.css" >
+
+    <script src="../assets/js/libraries/latex.js" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <title>Algorithms, etc.</title>
+
+  </head>
+  <body>
+
+    <div style="display: contents">
+
+      <div class="layout">
+
+        <!-- head -->
+        <div class="layout-item">
+
+          <div class="frames-grid svelte-1jxvby2">
+            <div class="frames-grid-item svelte-1jxvby2">
+              <header class="header">
+                <p>An artificial intelligence unit development<br>for members of the resilience unit</p>
+              </header>
+            </div>
+            <div class="frames-grid-item svelte-1jxvby2"></div>
+            <div class="frames-grid-item svelte-1jxvby2"></div>
+          </div>
+
+        </div>
+
+        <!-- substance -->
+        <div class="layout-item">
+
+          <div class="frames-grid svelte-1jxvby2">
+
+            <!-- cells -->
+            <div class="frames-grid-item-head svelte-1jxvby2">
+              <div>
+                <h1>Algorithms, etc.</h1>
+              </div>
+            </div>
+            <div class="frames-grid-item svelte-1jxvby2"></div>
+            <div class="frames-grid-item svelte-1jxvby2"></div>
+
+
+            <!-- cells -->
+            <div class="frames-grid-item svelte-1jxvby2">
+
+              <div>
+                <h2>Predictions</h2>
+
+                The project's prediction models are Bayesian Structural Time Series (STS) models.  A Bayesian Structural Time Series algorithm is a state space algorithm, in brief
+
+                  \begin{equation}
+                  y_{t} = \mathbf{x}^{T}_{t}\pmb{\beta}_{t} + \epsilon_{t}
+                  \label{eq:0001}
+                  \end{equation}
+
+                  \begin{equation}
+                  \pmb{\beta}_{t} = \pmb{F}_{t}\pmb{\beta}_{t - 1} + \pmb{\varsigma}_{t}
+                  \label{eq:0002}
+                  \end{equation}
+
+                  $$\epsilon_{t} \sim \mathcal{N}\bigl(0, \sigma^{2}_{t}  \bigr)$$
+
+                  $$\pmb{\varsigma}_{t} \sim \mathcal{N}\bigl(\pmb{0}, \pmb{\mathcal{Z}}_{t}\bigr)$$
+
+                  whereby
+
+                <table style="width: 80%;">
+                  <colgroup>
+                    <col span="1" style="width: 11.5%;">
+                    <col span="1" style="width: 65%;">
+                  </colgroup>
+                  <tr><td>$y_{t}$</td><td>$1 \times 1$ scalar.  Herein, it is a gauge's river level measure at time point $t$.</td></tr>
+                  <tr><td>$\mathbf{x}_{t}$</td><td>$p \times 1$.  A design vector.</td></tr>
+                  <tr><td>$\pmb{\beta}_{t}$</td><td>$p \times 1$.  A state vector.</td></tr>
+                  <tr><td>$\epsilon_{t}$</td><td>$1 \times 1$ scalar.  An observation error, observation innovation.</td></tr>
+                  <tr><td>$\pmb{F}_{t}$</td><td>$p \times p$.  A transition matrix.</td></tr>
+                  <tr><td>$\pmb{\varsigma}_{t}$</td><td>$q \times 1$. A system error, or state innovation.<sup><a href="#footnote03" id="reference03">3</a></sup></td></tr>
+                </table>
+
+                Formally, <span class="equation">$\eqref{eq:0001}$</span>  is the <i>observation model</i>, whilst <span class="equation">$\eqref{eq:0002}$</span> is the <i>transition or state model</i>.  The latter models the transition of a state from $t - 1$ to $t$.<br><br>
+
+                A key advantage of state space modelling is system modelling via the superimposition behaviours.  In the case of river levels, we superimpose seasonality and autoregression.  The superimposition of, including encoding of, behaviours occurs via the components $\mathbf{x}_{t}$ & $\pmb{F}_{t}$.  For an in-depth outline, study <a href="https://link.springer.com/book/10.1007/978-3-030-76124-0" target="_blank">Bayesian Inference of State Space Models</a> by K. Triantafyllopoulos.<br><br>
+
+                In practice, model development is via <a href="https://www.tensorflow.org/probability" target="_blank">TensorFlow Probability</a> libraries.  Visit the project's river level modelling [GitHub] <a href="https://github.com/repatterning/variational/tree/master" target="_blank">repository</a>; <a href="https://github.com/repatterning/variational/blob/master/src/modelling/architecture.py" target="_blank">modelling class</a>; the modelling arguments are readable <a href="https://github.com/repatterning/configurations/blob/master/src/artefacts/architecture/variational/arguments.yaml" target="_blank">with</a> or <a href="https://github.com/repatterning/configurations/blob/master/src/artefacts/architecture/variational/arguments.json" target="_blank">without</a> comments/definitions.
+              </div>
+
+              <div style="margin-top: 65px;">
+                <h2>Drift</h2>
+
+                For time series drift calculations, this hub depends on
+
+                <ul>
+                  <li>Jensen-Shannon Distance $J_{dist}$</li>
+                  <li>Wasserstein Distance $\mathcal{W}$</li></ul>
+
+                wherein
+
+                $$J_{dist} = \sqrt{J_{div}}$$
+
+                $J_{div}$ is the Jensen-Shannon Divergence, a method for determining the similarity of a pair of distributions<sup><a href="#footnote01" id="reference01">1</a></sup>.  The similarity between a pair of distributions increases as $J_{dist} \rightarrow 0$.  Note, for a pair of distributions
+
+                $$J_{div} \in [0 \quad 1]$$
+
+                therefore
+
+                $$J_{dist} \in [0 \quad 1]$$
+
+                The Wasserstein Distance <b>is</b> a distance measure<sup><a href="#footnote02" id="reference02">2</a></sup>.
+
+                Important, do not consider scores in isolation, also consider the pattern of the scores over time.
+
+              </div>
+
+
+
+
+
+
+
+            </div>
+            <div class="frames-grid-item svelte-1jxvby2"></div>
+
+            <div class="frames-grid-item svelte-1jxvby2">
+              <pre id="toc"></pre>
+              <script>
+                  fetch('../assets/artefacts/aside.json')
+                      .then(response => response.json())
+                      .then(data => {
+                          createTOC(data.content);
+                      })
+                      .catch(error => console.error('Error:', error));
+
+                  function createTOC(data) {
+                      const table = document.createElement('table');
+                      table.classList.add('aside');
+                      const colGroup = document.createElement('colgroup');
+                      const col = document.createElement('col');
+                      col.setAttribute('span', '1');
+                      col.setAttribute('style', 'width: 21.5%;');
+
+                      const tableHead = document.createElement('thead');
+                      const tableBody = document.createElement('tbody');
+
+                      // Append the table head and body to table
+                      table.appendChild(colGroup);
+                      colGroup.appendChild(col);
+                      table.appendChild(tableHead);
+                      table.appendChild(tableBody);
+
+                      // Creating table head
+                      let row = tableHead.insertRow();
+                      let th = document.createElement('th');
+                      th.setAttribute('style', 'border-bottom: 0;')
+                      th.textContent = '';
+                      row.appendChild(th);
+
+                      // Creating table body
+                      data.forEach(item => {
+                          let row = tableBody.insertRow();
+                          Object.values(item).forEach(value => {
+                              let cell = row.insertCell();
+                              cell.setAttribute('style', 'border-bottom: 0;')
+                              // noinspection JSValidateTypes
+                              cell.innerHTML = value;
+                          });
+                      });
+
+                      // Append the table to the HTML document
+                      document.getElementById('toc').appendChild(table);
+                  }
+              </script>
+            </div>
+
+
+            <!-- extraneous -->
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- footnote -->
+        <div class="layout-item">
+          <div class="frames-grid svelte-1jxvby2">
+
+            <div class="footnote">
+              <ol>
+                <li id="footnote01">Study <a href="https://ieeexplore.ieee.org/document/61115" target="_blank">Divergence Measures Based on Shannon Entropy</a> for an in-depth understanding of Jensen-Shannon Divergence.  <a href="#reference01">↩</a></li>
+                <li id="footnote02">Part 6 of <a href="https://arxiv.org/pdf/1904.08994" target="_blank">From GAN to WGAN</a> has an in-depth discussion of the Wasserstein Distance.  <span style="color: #a3a0a0">GAN: Generative Adversarial Network, WGAN: Wasserstein Generative Adversarial Network</span>  <a href="#reference02">↩</a></li>
+                <li id="footnote03">For more about the structure options of $\pmb{\varsigma}_{t}$, i.e., system errors, study <a href="https://projecteuclid.org/journals/annals-of-applied-statistics/volume-9/issue-1/Inferring-causal-impact-using-Bayesian-structural-time-series-models/10.1214/14-AOAS788.full" target="_blank">Inferring causal impact using Bayesian structural time-series models</a>, and <a href="https://link.springer.com/book/10.1007/978-3-030-76124-0" target="_blank">Bayesian Inference of State Space Models</a>&nbsp; &nbsp;  <a href="#reference03">↩</a></li>
+
+              </ol>
+            </div>
+
+
+          </div>
+          <div class="frames-grid svelte-1jxvby2"></div>
+          <div class="frames-grid svelte-1jxvby2"></div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </body>
+</html>

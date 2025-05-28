@@ -100,6 +100,15 @@ a:active {
     text-decoration: none
 }
 
+.equation::before {
+    font-family: Montserrat, sans-serif;
+    content: 'Eq.';
+    color: #ce534d;
+    opacity: 0.95;
+    font-weight: 600;
+    text-transform: lowercase;
+}
+
 
 iframe {
     border: 0;
@@ -121,6 +130,12 @@ dfn {
 h1 {
     font-size: 2em;
     margin: 0.67em 0
+}
+
+h2 {
+    font-family: Montserrat, sans-serif;
+    font-variant: small-caps;
+    font-weight: 800;
 }
 
 mark {
@@ -241,7 +256,7 @@ input[type="search"]::-webkit-search-decoration {
 fieldset {
     border: 1px solid #c0c0c0;
     margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em
+    padding: 0.35em 0.625em 0.75em;
 }
 
 legend {
@@ -257,9 +272,9 @@ optgroup {
     font-weight: bold
 }
 
-td,
-th {
-    padding: 0
+.footnote {
+    font-size: 13px;
+    margin-top: 265px;
 }
 
 .highcharts-legend-box {
@@ -269,7 +284,12 @@ th {
 table {
     border-collapse: collapse;
     border-spacing: 0;
-    margin: 0 auto;
+    margin: 0 auto 35px auto;
+}
+
+td,
+th {
+    padding: 0
 }
 
 
@@ -310,7 +330,7 @@ a[title].aside:hover:after {
     font-size: 16px;
     margin-bottom: 5px;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 .aside p {

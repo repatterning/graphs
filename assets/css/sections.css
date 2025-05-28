@@ -4,6 +4,7 @@
     grid-template-columns: 7fr;
     grid-template-rows: auto auto;
     align-content: flex-start;
+    margin-bottom: 185px;
 }
 
 .layout-item {
@@ -14,7 +15,7 @@
 
 .frames-grid.svelte-1jxvby2 {
     display: grid;
-    grid-template-columns: 5fr 0.5fr 1.5fr;
+    grid-template-columns: 4.5fr 1fr 1.5fr;
     grid-template-rows: auto auto;
     align-content: flex-start;
     margin-left: 85px;
