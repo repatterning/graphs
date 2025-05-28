@@ -62,7 +62,10 @@
 
               <p>Bayesian Structural Time Series (STS) algorithms are state space algorithms.  In brief
 
-              $$y_{t} = \mathbf{x}^{T}_{t}\pmb{\beta}_{t} + \epsilon_{t}$$
+                \begin{equation}
+                  y_{t} = \mathbf{x}^{T}_{t}\pmb{\beta}_{t} + \epsilon_{t}
+                  \label{eq:0001}
+                \end{equation}
 
               $$\pmb{\beta}_{t} = \pmb{F}_{t}\pmb{\beta}_{t - 1} + \pmb{\varsigma}_{t}$$
 
@@ -75,14 +78,19 @@
                   <col span="1" style="width: 25%;">
                   <col span="1" style="width: 65%;">
                 </colgroup>
-                <tr><td>$y_{t}$</td><td>A $1 \times 1$ scalar, the observation at time point $t$</td></tr>
+                <tr><td>$y_{t}$</td><td>$1 \times 1$ scalar.  Herein, it is a gauge's river level measure at time point $t$.</td></tr>
                 <tr><td>$\mathbf{x}$</td><td>$p \times 1$.  The design vector.</td></tr>
                 <tr><td>$\pmb{\beta}$</td><td>$p \times 1$.  The state vector</td></tr>
                 <tr><td></td><td></td></tr>
                 <tr><td></td><td></td></tr>
                 <tr><td></td><td></td></tr>
               </table>
-              
+
+
+              $\eqref{eq:0001}$ is the
+
+
+
               </p>
 
               <h2>Drift</h2>
