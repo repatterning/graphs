@@ -60,16 +60,24 @@
 
               <h2>Predictions</h2>
 
-              <p>Bayesian Structural Time Series (STS) algorithms are state space algorithms.  In brief
+              <p>The project's prediction models are Bayesian Structural Time Series (STS) models.  A Bayesian Structural Time Series algorithm is a state space algorithm, in brief
 
                 \begin{equation}
                   y_{t} = \mathbf{x}^{T}_{t}\pmb{\beta}_{t} + \epsilon_{t}
                   \label{eq:0001}
                 \end{equation}
 
-              $$\pmb{\beta}_{t} = \pmb{F}_{t}\pmb{\beta}_{t - 1} + \pmb{\varsigma}_{t}$$
+                \begin{equation}
+                  \pmb{\beta}_{t} = \pmb{F}_{t}\pmb{\beta}_{t - 1} + \pmb{\varsigma}_{t}
+                  \label{eq:0002}
+                \end{equation}
 
-              $$\pmb{\varsigma}_{t} = \pmb{R}_{t}\pmb{\eta}_{t}$$
+                \begin{equation}
+                  $$\pmb{\varsigma}_{t} = \pmb{R}_{t}\pmb{\eta}_{t}$$
+                  \label{eq:0003}
+                \end{equation}
+
+                
 
                 whereby
 
