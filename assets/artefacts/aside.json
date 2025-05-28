@@ -2,7 +2,7 @@
   "content": [
     {"label":  "<a href='../../index.html' class='aside'><h3>Landing Page</h3><p>The landing page.</p></a>"},
     {"label":  "<a href='../../src/variational.html' class='aside'><h3>Predictions</h3><p>Via Structural Time Series + Variational Inference.  The models predict 246 hours ahead.</p></a>"},
-    {"label":  "<a href='../../src/drift.html' class='aside'><h3>Drift</h3><p>Via Jensen-Shannon Divergence & Wasserstein Distance Algorithms</p></a>"},
+    {"label":  "<a href='../../src/drift.html' class='aside'><h3>Drift</h3><p>Via Jensen-Shannon Distance & Wasserstein Distance Algorithms</p></a>"},
     {"label":  "<a href='../../src/contrasts.html' class='aside'><h3>Contrasts</h3><p>Percentage change comparisons.  In preparation for possible Bayesian hierarchical models.  The percentage changes of gauges within the same catchment share the same graph.</p></a>"},
     {"label":  "<a href='../../src/extrema.html' class='aside'><h3>Extrema</h3><p>The daily minima, maxima, etc.</p></a>"},
     {"label":  "<a href='../../src/split.html' class='aside'><h3>Split</h3><p>Comparing the annual river level patterns at a gauge spot.</p></a>"},

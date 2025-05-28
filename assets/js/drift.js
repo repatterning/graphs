@@ -190,7 +190,7 @@ function generateChart(fileNameKey){
 
             series: [{
                     type: 'spline',
-                    name: 'Jensen-Shannon Divergence',
+                    name: 'Jensen-Shannon Distance',
                     data: js,
                     color: '#6B8E23',
                     yAxis: 0,
