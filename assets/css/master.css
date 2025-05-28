@@ -100,6 +100,15 @@ a:active {
     text-decoration: none
 }
 
+.equation::before {
+    font-family: Montserrat, sans-serif;
+    content: 'Eq.';
+    color: #ce534d;
+    opacity: 0.95;
+    font-weight: 600;
+    text-transform: lowercase;
+}
+
 
 iframe {
     border: 0;
