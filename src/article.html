@@ -48,7 +48,7 @@
             <!-- cells -->
             <div class="frames-grid-item-head svelte-1jxvby2">
               <div>
-                <h1>Predicting & Observing River Levels</h1>
+                <h1>River Levels</h1>
               </div>
             </div>
             <div class="frames-grid-item svelte-1jxvby2"></div>
@@ -63,6 +63,30 @@
               <p>Bayesian Structural Time Series (STS) algorithms are state space algorithms.  In brief
 
               $$y_{t} = \mathbf{x}^{T}_{t} + \epsilon_{t}$$
+
+              </p>
+
+              <h2>Drift</h2>
+
+              <p>For time series drift calculations, this hub depends on
+
+                <ul>
+                  <li>Jensen-Shannon Distance $J_{dist}$</li>
+                  <li>Wasserstein Distance $\mathcal{W}$</li></ul>
+
+                wherein
+
+                  $$J_{dist} = \bigl(J_{div}\bigr)^{1/2}$$
+
+                $J_{div}$ is the Jensen-Shannon Divergence, a method for determining the similarity of a pair of distributions.  The similarity between a pair of distributions increases as $J_{dist} \rightarrow 0$.  Note, for a pair of distributions
+
+                $$J_{div} \in [0 \quad 1]$$
+
+                therefore
+
+                $$J_{dist} \in [0 \quad 1]$$
+
+                The Wasserstein Distance <b>is</b> a distance measure [<a href="https://arxiv.org/pdf/1904.08994" target="_blank">Part 6</a>].
 
               </p>
 
