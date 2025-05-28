@@ -58,54 +58,49 @@
             <!-- cells -->
             <div class="frames-grid-item svelte-1jxvby2">
 
-              <h2>Predictions</h2>
+              <div>
+                <h2>Predictions</h2>
 
-              <p>The project's prediction models are Bayesian Structural Time Series (STS) models.  A Bayesian Structural Time Series algorithm is a state space algorithm, in brief
+                The project's prediction models are Bayesian Structural Time Series (STS) models.  A Bayesian Structural Time Series algorithm is a state space algorithm, in brief
 
-                \begin{equation}
+                  \begin{equation}
                   y_{t} = \mathbf{x}^{T}_{t}\pmb{\beta}_{t} + \epsilon_{t}
                   \label{eq:0001}
-                \end{equation}
+                  \end{equation}
 
-                \begin{equation}
+                  \begin{equation}
                   \pmb{\beta}_{t} = \pmb{F}_{t}\pmb{\beta}_{t - 1} + \pmb{\varsigma}_{t}
                   \label{eq:0002}
-                \end{equation}
+                  \end{equation}
 
-                \begin{equation}
-                  \pmb{\varsigma}_{t} = \pmb{R}_{t}\pmb{\eta}_{t}
-                  \label{eq:0003}
-                \end{equation}
+                  $$\epsilon_{t} \sim \mathcal{N}\bigl(0, \sigma^{2}_{t}  \bigr)$$
 
-                $$\epsilon_{t} \sim \mathcal{N}\bigl(0, \sigma^{2}_{t}  \bigr)$$
+                  $$\pmb{\varsigma}_{t} \sim \mathcal{N}\bigl(\pmb{0}, \pmb{\mathcal{Z}}_{t}\bigr)$$
 
-                $$\pmb{\eta}_{t} \sim \mathcal{N}\bigl(\pmb{0}, \pmb{Q}_{t}  \bigr)$$
+                  whereby
 
-                whereby
+                <table style="width: 80%;">
+                  <colgroup>
+                    <col span="1" style="width: 11.5%;">
+                    <col span="1" style="width: 65%;">
+                  </colgroup>
+                  <tr><td>$y_{t}$</td><td>$1 \times 1$ scalar.  Herein, it is a gauge's river level measure at time point $t$.</td></tr>
+                  <tr><td>$\mathbf{x}_{t}$</td><td>$p \times 1$.  A design vector.</td></tr>
+                  <tr><td>$\pmb{\beta}_{t}$</td><td>$p \times 1$.  A state vector.</td></tr>
+                  <tr><td>$\epsilon_{t}$</td><td>$1 \times 1$ scalar.  An observation error, observation innovation.</td></tr>
+                  <tr><td>$\pmb{F}_{t}$</td><td>$p \times p$.  A transition matrix.</td></tr>
+                  <tr><td>$\pmb{\varsigma}_{t}$</td><td>$q \times 1$. A system error, or state innovation.</td></tr>
+                </table>
 
-              <table style="width: 80%;">
-                <colgroup>
-                  <col span="1" style="width: 25%;">
-                  <col span="1" style="width: 65%;">
-                </colgroup>
-                <tr><td>$y_{t}$</td><td>$1 \times 1$ scalar.  Herein, it is a gauge's river level measure at time point $t$.</td></tr>
-                <tr><td>$\mathbf{x}$</td><td>$p \times 1$.  The design vector.</td></tr>
-                <tr><td>$\pmb{\beta}$</td><td>$p \times 1$.  The state vector</td></tr>
-                <tr><td></td><td></td></tr>
-                <tr><td></td><td></td></tr>
-                <tr><td></td><td></td></tr>
-              </table>
+                Formally, $Eq. \eqref{eq:0001}$ is the <i>observation model</i>, whilst $\text{Eq.}\eqref{eq:0002}$ is the <i>transition equation/model</i>.  The latter models the transition of a state from $t - 1$ to $t$.
 
+                A key advantage of state space modelling is the wherewithal to model a system by superimposing behaviours.  In the case of river levels, we superimpose seasonality and autoregression.  The superimposition occurs via the components $\mathbf{x}_{t}$ & $\pmb{F}_{t}$.  For an in-depth outline, study ... The paper ... discusses $\pmb{\varsigma}_{t}$ structure options.
+              </div>
 
-              $\eqref{eq:0001}$ is the
+              <div style="margin-top: 65px;">
+                <h2>Drift</h2>
 
-
-
-              </p>
-
-              <h2>Drift</h2>
-
-              <p>For time series drift calculations, this hub depends on
+                For time series drift calculations, this hub depends on
 
                 <ul>
                   <li>Jensen-Shannon Distance $J_{dist}$</li>
@@ -113,9 +108,9 @@
 
                 wherein
 
-                  $$J_{dist} = \sqrt{J_{div}}$$
+                $$J_{dist} = \sqrt{J_{div}}$$
 
-              $J_{div}$ is the Jensen-Shannon Divergence, a method for determining the similarity of a pair of distributions<sup><a href="#footnote01" id="reference01">1</a></sup>.  The similarity between a pair of distributions increases as $J_{dist} \rightarrow 0$.  Note, for a pair of distributions
+                $J_{div}$ is the Jensen-Shannon Divergence, a method for determining the similarity of a pair of distributions<sup><a href="#footnote01" id="reference01">1</a></sup>.  The similarity between a pair of distributions increases as $J_{dist} \rightarrow 0$.  Note, for a pair of distributions
 
                 $$J_{div} \in [0 \quad 1]$$
 
@@ -125,9 +120,11 @@
 
                 The Wasserstein Distance <b>is</b> a distance measure<sup><a href="#footnote02" id="reference02">2</a></sup>.
 
-              Important, do not consider scores in isolation, also consider the pattern of the scores over time.
+                Important, do not consider scores in isolation, also consider the pattern of the scores over time.
 
-              </p>
+              </div>
+
+
 
 
 
