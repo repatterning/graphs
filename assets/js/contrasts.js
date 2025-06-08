@@ -117,8 +117,6 @@ function generateChart(fileNameKey){
             chart: {
                 type: 'spline',
                 zoomType: 'xy',
-                height: 405,
-                width: 665,
                 marginRight: 195
             },
 
@@ -135,25 +133,31 @@ function generateChart(fileNameKey){
             },
 
             legend: {
+                enabled: true,
                 layout: 'vertical',
                 align: 'right',
                 verticalAlign: 'top',
-                enabled: true,
-                // floating: true,
+                maxHeight: 285,
+                width: '39%',
                 useHTML: true,
-                x: 25,
-                y: -5,
+                x: 115,
+                itemStyle: {
+                    fontSize: '13px',
+                    fontWeight: 400,
+                    textOverflow: "ellipsis",
+                    marginLeft: 25
+                },
                 navigation: {
-                    activeColor: '#3E576F',
+                    activeColor: '#696cff',
                     animation: true,
                     arrowSize: 12,
-                    inactiveColor: '#CCC',
-                    enabled: true,
+                    inactiveColor: '#1c1b1b',
                     style: {
                         fontWeight: 'bold',
-                        color: '#333'
+                        color: '#696cff'
                     }
                 }
+
             },
 
             yAxis: {
@@ -165,10 +169,7 @@ function generateChart(fileNameKey){
                     text: 'percentage change',
                     x: 0
                 },
-                lineWidth: 2,
-                resize: {
-                    enabled: false
-                }
+                lineWidth: 2
             },
 
             xAxis: {
