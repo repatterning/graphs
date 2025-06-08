@@ -107,11 +107,12 @@ function generateChart(fileNameKey) {
             },
 
             title: {
-                text: 'River Level Extrema, etc., of: ' + optionSelected
+                text: 'River Level Extrema, etc., of: ' + source['station_name']
             },
 
             subtitle: {
-                text: '<p><br/>Relative to <b>Ordance Datum</b></p><br/>'
+                text: '<p><br/><b>River/Water Spot:</b> ' + source['river_name'] + ', <b>Catchment:</b> ' +
+                    source['catchment_name'] + '</p>'
             },
 
             time: {
