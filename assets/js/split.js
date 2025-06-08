@@ -203,9 +203,6 @@ function generateChart(fileNameKey){
         });
 
 
-
-
-
     }).fail(function() {
         console.log("Missing");
         $('#container0005').empty();
