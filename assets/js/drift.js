@@ -118,11 +118,6 @@ function generateChart(fileNameKey){
 
             legend: {
                 enabled: true
-                // align: 'middle',
-                // layout: 'vertical',
-                // verticalAlign: 'bottom',
-                // y: 10,
-                // x: 35
             },
 
             exporting: {
@@ -144,7 +139,6 @@ function generateChart(fileNameKey){
                     text: 'JS',
                     x: 0
                 },
-                // min: 0,
                 height: '45%',
                 lineWidth: 2,
                 resize: {
