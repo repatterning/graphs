@@ -131,7 +131,7 @@ function generateChart(fileNameKey) {
                     fontSize: '13px',
                     fontWeight: 400,
                     textOverflow: "ellipsis"
-                },
+                }
             },
 
             caption: {
