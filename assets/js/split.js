@@ -123,7 +123,12 @@ function generateChart(fileNameKey){
             },
 
             legend: {
-                enabled: true
+                enabled: true,
+                itemStyle: {
+                    fontSize: '13px',
+                    fontWeight: 400,
+                    textOverflow: "ellipsis"
+                },
             },
 
             yAxis: {
@@ -196,9 +201,6 @@ function generateChart(fileNameKey){
 
 
         });
-
-
-
 
 
     }).fail(function() {

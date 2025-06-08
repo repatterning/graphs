@@ -107,11 +107,12 @@ function generateChart(fileNameKey) {
             },
 
             title: {
-                text: 'River Level Extrema, etc., of: ' + optionSelected
+                text: 'River Level Extrema, etc., of: ' + source['station_name']
             },
 
             subtitle: {
-                text: '<p><br/>Relative to <b>Ordance Datum</b></p><br/>'
+                text: '<p><br/><b>River/Water Spot:</b> ' + source['river_name'] + ', <b>Catchment:</b> ' +
+                    source['catchment_name'] + '</p>'
             },
 
             time: {
@@ -125,19 +126,16 @@ function generateChart(fileNameKey) {
             legend: {
                 enabled: true,
                 width: 600,
-                x: 100
-                // align: 'middle',
-                // layout: 'vertical',
-                // verticalAlign: 'bottom',
-                // y: 10,
-                // x: 35
+                x: 100,
+                itemStyle: {
+                    fontSize: '13px',
+                    fontWeight: 400,
+                    textOverflow: "ellipsis"
+                }
             },
 
             caption: {
-                text: '<p>The river levels relative to an Ordance Datum.  An ordance datum river level is ' +
-                    'the sum of (a) a river level relative to a gauge datum, and (b) the gauge datum of ' +
-                    'the gauge site.  SEPA (Scottish Environment Protection Agency) publishes river levels ' +
-                    'relative to a gauge datum</p>'
+                text: '<p></p>'
             },
 
             exporting: {

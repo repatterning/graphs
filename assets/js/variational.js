@@ -200,12 +200,12 @@ function generateChart(fileNameKey){
             },
 
             legend: {
-                enabled: true
-                // align: 'middle',
-                // layout: 'vertical',
-                // verticalAlign: 'bottom',
-                // y: 10,
-                // x: 35
+                enabled: true,
+                itemStyle: {
+                    fontSize: '13px',
+                    fontWeight: 400,
+                    textOverflow: "ellipsis"
+                }
             },
 
             caption: {
