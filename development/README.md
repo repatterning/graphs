@@ -54,9 +54,6 @@ docker run --rm -i -t -p 8080:80 -w /app
     dynamic nginx -g 'daemon off;'
 ```
 
-
-
-
 <br>
 <br>
 
