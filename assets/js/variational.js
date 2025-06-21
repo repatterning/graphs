@@ -386,7 +386,7 @@ function generateChart(fileNameKey){
                     type: 'spline',
                     name: 'Future Predictions',
                     data: f_estimate,
-                    color: '#ffa500',
+                    color: '#8e0924',
                     yAxis: 0,
                     dataGrouping: {
                         units: groupingUnits
