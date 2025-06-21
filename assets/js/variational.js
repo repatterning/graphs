@@ -62,12 +62,12 @@ function generateChart(fileNameKey){
 
 
         let ctr = source['training'].columns;
-        let ltr = ctr.indexOf('lower_w'),
-            utr = ctr.indexOf('upper_w'),
+        let ltr = ctr.indexOf('lower_q'),
+            utr = ctr.indexOf('upper_q'),
             mtr = ctr.indexOf('median'),
             otr = ctr.indexOf('observation'), // original
-            pel = ctr.indexOf('p_e_lower_w'),
-            peu = ctr.indexOf('p_e_upper_w'); // percentage error
+            pel = ctr.indexOf('p_e_lower_q'),
+            peu = ctr.indexOf('p_e_upper_q'); // percentage error
 
         for (var i = 0; i < source['training'].data.length; i += 1) {
 
@@ -96,12 +96,12 @@ function generateChart(fileNameKey){
 
 
         let cte = source['testing'].columns;
-        let lte = cte.indexOf('lower_w'),
-            ute = cte.indexOf('upper_w'),
+        let lte = cte.indexOf('lower_q'),
+            ute = cte.indexOf('upper_q'),
             mte = cte.indexOf('median'),
             ote = cte.indexOf('observation'), // original
-            ptl = cte.indexOf('p_e_lower_w'),
-            ptu = cte.indexOf('p_e_upper_w');
+            ptl = cte.indexOf('p_e_lower_q'),
+            ptu = cte.indexOf('p_e_upper_q');
 
         for (var j = 0; j < source['testing'].data.length; j += 1) {
 
@@ -130,8 +130,8 @@ function generateChart(fileNameKey){
 
 
         let ctf = source['futures'].columns;
-        let ltf = ctf.indexOf('lower_w'),
-            utf = ctf.indexOf('upper_w'),
+        let ltf = ctf.indexOf('lower_q'),
+            utf = ctf.indexOf('upper_q'),
             mtf = ctf.indexOf('median'),
             tsf = ctf.indexOf('date');
 
@@ -386,7 +386,7 @@ function generateChart(fileNameKey){
                     type: 'spline',
                     name: 'Future Predictions',
                     data: f_estimate,
-                    color: '#ffa500',
+                    color: '#100f10',
                     yAxis: 0,
                     dataGrouping: {
                         units: groupingUnits
