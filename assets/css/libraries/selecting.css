@@ -1,0 +1,46 @@
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+    text-transform: none;
+    margin-left: 5px;
+    border: none;
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Case https://cdnjs.com/libraries/select2 */
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    font-size: 15px;
+    padding-top: 5px;
+}
+
+.select2-container--default .select2-selection--single {
+    background-color:#ffffff;
+    color: #656565;
+    display: block;
+    border: 0;
+    border-radius: 3px;
+    border-left: 4px solid #739cda;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.select2-container--default, .select2-selection--single {
+    margin-left: 10px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 26px;
+    position: absolute;
+    top: -5px;
+    right: 1px;
+    width: 20px
+}
+
+.select2-container .select2-selection--single {
+    height: 39px;
+}

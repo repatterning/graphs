@@ -1,0 +1,35 @@
+.model.svelte-v88i0k {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center
+}
+
+.model.svelte-v88i0k h1:where(.svelte-v88i0k) {
+    font-size: 60px;
+    width: 70%
+}
+
+.model.svelte-v88i0k p:where(.svelte-v88i0k) {
+    color: #46433a;
+    font-size: 20px
+}
+
+.button.svelte-v88i0k {
+    background-color: #ce534d;
+    padding: 20px 30px;
+    margin-top: 40px;
+    border-radius: 5px;
+    color: #fff
+}
+
+@media (max-width: 700px) {
+    .model.svelte-v88i0k h1:where(.svelte-v88i0k) {
+        font-size: 40px
+    }
+
+    .model.svelte-v88i0k p:where(.svelte-v88i0k) {
+        font-size: 16px
+    }
+}
