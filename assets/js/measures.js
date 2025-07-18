@@ -57,10 +57,10 @@ function generateChart(fileNameKey){
 
 
         // Draw a graph
-        Highcharts.stockChart('container0005', {
+        Highcharts.stockChart('container0007', {
 
             rangeSelector: {
-                selected: 5,
+                selected: 2,
                 verticalAlign: 'top',
                 floating: false,
                 inputPosition: {
@@ -92,15 +92,6 @@ function generateChart(fileNameKey){
                 enabled: false
             },
 
-            legend: {
-                enabled: true,
-                itemStyle: {
-                    fontSize: '13px',
-                    fontWeight: 400,
-                    textOverflow: "ellipsis"
-                },
-            },
-
             yAxis: {
                 labels: {
                     align: 'left',
@@ -119,8 +110,14 @@ function generateChart(fileNameKey){
             xAxis: {
                 type: 'datetime',
                 dateTimeLabelFormats: {
-                    month: '%e. %b',
-                    year: '%b'
+                    millisecond:"%e %b %H:%M:%S.%L",
+                    second:"%e %b %H:%M:%S",
+                    minute:"%e %b %H:%M",
+                    hour:"%e %b %H:%M",
+                    day:"%e %b %Y",
+                    week:"%e %b %Y",
+                    month:"%b %Y",
+                    year:"%Y"
                 },
                 title: {
                     text: 'Date'
@@ -143,7 +140,18 @@ function generateChart(fileNameKey){
             },
 
             tooltip: {
-                split: true
+                split: true,
+                dateTimeLabelFormats: {
+                    millisecond:"%A, %e %b, %H:%M:%S.%L",
+                    second:"%A, %e %b, %H:%M:%S",
+                    minute:"%A, %e %b, %H:%M",
+                    hour:"%A, %e %b, %H:%M",
+                    day:"%A, %e %B, %Y",
+                    week:"%A, %e %b, %Y",
+                    month:"%B %Y",
+                    year:"%Y"
+                }
+
             },
 
             plotOptions: {
@@ -161,17 +169,7 @@ function generateChart(fileNameKey){
                     type: 'spline',
                     dataGrouping: {
                         enabled: true,
-                        units: groupingUnits,
-                        dateTimeLabelFormats: {
-                            millisecond: ['%e %b, %H:%M:%S.%L', '%A, %b %e, %H:%M:%S.%L', '-%H:%M:%S.%L'],
-                            second: ['%e %b, %H:%M:%S', '%A, %b %e, %H:%M:%S', '-%H:%M:%S'],
-                            minute: ['%e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
-                            hour: ['%e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
-                            day: ['%e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
-                            week: ['Week from %A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
-                            month: ['%B %Y', '%B', '-%B %Y'],
-                            year: ['%Y', '%Y', '-%Y']
-                        }
+                        units: groupingUnits
                     },
                     tooltip: {
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
@@ -199,7 +197,7 @@ function generateChart(fileNameKey){
 
     }).fail(function() {
         console.log("Missing");
-        $('#container0005').empty();
+        $('#container0007').empty();
     });
 
 
