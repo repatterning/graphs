@@ -92,7 +92,7 @@ function generateChart(fileNameKey){
                 enabled: false
             },
 
-            yAxis: {
+            yAxis: [{
                 labels: {
                     align: 'left',
                     x: 9
@@ -101,11 +101,26 @@ function generateChart(fileNameKey){
                     text: 'level (metres)',
                     x: 0
                 },
+                height: '45%',
                 lineWidth: 2,
                 resize: {
                     enabled: true
                 }
-            },
+            }, {
+                labels: {
+                    align: 'left',
+                    x: 9
+                },
+                title: {
+                    text: 'level (metres)',
+                    x: 0
+                },
+                top: '50%',
+                height: '45%',
+                offset: 0,
+                lineWidth: 2
+            }
+            ],
 
             xAxis: {
                 type: 'datetime',
@@ -140,26 +155,19 @@ function generateChart(fileNameKey){
             },
 
             tooltip: {
-                split: true,
+                share: false,
+                split: false,
                 dateTimeLabelFormats: {
                     millisecond:"%A, %e %b, %H:%M:%S.%L",
                     second:"%A, %e %b, %H:%M:%S",
                     minute:"%A, %e %b, %H:%M",
                     hour:"%A, %e %b, %H:%M",
-                    day:"%A, %e %B, %Y",
+                    day:"%A, %e %b, %Y",
                     week:"%A, %e %b, %Y",
-                    month:"%B %Y",
+                    month:"%A, %e %b, %Y",
                     year:"%Y"
                 }
 
-            },
-
-            plotOptions: {
-                series: {
-                    pointStart: source['starting'],
-                    pointInterval: source['interval'],
-                    turboThreshold: 4000
-                }
             },
 
             series: [
@@ -167,13 +175,57 @@ function generateChart(fileNameKey){
                     name: source.attributes['station_name'],
                     data: source.data,
                     type: 'spline',
+                    pointStart: source['starting'],
+                    pointInterval: source['interval'],
+                    turboThreshold: 4000,
                     dataGrouping: {
                         enabled: true,
-                        units: groupingUnits
+                        units: groupingUnits,
+                        dateTimeLabelFormats: {
+                            millisecond: ['%A, %e %b, %H:%M:%S.%L', '%A, %b %e, %H:%M:%S.%L', '-%H:%M:%S.%L'],
+                            second: ['%A, %e %b, %H:%M:%S', '%A, %b %e, %H:%M:%S', '-%H:%M:%S'],
+                            minute: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                            hour: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                            day: ['%A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
+                            week: ['Week from %A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
+                            month: ['%B %Y', '%B', '-%B %Y'],
+                            year: ['%Y', '%Y', '-%Y']
+                        }
                     },
                     tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
+                        pointFormat: '<br/><span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
                             '{point.y:,.3f}m<br/>'
+                    }
+                },
+                {
+                    name: source.attributes['station_name'],
+                    data: source['spreads'].data,
+                    type: 'columnrange',
+                    pointStart: source['spreads']['starting'],
+                    pointInterval: source['spreads']['interval'],
+                    turboThreshold: 4000,
+                    yAxis: 1,
+                    pointWidth: 5,
+                    dataGrouping: {
+                        enabled: true,
+                        units: [[
+                            'day',                         // unit name
+                            [1]                            // allowed multiples
+                        ]],
+                        dateTimeLabelFormats: {
+                            millisecond: ['%A, %e %b, %H:%M:%S.%L', '%A, %b %e, %H:%M:%S.%L', '-%H:%M:%S.%L'],
+                            second: ['%A, %e %b, %H:%M:%S', '%A, %b %e, %H:%M:%S', '-%H:%M:%S'],
+                            minute: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                            hour: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
+                            day: ['%A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
+                            week: ['Week from %A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
+                            month: ['%B %Y', '%B', '-%B %Y'],
+                            year: ['%Y', '%Y', '-%Y']
+                        }
+                    },
+                    tooltip: {
+                        pointFormat: '<br/><span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
+                            '{point.low:,.3f}m - {point.high:,.3f}m<br/>'
                     }
                 }
             ],
