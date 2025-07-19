@@ -80,6 +80,14 @@ function generateChart(fileNameKey){
                 zoomType: 'xy'
             },
 
+            colorAxis: [{
+                stops: [
+                    [0, '#ffa500'],
+                    [0.5, '#000000'],
+                    [1, '#722f37']
+                ]
+            }],
+
             title: {
                 text: optionSelected
             },
@@ -112,7 +120,7 @@ function generateChart(fileNameKey){
                     x: 9
                 },
                 title: {
-                    text: 'level (metres)',
+                    text: 'daily range<br>(metres)',
                     x: 0
                 },
                 top: '50%',
