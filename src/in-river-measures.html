@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-  <title>Split</title>
+  <title>Measures</title>
 
   <meta name="description" content="" />
 
@@ -74,15 +74,15 @@
 
       <ul id="sections" class='menu-inner py-1'>
         <script>
-          $.getJSON("../assets/descriptors/aside.json", function(data) {
-            var cells = "",
-              elements = document.getElementById('sections');
-            $.each(data.content, function(k, l){
-              cells += l.label;
+            $.getJSON("../assets/descriptors/aside.json", function(data) {
+                var cells = "",
+                    elements = document.getElementById('sections');
+                $.each(data.content, function(k, l){
+                    cells += l.label;
+                });
+                cells += "</ul>";
+                elements.innerHTML = cells;
             });
-            cells += "</ul>";
-            elements.innerHTML = cells;
-          });
         </script>
       </ul>
 
@@ -134,11 +134,11 @@
                     <i class="bx bx-network-chart me-1"></i> Contrasts</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="javascript:void(0);">
+                  <a class="nav-link" href="in-river-split.html">
                     <i class="bx bx-network-chart me-1"></i> Split</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="in-river-measures.html">
+                  <a class="nav-link active" href="javascript:void(0);">
                     <i class="bx bx-network-chart me-1"></i> Measures</a>
                 </li>
                 <li class="nav-item">
@@ -153,7 +153,7 @@
                     <col span="1" style="width: 100%;">
                   </colgroup>
                   <tr><td>
-                    <p>Comparing a river's level, at the same annual point, across years.</p>
+                    <p>The hourly river level measures of each gauge, and the daily river level ranges per gauge.</p>
                   </td></tr>
                   <tr>
                     <td><br><br>
@@ -169,8 +169,8 @@
 
                       <br><br><br>
 
-                      <div><div id="container0005" style="width: 75%; height: 490px; margin: 0 auto 0 5px;"></div></div>
-                      <script src="../assets/js/split.js" type="text/javascript"></script><br><br>
+                      <div><div id="container0007" style="width: 75%; height: 490px; margin: 0 auto 0 5px;"></div></div>
+                      <script src="../assets/js/measures.js" type="text/javascript"></script><br><br>
                     </td>
                   </tr>
                 </table>
@@ -187,7 +187,7 @@
             <div class="mb-2 mb-md-0">
               Artificial Intelligence Unit, Scottish Government ©
               <script>
-                document.write(new Date().getFullYear());
+                  document.write(new Date().getFullYear());
               </script>
               <br>This theme is based on a free template by
               <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
@@ -228,6 +228,9 @@
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/stock/modules/data.js"></script>
 <script src="https://code.highcharts.com/stock/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/stock/modules/renko.js"></script>
+<script src="https://code.highcharts.com/modules/coloraxis.js"></script>
+<script src="https://code.highcharts.com/themes/adaptive.js"></script>
 
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
