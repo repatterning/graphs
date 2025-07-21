@@ -140,12 +140,12 @@ function generateChart(fileNameKey){
                 maxHeight: 285,
                 width: '39%',
                 useHTML: true,
-                x: 115,
+                x: 125,
                 itemStyle: {
                     fontSize: '13px',
                     fontWeight: 400,
                     textOverflow: "ellipsis",
-                    marginLeft: 25
+                    marginLeft: -25
                 },
                 navigation: {
                     activeColor: '#696cff',
