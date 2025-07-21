@@ -47,8 +47,7 @@ function generateChart(fileNameKey) {
 
         // split the data set into ohlc and medians
         var medians = [],
-            maxima = [],
-            minima = [],
+
             column = [],
             dataLength = source.data.length,
             groupingUnits = [[
@@ -62,16 +61,6 @@ function generateChart(fileNameKey) {
             medians.push({
                 x: source.data[i][0], // the date
                 y: source.data[i][3] // median
-            });
-
-            maxima.push({
-                x: source.data[i][0], // the date
-                y: source.data[i][7] // maximum
-            });
-
-            minima.push({
-                x: source.data[i][0], // the date
-                y: source.data[i][6] // minimum
             });
 
             column.push({
@@ -93,7 +82,7 @@ function generateChart(fileNameKey) {
         Highcharts.stockChart('container0003', {
 
             rangeSelector: {
-                selected: 3,
+                selected: 1,
                 verticalAlign: 'top',
                 floating: false,
                 inputPosition: {
