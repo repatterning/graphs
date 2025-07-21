@@ -139,17 +139,6 @@ function generateChart(fileNameKey) {
                 enabled: false
             },
 
-            legend: {
-                enabled: true,
-                width: 600,
-                x: 100,
-                itemStyle: {
-                    fontSize: '13px',
-                    fontWeight: 400,
-                    textOverflow: "ellipsis"
-                }
-            },
-
             caption: {
                 text: '<p></p>'
             },
