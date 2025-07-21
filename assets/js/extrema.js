@@ -49,6 +49,7 @@ function generateChart(fileNameKey) {
         var medians = [],
             maxima = [],
             minima = [],
+            column = [],
             dataLength = source.data.length,
             groupingUnits = [[
                 'day',   // unit name
@@ -71,6 +72,13 @@ function generateChart(fileNameKey) {
             minima.push({
                 x: source.data[i][0], // the date
                 y: source.data[i][6] // minimum
+            });
+
+            column.push({
+                x: source.data[i][0], // the date
+                low: source.data[i][6], // minimum
+                high: source.data[i][7] // maximum
+
             });
 
         }
@@ -105,6 +113,14 @@ function generateChart(fileNameKey) {
                 // borderWidth: 2,
                 // marginRight: 100
             },
+
+            colorAxis: [{
+                stops: [
+                    [0, '#ffa500'],
+                    [0.5, '#000000'],
+                    [1, '#722f37']
+                ]
+            }],
 
             title: {
                 text: 'River Level Extrema, etc., of: ' + source['station_name']
@@ -199,29 +215,19 @@ function generateChart(fileNameKey) {
 
             },
 
-            series: [{
-                    type: 'spline',
-                    name: 'Median',
-                    data: medians,
-                    color: '#6B8E23',
-                    yAxis: 1,
-                    dataGrouping: {
-                        units: groupingUnits
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f} m<br/>'
-                    }
-                },
+            series: [
                 {
-                    type: 'spline',
-                    name: 'Maxima',
-                    data: maxima,
-                    color: '#A08E23',
-                    visible: true,
-                    yAxis: 0,
+                    name: 'range',
+                    data: column,
+                    type: 'columnrange',
+                    turboThreshold: 4000,
+                    pointWidth: 5,
                     dataGrouping: {
-                        units: groupingUnits,
+                        enabled: true,
+                        units: [[
+                            'day',                         // unit name
+                            [1]                            // allowed multiples
+                        ]],
                         dateTimeLabelFormats: {
                             millisecond: ['%A, %e %b, %H:%M:%S.%L', '%A, %b %e, %H:%M:%S.%L', '-%H:%M:%S.%L'],
                             second: ['%A, %e %b, %H:%M:%S', '%A, %b %e, %H:%M:%S', '-%H:%M:%S'],
@@ -234,16 +240,16 @@ function generateChart(fileNameKey) {
                         }
                     },
                     tooltip: {
-                        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f} m<br/>'
+                        pointFormat: '<br/><span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
+                            '{point.low:,.3f}m - {point.high:,.3f}m<br/>'
                     }
                 },
                 {
                     type: 'spline',
-                    name: 'Minima',
-                    data: minima,
-                    color: '#800000',
-                    yAxis: 0,
+                    name: 'Median',
+                    data: medians,
+                    color: '#6B8E23',
+                    yAxis: 1,
                     dataGrouping: {
                         units: groupingUnits
                     },
@@ -251,10 +257,7 @@ function generateChart(fileNameKey) {
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
                             '{point.y:,.2f} m<br/>'
                     }
-
                 }
-
-
             ],
             responsive: {
                 rules: [{
