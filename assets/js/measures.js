@@ -80,14 +80,6 @@ function generateChart(fileNameKey){
                 zoomType: 'xy'
             },
 
-            colorAxis: [{
-                stops: [
-                    [0, '#ffa500'],
-                    [0.5, '#000000'],
-                    [1, '#722f37']
-                ]
-            }],
-
             title: {
                 text: optionSelected
             },
@@ -109,24 +101,10 @@ function generateChart(fileNameKey){
                     text: 'level (metres)',
                     x: 0
                 },
-                height: '45%',
                 lineWidth: 2,
                 resize: {
                     enabled: true
                 }
-            }, {
-                labels: {
-                    align: 'left',
-                    x: 9
-                },
-                title: {
-                    text: 'daily range<br>(metres)',
-                    x: 0
-                },
-                top: '50%',
-                height: '45%',
-                offset: 0,
-                lineWidth: 2
             }
             ],
 
@@ -203,37 +181,6 @@ function generateChart(fileNameKey){
                     tooltip: {
                         pointFormat: '<br/><span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
                             '{point.y:,.3f}m<br/>'
-                    }
-                },
-                {
-                    name: source.attributes['station_name'],
-                    data: source['spreads'].data,
-                    type: 'columnrange',
-                    pointStart: source['spreads']['starting'],
-                    pointInterval: source['spreads']['interval'],
-                    turboThreshold: 4000,
-                    yAxis: 1,
-                    pointWidth: 5,
-                    dataGrouping: {
-                        enabled: true,
-                        units: [[
-                            'day',                         // unit name
-                            [1]                            // allowed multiples
-                        ]],
-                        dateTimeLabelFormats: {
-                            millisecond: ['%A, %e %b, %H:%M:%S.%L', '%A, %b %e, %H:%M:%S.%L', '-%H:%M:%S.%L'],
-                            second: ['%A, %e %b, %H:%M:%S', '%A, %b %e, %H:%M:%S', '-%H:%M:%S'],
-                            minute: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
-                            hour: ['%A, %e %b, %H:%M', '%A, %b %e, %H:%M', '-%H:%M'],
-                            day: ['%A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
-                            week: ['Week from %A, %e %b, %Y', '%A, %b %e', '-%A, %b %e, %Y'],
-                            month: ['%B %Y', '%B', '-%B %Y'],
-                            year: ['%Y', '%Y', '-%Y']
-                        }
-                    },
-                    tooltip: {
-                        pointFormat: '<br/><span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.low:,.3f}m - {point.high:,.3f}m<br/>'
                     }
                 }
             ],
