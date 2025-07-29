@@ -77,7 +77,7 @@
   --bs-body-font-size: 0.9375rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.53;
-  --bs-body-color: #697a8d;
+  --bs-body-color: #000000;
   --bs-body-bg: #ffffff;
 }
 
@@ -125,7 +125,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-bottom: 1rem;
   font-weight: 500;
   line-height: 1.1;
-  color: #566a7f;
+  color: #000000; /* #566a7f */
 }
 
 h1, .h1 {
