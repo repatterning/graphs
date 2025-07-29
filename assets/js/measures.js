@@ -43,7 +43,7 @@ function generateChart(fileNameKey){
         // split the data set into ...
         let sectors = [],
             groupingUnits = [[
-                'hour',                         // unit name
+                'minute',                         // unit name
                 [1]                            // allowed multiples
             ]];
 
