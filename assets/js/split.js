@@ -43,7 +43,7 @@ function generateChart(fileNameKey){
         // split the data set into ...
         let sectors = [],
             groupingUnits = [[
-                'hour',                         // unit name
+                'minute',                         // unit name
                 [1]                            // allowed multiples
             ]];
 
@@ -71,7 +71,7 @@ function generateChart(fileNameKey){
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
                         '{point.y:,.3f}m<br/>'
                 },
-                visible: i > 3
+                visible: i > 2
 
             });
 
