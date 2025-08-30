@@ -21,17 +21,29 @@ jQuery.getJSON('../warehouse/risks/points/0001.json', function (source)  {
             i_sta_n = indices.indexOf('station_name'),
             i_riv = indices.indexOf('river_name');
 
+
+        let data = [];
         for (let j = 0; j < source[i]['data'].length; j += 1) {
 
-            estimates.push({
-                x: source[i]['data'][j][i_max], // maximum
-                y: source[i]['data'][j][i_lat], // latest
-                name: source[i]['data'][j][i_sta_n], // station name
-                className: source[i]['catchment_name'], // for point classification
-                description: 'River: ' + source[i]['data'][j][i_riv] + ', Median: ' + source[i]['data'][j][i_med] + ' mm/hr'
+            data.push({
+                x: source[i]['data'][j][i_lat], // maximum
+                y: source[i]['data'][j][i_max], // latest
+                name: source[i]['data'][j][i_sta_n] // station name
+                // description: 'River: ' + source[i]['data'][j][i_riv] + ', Median: ' + source[i]['data'][j][i_med] + ' mm/hr'
             });
 
         }
+
+        estimates.push({
+            type: 'scatter',
+            name: source[i]['catchment_name'],
+            data: data,
+            className: source[i]['catchment_name'], // for point classification by catchment
+            tooltip: {
+                pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>:<br/>' +
+                    'name: {point.name}<br/> maximum: {point.y:,.3f}<br/>latest: {point.x:,.3f}<br/>'
+            }
+        });
 
     }
 
@@ -121,16 +133,7 @@ jQuery.getJSON('../warehouse/risks/points/0001.json', function (source)  {
 
         },
 
-        series: [{
-            type: 'scatter',
-            name: 'rates of change',
-            data: estimates,
-            tooltip: {
-                pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>:<br/>' +
-                    'name: {point.name}<br/> maximum: {point.y:,.3f}<br/>latest: {point.x:,.3f}<br/>'
-            }
-        }
-        ],
+        series: estimates,
         responsive: {
             rules: [{
                 condition: {
