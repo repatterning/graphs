@@ -127,7 +127,7 @@ jQuery.getJSON('../warehouse/risks/points/0001.json', function (source)  {
             data: estimates,
             tooltip: {
                 pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>:<br/>' +
-                    'maximum: {point.y:,.3f}<br/>latest: {point.x:,.3f}<br/>'
+                    'name: {point.name}<br/> maximum: {point.y:,.3f}<br/>latest: {point.x:,.3f}<br/>'
             }
         }
         ],
