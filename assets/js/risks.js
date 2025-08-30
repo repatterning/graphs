@@ -95,7 +95,7 @@ jQuery.getJSON('../warehouse/risks/points/0001.json', function (source)  {
 
         xAxis: {
             title: {
-                text: 'latest'
+                text: 'latest (mm/hr)'
             },
             labels: {
                 format: '{value}'
@@ -107,7 +107,7 @@ jQuery.getJSON('../warehouse/risks/points/0001.json', function (source)  {
                 format: '{value}'
             },
             title: {
-                text: 'maximum',
+                text: 'maximum (mm/hr)',
                 x: 0
             }
         },
