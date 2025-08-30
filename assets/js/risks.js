@@ -86,13 +86,13 @@ jQuery.getJSON('../warehouse/risks/points/0001.json', function (source)  {
                 text: 'latest'
             },
             labels: {
-                format: '{value} mm/hr'
+                format: '{value}'
             }
         },
 
         yAxis: {
             labels: {
-                format: '{value} mm/hr'
+                format: '{value}'
             },
             title: {
                 text: 'maximum',
