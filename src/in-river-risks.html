@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
+      data-assets-path="../assets/" data-template="vertical-menu-template-free">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <title>Risks: Rates of Change</title>
+
+  <meta name="description" content="" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../assets/img/favicon/automata.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"/>
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="../assets/fonts/boxicons.css" />
+  <link rel="stylesheet" href="../assets/css/libraries/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="../assets/css/libraries/theme-default.css" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="../assets/css/libraries/demo.css" />
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/perfect-scrollbar/1.5.6/css/perfect-scrollbar.min.css"
+        integrity="sha512-ygIxOy3hmN2fzGeNqys7ymuBgwSCet0LVfqQbWY10AszPMn2rB9JY0eoG0m1pySicu+nvORrBmhHVSt7+GI9VA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Helpers -->
+  <script src="../assets/js/libraries/helpers.js"></script>
+  <script src="../assets/js/libraries/menu.js"></script>
+  <script src="../assets/js/libraries/latex.js" async></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+          integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.6/perfect-scrollbar.min.js"
+          integrity="sha512-gcLXgodlQJWRXhAyvb5ULNlBAcvjuufaOBRggyLCtCqez+9jW7MxP3Is/9serId1YmNZ0Lx1ewh9z2xBwwZeKg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!--  Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section
+        ? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option
+        in this file.  -->
+  <script src="../assets/js/libraries/config.js"></script>
+
+  <!-- Final settings -->
+  <link rel="stylesheet" href="../assets/css/libraries/selecting.css" />
+
+</head>
+
+<body>
+<!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar">
+  <div class="layout-container">
+
+    <!-- Menu -->
+    <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+      <div class="app-brand demo">
+        <a href="https://theartificialintelligenceunit.github.io/intelligence/html/index.html" class="app-brand-link">
+          <span class="app-brand-text demo menu-text fw-bolder ms-2">hub</span></a>
+        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+          <i class="bx bx-chevron-left bx-sm align-middle"></i></a>
+      </div>
+
+      <div class="menu-inner-shadow"></div>
+
+      <ul id="sections" class='menu-inner py-1'>
+        <script>
+            $.getJSON("../assets/descriptors/aside.json", function(data) {
+                var cells = "",
+                    elements = document.getElementById('sections');
+                $.each(data.content, function(k, l){
+                    cells += l.label;
+                });
+                cells += "</ul>";
+                elements.innerHTML = cells;
+            });
+        </script>
+      </ul>
+
+    </aside>
+    <!-- / Menu -->
+
+    <!-- Layout container -->
+    <div class="layout-page">
+
+      <!-- Navbar -->
+      <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+           id="layout-navbar">
+        <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+          <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+            <i class="bx bx-menu bx-sm"></i>
+          </a>
+        </div>
+
+        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+
+        </div>
+      </nav>
+      <!-- / Navbar -->
+
+      <!-- Content wrapper -->
+      <div class="content-wrapper">
+        <!-- Content -->
+        <div class="container-xxl flex-grow-1 container-p-y">
+          <h4 class="fw-bold py-3 mb-4">
+            <span class="text-muted fw-light">River Levels /</span> Split
+          </h4>
+
+          <div class="row" style="margin-bottom: 450px;">
+            <div class="col-md-12">
+              <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                <li class="nav-item">
+                  <a class="nav-link" href="in-river-introduction.html">
+                    <i class="bx bx-home-smile me-1"></i> Introduction</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="in-river-predictions.html">
+                    <i class="bx bx-fingerprint me-1"></i> Predictions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="javascript:void(0);">
+                    <i class="bx bx-abacus me-1"></i> Risks: Rates of Change</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="in-river-drift.html">
+                    <i class="bx bx-abacus me-1"></i> Drift</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="in-river-contrasts.html">
+                    <i class="bx bx-network-chart me-1"></i> Contrasts</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="in-river-split.html">
+                    <i class="bx bx-network-chart me-1"></i> Measures: Split</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="in-river-continuous.html">
+                    <i class="bx bx-network-chart me-1"></i> Measures: Continuous</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="in-river-extrema.html">
+                    <i class="bx bx-network-chart me-1"></i> Extrema</a>
+                </li>
+              </ul>
+              <div class="card">
+
+                <table style="width: 65%; margin-left: 1.25rem; margin-right: auto; margin-top: 35px;">
+                  <colgroup>
+                    <col span="1" style="width: 100%;">
+                  </colgroup>
+                  <tr><td>
+                    <p>Rates of change</p>
+                  </td></tr>
+                  <tr>
+                    <td><br><br>
+                      <div><div id="container0002" style="width: 75%; height: 490px; margin: 0 auto 0 5px;"></div></div>
+                      <script src="../assets/js/risks.js" type="text/javascript"></script><br><br>
+                    </td>
+                  </tr>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- / Content -->
+
+        <!-- Footer -->
+        <footer class="content-footer footer bg-footer-theme">
+          <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+            <div class="mb-2 mb-md-0">
+              Artificial Intelligence Unit, Scottish Government ©
+              <script>
+                  document.write(new Date().getFullYear());
+              </script>
+              <br>This theme is based on a free template by
+              <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
+            </div>
+            <div>
+            </div>
+          </div>
+        </footer>
+        <!-- / Footer -->
+
+        <div class="content-backdrop fade"></div>
+      </div>
+      <!-- Content wrapper -->
+
+    </div>
+    <!-- / Layout page -->
+
+  </div>
+
+  <!-- Overlay -->
+  <div class="layout-overlay layout-menu-toggle"></div>
+</div>
+<!-- / Layout wrapper -->
+
+<!-- Core JS -->
+
+<!-- build:js assets/vendor/js/core.js -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+        integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+        integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/stock/modules/data.js"></script>
+<script src="https://code.highcharts.com/stock/highcharts-more.js"></script>
+
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/modules/boost.js"></script>
+<script src="https://code.highcharts.com/modules/bullet.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/annotations.js"></script>
+
+<!-- end build -->
+
+<!-- Vendors JS -->
+
+<!-- Main JS -->
+<script src="../assets/js/libraries/main.js"></script>
+
+<!-- Page JS -->
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
