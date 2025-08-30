@@ -64,11 +64,11 @@ jQuery.getJSON('../warehouse/risks/points/0001.json', function (source)  {
         },
 
         title: {
-            text: 'Spot: '
+            text: 'Rates of Change of River Levels'
         },
 
         subtitle: {
-            text: '<p>Rates of Change: Level</p> <br/><br/>'
+            text: '<p>vis-à-vis Scotland\'s river level gauge station measures.</p> <br/><br/>'
         },
 
         time: {
