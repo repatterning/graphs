@@ -64,8 +64,8 @@ function generateChart(fileNameKey) {
                 data.push({
                     x: source[i]['data'][j][i_lat], // maximum
                     y: source[i]['data'][j][i_max], // latest
-                    name: source[i]['data'][j][i_sta_n] // station name
-                    // description: 'River: ' + source[i]['data'][j][i_riv] + ', Median: ' + source[i]['data'][j][i_med] + ' mm/hr'
+                    name: source[i]['data'][j][i_sta_n], // station name
+                    description: 'River: ' + source[i]['data'][j][i_riv] + ', Median: ' + source[i]['data'][j][i_med] + ' mm/hr'
                 });
 
             }
@@ -76,8 +76,11 @@ function generateChart(fileNameKey) {
                 data: data,
                 className: source[i]['catchment_name'], // for point classification by catchment
                 tooltip: {
-                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>:<br/>' +
-                        'name: {point.name}<br/> maximum: {point.y:,.3f}<br/>latest: {point.x:,.3f}<br/>'
+                    pointFormat: '<br/>' +
+                        '<b>gauge station:</b> {point.name}<br/>' +
+                        '<b>maximum rate:</b> {point.y:,.3f} mm/hr<br/>' +
+                        '<b>latest rate:</b> {point.x:,.3f}mm/hr<br/>' +
+                        '<b>catchment:</b> {series.name}'
                 }
             });
 
