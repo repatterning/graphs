@@ -108,10 +108,7 @@ function generateChart(fileNameKey) {
 
             subtitle: {
                 useHTML: true,
-                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.</p>' +
-                    '<a href="/warehouse/risks/maps/' + fileNameKey + '.html" class="btn btn-sm btn-outline-primary" target="_blank" ' +
-                    'onclick="window.open(\'/warehouse/risks/maps/0001.html\', \'newwindow\', \'width=999,height=690\'); return false;">' +
-                    'MAP</a>'
+                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.</p>'
             },
 
             time: {
