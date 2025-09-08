@@ -55,7 +55,8 @@ function generateChart(fileNameKey) {
                 i_lat = indices.indexOf('latest'),
                 i_med = indices.indexOf('median'),
                 i_sta_n = indices.indexOf('station_name'),
-                i_riv = indices.indexOf('river_name');
+                i_riv = indices.indexOf('river_name'),
+                i_end = indices.indexOf('ending');
 
 
             let data = [];
@@ -65,7 +66,9 @@ function generateChart(fileNameKey) {
                     x: source[i]['data'][j][i_lat], // maximum
                     y: source[i]['data'][j][i_max], // latest
                     name: source[i]['data'][j][i_sta_n], // station name
-                    description: 'River: ' + source[i]['data'][j][i_riv] + ', Median: ' + source[i]['data'][j][i_med] + ' mm/hr'
+                    description: Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', source[i]['data'][j][i_end]) + '<br>' +
+                        '<b>river:</b> ' + source[i]['data'][j][i_riv] + '<br><b>median:</b> ' +
+                        Highcharts.numberFormat(source[i]['data'][j][i_med], 4) + ' mm/hr<br>'
                 });
 
             }
@@ -80,6 +83,7 @@ function generateChart(fileNameKey) {
                         '<b>gauge station:</b> {point.name}<br/>' +
                         '<b>maximum rate:</b> {point.y:,.3f} mm/hr<br/>' +
                         '<b>latest rate:</b> {point.x:,.3f}mm/hr<br/>' +
+                        '<b>period ending:</b> {point.description}' +
                         '<b>catchment:</b> {series.name}'
                 }
             });
