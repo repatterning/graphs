@@ -74,7 +74,7 @@
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-root-font-size: 16px;
   --bs-body-font-family: var(--bs-font-sans-serif);
-  --bs-body-font-size: 0.9375rem;
+  --bs-body-font-size: 0.8375rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.53;
   --bs-body-color: #000000;
@@ -160,7 +160,7 @@ h4, .h4 {
 }
 @media (min-width: 1200px) {
   h4, .h4 {
-    font-size: 1.375rem;
+    font-size: 1.275rem;
   }
 }
 
