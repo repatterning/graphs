@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-  <title>Split</title>
+  <title>Warning Area</title>
 
   <meta name="description" content="" />
 
@@ -67,15 +67,15 @@
 
       <ul id="sections" class='menu-inner py-1'>
         <script>
-          $.getJSON("../assets/descriptors/aside.json", function(data) {
-            var cells = "",
-              elements = document.getElementById('sections');
-            $.each(data.content, function(k, l){
-              cells += l.label;
+            $.getJSON("../assets/descriptors/aside.json", function(data) {
+                var cells = "",
+                    elements = document.getElementById('sections');
+                $.each(data.content, function(k, l){
+                    cells += l.label;
+                });
+                cells += "</ul>";
+                elements.innerHTML = cells;
             });
-            cells += "</ul>";
-            elements.innerHTML = cells;
-          });
         </script>
       </ul>
 
@@ -88,20 +88,20 @@
       <!-- Content wrapper -->
       <div class="content-wrapper">
         <!-- Content -->
+
         <div class="container-xxl flex-grow-1 container-p-y">
-          <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">River Levels /</span> Split
-          </h4>
+          <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">River Levels /</span> Warning: Predictions, etc.</h4>
 
           <div class="row" style="margin-bottom: 450px;">
             <div class="col-md-12">
+
               <ul class="nav nav-pills flex-column flex-md-row mb-3">
                 <li class="nav-item">
                   <a class="nav-link" href="in-river-introduction.html">
                     <i class="bx bx-home-smile me-1"></i> Introduction</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="in-river-warning.html">
+                  <a class="nav-link active" href="javascript:void(0);">
                     <i class="bx bx-fingerprint me-1"></i> Warning: Predictions, etc.</a>
                 </li>
                 <li class="nav-item">
@@ -109,14 +109,15 @@
                     <i class="bx bx-abacus me-1"></i> Risks: Rates of Change</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="in-river-drift.html"><i class="bx bx-abacus me-1"></i> Drift</a>
+                  <a class="nav-link" href="in-river-drift.html">
+                    <i class="bx bx-abacus me-1"></i> Drift</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="in-river-contrasts.html">
                     <i class="bx bx-network-chart me-1"></i> Contrasts</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="javascript:void(0);">
+                  <a class="nav-link" href="in-river-split.html">
                     <i class="bx bx-network-chart me-1"></i> Measures: Split</a>
                 </li>
                 <li class="nav-item">
@@ -128,36 +129,33 @@
                     <i class="bx bx-network-chart me-1"></i> Extrema</a>
                 </li>
               </ul>
-              <div class="card">
 
-                <table style="width: 69%; margin-left: 1.25rem; margin-right: auto; margin-top: 35px;">
+              <div class="card mb-4">
+
+                <table style="width: 49%; margin-left: 1.25rem; margin-right: auto; margin-top: 35px;">
                   <colgroup>
-                    <col span="1" style="width: 100%;">
+                    <col span="1" style="width: 35%;">
                   </colgroup>
-                  <tr><td>
-                    <p>Comparing a river's level, at the same annual point, across years.</p>
-                  </td></tr>
                   <tr>
-                    <td><br><br>
-                      <!-- <label for="option_selector"></label> -->
-                      <select id="option_selector" style="width: 300px;">
-                        <!-- <option id="option_selector_title">Please select a ...</option> -->
-                      </select>
-                      <script>
-                          $(document).ready(function () {
-                              $("#option_selector").select2();
-                          });
-                      </script>
-
-                      <br><br><br>
-
-                      <div><div id="container0005" style="width: 80%; height: 490px; margin: 0 auto 0 5px;"></div></div>
-                      <script src="../assets/js/split.js" type="text/javascript"></script><br><br>
+                    <td>
+                      <p>The latest, most recent, <a href="https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings" target="_blank">weather warning period</a>
+                      &Rarr; <b>START: </b>[upcoming], <b>END: </b>[upcoming]</p><br><br>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Predictions in relation to the latest/most-recent weather warning area, and the stations within the warning area.&Rarr; <a href="/src/_latest.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/src/_latest.html', 'newwindow', 'width=1299,height=690'); return false;">Latest Predictions</a></p><br><br>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Maps pinpointing the gauge stations within the latest/most-recent weather warning area, alongside their <a href="in-river-risks.html" target="_blank">river-level-weighted-rates-of-change</a> values.  Additionally, the maps include care homes per catchment.&Rarr; <a href="/warehouse/risks/maps/0001.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/warehouse/latest/maps/0001.html', 'newwindow', 'width=999,height=690'); return false;">Map: 0.25 hours</a>, <a href="/warehouse/risks/maps/0004.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/warehouse/latest/maps/0004.html', 'newwindow', 'width=999,height=690'); return false;">Map: 1 hour</a></p>
                     </td>
                   </tr>
                 </table>
 
               </div>
+
             </div>
           </div>
         </div>
@@ -169,7 +167,7 @@
             <div class="mb-2 mb-md-0">
               Artificial Intelligence Unit, Scottish Government ©
               <script>
-                document.write(new Date().getFullYear());
+                  document.write(new Date().getFullYear());
               </script>
               <br>This theme is based on a free template by
               <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
@@ -191,8 +189,10 @@
 
   <!-- Overlay -->
   <div class="layout-overlay layout-menu-toggle"></div>
+
 </div>
 <!-- / Layout wrapper -->
+
 
 <!-- Core JS -->
 
@@ -225,7 +225,7 @@
 <!-- Main JS -->
 <script src="../assets/js/libraries/main.js"></script>
 
-<!-- Page JS -->
+
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
