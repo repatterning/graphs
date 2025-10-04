@@ -1,13 +1,14 @@
 
 table.briefings {
     border-collapse: collapse;
-    border-spacing: 20px 5px;
+    border-spacing: 35px 20px;
     border: 0;
     margin-left: 25px;
     margin-top: 25px;
     table-layout: fixed;
     width: 85%;
     text-wrap: wrap;
+    vertical-align: top;
 }
 
 th, td {
