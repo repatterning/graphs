@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="../assets/css/libraries/core.css" class="template-customizer-core-css" />
   <link rel="stylesheet" href="../assets/css/libraries/theme-default.css" class="template-customizer-theme-css" />
   <link rel="stylesheet" href="../assets/css/libraries/demo.css" />
+  <link rel="stylesheet" href="../assets/css/libraries/tables.css" />
 
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
@@ -132,25 +133,36 @@
 
               <div class="card mb-4">
 
-                <table style="width: 49%; margin-left: 1.25rem; margin-right: auto; margin-top: 35px;">
+                <p style="margin-left: 35px; margin-top: 25px; color: #696cff"><b>Latest/Most Recent Warning Period</b></p>
+
+                <table class="briefings">
                   <colgroup>
-                    <col span="1" style="width: 35%;">
+                    <col span="1" style="width: 27.5%;">
+                    <col span="1" style="width: 47.5%">
                   </colgroup>
                   <tr>
                     <td>
-                      <p>The latest, most recent, <a href="https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings" target="_blank">weather warning period</a>
-                      &Rarr; <b>START: </b>[upcoming], <b>END: </b>[upcoming]</p><br><br>
+                      <p id="dates" style="color: #696cff">
+                        <script>$.getJSON("../warehouse/warning/times.json", function (data){
+                            let cells = "",
+                                elements = document.getElementById('dates')
+                            cells = data.starting + " &Rarr; " + data.ending;
+                            elements.innerHTML = cells;
+                        });</script>
+                      </p>
                     </td>
+                    <td><p>The latest, most recent, <a href="https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings" target="_blank">weather warning period.</a>
+                      </p></td>
+                  </tr>
+                  <tr>
+                    <td><p><a href="/src/_latest.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/src/_latest.html', 'newwindow', 'width=1200,height=750'); return false;">Latest Predictions</a></p></td>
+                    <td><p>The predictions in relation to the latest/most-recent weather warning area.  If a mix of amber and yellow warnings, for example, the focus will be stations within the amber warning areas.</p></td>
                   </tr>
                   <tr>
                     <td>
-                      <p>Predictions in relation to the latest/most-recent weather warning area, and the stations within the warning area.&Rarr; <a href="/src/_latest.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/src/_latest.html', 'newwindow', 'width=1200,height=750'); return false;">Latest Predictions</a></p><br><br>
+                      <p><a href="/warehouse/distributions/maps/0001.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/warehouse/distributions/maps/0001.html', 'newwindow', 'width=999,height=690'); return false;">Map: 0.25 hours</a>&nbsp; &nbsp;<a href="/warehouse/distributions/maps/0004.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/warehouse/distributions/maps/0004.html', 'newwindow', 'width=999,height=690'); return false;">Map: 1 hour</a></p>
                     </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p>Maps pinpointing the gauge stations within the latest/most-recent weather warning area, alongside their <a href="in-river-risks.html" target="_blank">river-level-weighted-rates-of-change</a> values.  Additionally, the maps include care homes per catchment.&Rarr; <a href="/warehouse/distributions/maps/0001.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/warehouse/distributions/maps/0001.html', 'newwindow', 'width=999,height=690'); return false;">Map: 0.25 hours</a>, <a href="/warehouse/distributions/maps/0004.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/warehouse/distributions/maps/0004.html', 'newwindow', 'width=999,height=690'); return false;">Map: 1 hour</a></p>
-                    </td>
+                    <td>Maps pinpointing the gauge stations within the latest/most-recent weather warning area, alongside their <a href="in-river-risks.html" target="_blank">river-level-weighted-rates-of-change</a> values.  Additionally, the maps include care homes per catchment.<br><br>If a mix of amber and yellow warnings, for example, the maps will display the stations within the amber warning areas by default.  Use the control panel to display the details of more or fewer areas.</td>
                   </tr>
                 </table>
 
