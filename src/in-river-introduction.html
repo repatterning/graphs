@@ -100,9 +100,18 @@
 
                       <h5 class="card-title text-primary">Predicting river levels, and more.</h5>
                       <p class="mb-4">
-                        This is a <b>temporary</b> live system. It predicts river levels and provides supplementary material, predominantly for officials aiding Scottish Government Resilience activities. Models are re-trained, and new predictions are provided, twice a week; whereas supplementary material is updated daily.  All automatically.  <b>Upcoming items include</b>, (a) forecast-activated alerts, and (b) weather-warning-activated prediction events.<br><br>
+                        This is a <b>temporary</b> live system. It predicts river levels and provides supplementary material, predominantly for officials aiding Scottish Government Resilience activities.<br><br>
 
-                        For more information, including code, setup and configurations, etc. visit <a href="https://github.com/repatterning" class="btn btn-sm btn-outline-primary">GitHub</a><br><br>
+                        <b>During a warning period:</b> A program scans for National Weather Service warnings.  If one or more gauge stations, on record, lie within a warning area, temporary schedules are automatically created.  Automatically
+
+                        <ul>
+                          <li>All products, except the forecasts graphs, are updated every 2 hours; this can be every 3 hours, hour, etc.</li>
+                          <li>Trying forecasts graphs updates for different schedules; focusing on catchments that host warning area gauges.</li>
+                        </ul><br>
+
+                        <b>Outwith a warning period:</b> Automatic daily updates of all products, except the forecasts graphs.<br><br>
+
+                      Future items possibilities include forecasts & rate-of-change activated alerts.  For more information, including code, setup and configurations, etc. visit <a href="https://github.com/repatterning" class="btn btn-sm btn-outline-primary">GitHub</a><br><br>
                       </p>
                       <br><br>
                       <ul class="nav nav-pills flex-column flex-md-row mb-3">
