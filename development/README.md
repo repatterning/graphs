@@ -62,21 +62,6 @@ docker run --rm -i -t -p 8080:80 -w /app
 <br>
 <br>
 
-
-### Graphing
-
-A `useHTML` snippet for titles or subtitles.
-
-```shell
-'<a href="/warehouse/risks/maps/' + fileNameKey + '.html" class="btn btn-sm btn-outline-primary" target="_blank" ' +
-  'onclick="window.open(\'/warehouse/risks/maps/0001.html\', \'newwindow\', \'width=999,height=690\'); return false;">' +
-  'MAP</a>'
-```
-
-
-<br>
-<br>
-
 <br>
 <br>
 
