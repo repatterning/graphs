@@ -3,7 +3,7 @@ table.briefings {
     border-collapse: collapse;
     border-spacing: 35px 20px;
     border: 0;
-    margin-left: 25px;
+    margin-left: 28px;
     margin-top: 25px;
     table-layout: fixed;
     width: 85%;
@@ -13,4 +13,5 @@ table.briefings {
 
 th, td {
     padding: 2px 5px 15px 5px;
+    vertical-align: top;
 }
