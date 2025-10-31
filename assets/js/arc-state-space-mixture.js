@@ -1,7 +1,7 @@
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var url = '../warehouse/latest/menu/menu.json';
+var url = '../warehouse/arc-state-space-mixture/menu/menu.json';
 
 
 $.getJSON(url, function (data) {
@@ -37,7 +37,7 @@ dropdown.on('change', function (e) {
 // Generate graphs
 function generateChart(fileNameKey){
 
-    $.getJSON('../warehouse/latest/points/predictions/' + fileNameKey + '.json', function (source)  {
+    $.getJSON('../warehouse/arc-state-space-mixture/points/predictions/' + fileNameKey + '.json', function (source)  {
 
         // https://api.highcharts.com/highstock/plotOptions.series.dataLabels
         // https://api.highcharts.com/class-reference/Highcharts.Point#.name
