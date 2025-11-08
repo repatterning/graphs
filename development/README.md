@@ -36,7 +36,7 @@ Launch an interactive environment via
 ```shell
 docker run --rm -i -t -p 8080:80 -w /app 
   --mount type=bind,src="$(pwd)",target=/app 
-    dynamic
+    -v ~/.aws:/root/.aws dynamic
 ```
 
 Subsequently, launch a web server via
