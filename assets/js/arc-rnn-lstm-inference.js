@@ -270,9 +270,9 @@ function generateChart(fileNameKey){
                     name: 'Absolute Percentage Error',
                     data: percentages,
                     marker: {
-                        enabled: true
+                        enabled: false
                     },
-                    lineWidth: 0,
+                    lineWidth: 1,
                     color: '#000000',
                     yAxis: 1,
                     dataGrouping: {
