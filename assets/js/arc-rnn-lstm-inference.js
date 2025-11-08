@@ -190,7 +190,9 @@ function generateChart(fileNameKey){
                 top: '65%',
                 height: '30%',
                 offset: 0,
-                lineWidth: 2
+                lineWidth: 2,
+                softMax: 0.25,
+                softMin: -0.25
             }
             ],
 
@@ -280,7 +282,7 @@ function generateChart(fileNameKey){
                     },
                     tooltip: {
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f}m<br/>'
+                            '{point.y:,.2f}<br/>'
                     },
                     visible: true
                 }
