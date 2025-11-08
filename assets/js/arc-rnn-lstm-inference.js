@@ -183,7 +183,7 @@ function generateChart(fileNameKey){
                     x: 5
                 },
                 title: {
-                    text: 'error<br>(%)',
+                    text: 'APE<br>(%)',
                     align: 'middle',
                     x: 7
                 },
@@ -191,8 +191,16 @@ function generateChart(fileNameKey){
                 height: '30%',
                 offset: 0,
                 lineWidth: 2,
-                softMax: 0.25,
-                softMin: -0.25
+                softMax: 0.2,
+                softMin: -0.01,
+                plotLines: [{
+                    value: 0.1,
+                    color: '#676161',
+                    width: 0.65,
+                    label: {
+                        text: '0.1%'
+                    }
+                }]
             }
             ],
 
@@ -219,8 +227,9 @@ function generateChart(fileNameKey){
 
             series: [{
                 type: 'spline',
-                name: 'Measures',
+                name: 'Measures: Ground Truth',
                 data: measures,
+                lineWidth: 3,
                 color: '#6B8E23',
                 yAxis: 0,
                 dataGrouping: {
@@ -228,17 +237,19 @@ function generateChart(fileNameKey){
                 },
                 tooltip: {
                     pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                        '{point.y:,.2f}m<br/>'
+                        '{point.y:,.3f}m<br/>'
                 },
                 visible: true
             },
 
                 {
                     type: 'spline',
-                    name: 'Approximations',
+                    name: 'Measures: Predictions',
                     data: approximations,
                     marker: {
-                        enabled: true
+                        enabled: true,
+                        symbol: 'circle',
+                        radius: 1
                     },
                     lineWidth: 0,
                     color: '#000000',
@@ -248,13 +259,14 @@ function generateChart(fileNameKey){
                     },
                     tooltip: {
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f}m<br/>'
+                            '{point.y:,.3f}m<br/>'
                     },
+                    opacity: 0.65,
                     visible: true
                 },
                 {
                     type: 'spline',
-                    name: 'Forecasts',
+                    name: 'Future: Forecasts',
                     data: forecasts,
                     color: '#917808',
                     yAxis: 0,
@@ -263,26 +275,26 @@ function generateChart(fileNameKey){
                     },
                     tooltip: {
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f}m<br/>'
+                            '{point.y:,.3f}m<br/>'
                     },
                     visible: true
                 },
                 {
                     type: 'spline',
-                    name: 'Absolute Percentage Error',
+                    name: 'Absolute Percentage Error (APE)',
                     data: percentages,
                     marker: {
                         enabled: false
                     },
                     lineWidth: 1,
-                    color: '#000000',
+                    color: '#8e0924',
                     yAxis: 1,
                     dataGrouping: {
                         units: groupingUnits
                     },
                     tooltip: {
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f}<br/>'
+                            '{point.y:,.3f}%<br/>'
                     },
                     visible: true
                 }
