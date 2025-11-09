@@ -120,11 +120,11 @@ function generateChart(fileNameKey) {
             },
 
             title: {
-                text: 'Error: ' + optionSelected
+                text: 'Model of: ' + optionSelected
             },
 
             subtitle: {
-                text: '<p>River Level Prediction</p> <br/><br/>'
+                text: '<p>Absolute Percentage Errors</p> <br/><br/>'
             },
 
             credits: {
@@ -141,7 +141,7 @@ function generateChart(fileNameKey) {
             },
 
             caption: {
-                text: '<p>TR: Training, TE: Testing</p>'
+                text: '<p>a.p.e.: absolute percentage error</p>'
             },
 
             exporting: {
@@ -163,7 +163,7 @@ function generateChart(fileNameKey) {
 
             yAxis: {
                 title: {
-                    text: 'absolute percentage error'
+                    text: 'absolute percentage error (%)'
                 },
                 min: -0.01
             },
@@ -208,25 +208,25 @@ function generateChart(fileNameKey) {
             series: [
                 {
                     type: 'scatter',
-                    name: 'training',
+                    name: '<b><abbr title="absolute percentage error">a.p.e.</abbr> per point</b>: training stage',
                     data: training,
                     color: 'orange'
                 }, {
                     type: 'boxplot',
-                    name: 'q training',
+                    name: '<b><abbr title="absolute percentage error">a.p.e.</abbr> quantiles</b>: training stage',
                     data: q_training,
                     color: 'orange',
                     fillColor: 'orange'
                 },
                 {
                     type: 'scatter',
-                    name: 'testing',
+                    name: '<b><abbr title="absolute percentage error">a.p.e.</abbr> per point</b>: testing stage',
                     data: testing,
                     color: 'olive'
                 },
                 {
                     type: 'boxplot',
-                    name: 'q testing',
+                    name: '<b><abbr title="absolute percentage error">a.p.e.</abbr> quantiles</b>: testing stage',
                     data: q_testing,
                     color: 'olive',
                     fillColor: 'olive'
