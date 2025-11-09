@@ -50,27 +50,57 @@ function generateChart(fileNameKey) {
 
         // split the data set into ...
         let training = [],
-            testing = [];
+            q_training = [],
+            testing = [],
+            q_testing = [];
 
 
         let ctr = source['training'].columns;
         let ape_training = ctr.indexOf('ape');
         for (var i = 0; i < source['training'].data.length; i += 1) {
-
             training.push(
                 [0, source['training'].data[i][ape_training]] // absolute percentage error
             );
         }
 
+        let qt = source['q_training'].columns;
+        let lw = qt.indexOf('l_whisker'),
+            lq = qt.indexOf('l_quartile'),
+            me = qt.indexOf('median'),
+            uq = qt.indexOf('u_quartile'),
+            uw = qt.indexOf('u_whisker');
+        q_training = [{
+            x: 0,
+            low: source['q_training'].data[0][lw],
+            q1: source['q_training'].data[0][lq],
+            median: source['q_training'].data[0][me],
+            q3: source['q_training'].data[0][uq],
+            high: source['q_training'].data[0][uw]
+        }];
+
 
         let cte = source['testing'].columns;
         let ape_testing = cte.indexOf('ape');
         for (var j = 0; j < source['testing'].data.length; j += 1) {
-
             testing.push(
                 [1, source['testing'].data[j][ape_testing]] // absolute percentage error
             );
         }
+
+        qt = source['q_testing'].columns;
+        lw = qt.indexOf('l_whisker');
+        lq = qt.indexOf('l_quartile');
+        me = qt.indexOf('median');
+        uq = qt.indexOf('u_quartile');
+        uw = qt.indexOf('u_whisker');
+        q_testing = [{
+            x: 1,
+            low: source['q_testing'].data[0][lw],
+            q1: source['q_testing'].data[0][lq],
+            median: source['q_testing'].data[0][me],
+            q3: source['q_testing'].data[0][uq],
+            high: source['q_testing'].data[0][uw]
+        }];
 
 
         Highcharts.setOptions({
@@ -134,7 +164,8 @@ function generateChart(fileNameKey) {
             yAxis: {
                 title: {
                     text: 'absolute percentage error'
-                }
+                },
+                min: -0.01
             },
 
             plotOptions: {
@@ -151,21 +182,50 @@ function generateChart(fileNameKey) {
                         symbol: 'circle'
                     },
                     tooltip: {
-                        pointFormat: 'absolute percentage error: {point.y:.3f}'
+                        pointFormat: 'absolute percentage error: {point.y:.3f}%'
+                    }
+                },
+                boxplot: {
+                    tooltip: {
+                        headerFormat: '<span style="color:{point.color}">\u25CF</span> <em>Quantiles: {point.key}</em><br/>',
+                        pointFormat: '' +
+                            'Lower Whisker: {point.low:,.3f}%<br/>' +
+                            'Lower Quartile: {point.q1:,.3f}%<br/>' +
+                            'Median: {point.median:,.3f}%<br/>' +
+                            'Upper Quartile: {point.q3:,.3f}%<br>' +
+                            'Upper Whisker: {point.high:,.3f}%<br/>'
                     }
                 }
             },
 
 
-            series: [{
-                type: 'scatter',
-                name: 'training',
-                data: Array.from(training)
-            },
+            series: [
+                {
+                    type: 'scatter',
+                    name: 'training',
+                    data: training
+                }, {
+                    type: 'boxplot',
+                    name: 'q training',
+                    data: q_training,
+                    whiskerWidth: 3,
+                    medianWidth: 1,
+                    pointWidth: 8,
+                    fillColor: '#000000'
+                },
                 {
                     type: 'scatter',
                     name: 'testing',
-                    data: Array.from(testing)
+                    data: testing
+                },
+                {
+                    type: 'boxplot',
+                    name: 'q testing',
+                    data: q_testing,
+                    whiskerWidth: 3,
+                    medianWidth: 1,
+                    pointWidth: 8,
+                    fillColor: '#000000'
                 }
             ]
         });
