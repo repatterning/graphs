@@ -70,7 +70,7 @@ function generateChart(fileNameKey) {
             uq = qt.indexOf('u_quartile'),
             uw = qt.indexOf('u_whisker');
         q_training = [{
-            x: 0,
+            x: -0.1,
             low: source['q_training'].data[0][lw],
             q1: source['q_training'].data[0][lq],
             median: source['q_training'].data[0][me],
@@ -94,7 +94,7 @@ function generateChart(fileNameKey) {
         uq = qt.indexOf('u_quartile');
         uw = qt.indexOf('u_whisker');
         q_testing = [{
-            x: 1,
+            x: 1.1,
             low: source['q_testing'].data[0][lw],
             q1: source['q_testing'].data[0][lq],
             median: source['q_testing'].data[0][me],
@@ -194,7 +194,13 @@ function generateChart(fileNameKey) {
                             'Median: {point.median:,.3f}%<br/>' +
                             'Upper Quartile: {point.q3:,.3f}%<br>' +
                             'Upper Whisker: {point.high:,.3f}%<br/>'
-                    }
+                    },
+                    whiskerWidth: 3,
+                    medianWidth: 1,
+                    pointWidth: 6,
+                    medianColor: '#000000',
+                    stemColor: '#000000',
+                    whiskerColor: '#000000'
                 }
             },
 
@@ -203,29 +209,27 @@ function generateChart(fileNameKey) {
                 {
                     type: 'scatter',
                     name: 'training',
-                    data: training
+                    data: training,
+                    color: 'orange'
                 }, {
                     type: 'boxplot',
                     name: 'q training',
                     data: q_training,
-                    whiskerWidth: 3,
-                    medianWidth: 1,
-                    pointWidth: 8,
-                    fillColor: '#000000'
+                    color: 'orange',
+                    fillColor: 'orange'
                 },
                 {
                     type: 'scatter',
                     name: 'testing',
-                    data: testing
+                    data: testing,
+                    color: 'olive'
                 },
                 {
                     type: 'boxplot',
                     name: 'q testing',
                     data: q_testing,
-                    whiskerWidth: 3,
-                    medianWidth: 1,
-                    pointWidth: 8,
-                    fillColor: '#000000'
+                    color: 'olive',
+                    fillColor: 'olive'
                 }
             ]
         });
