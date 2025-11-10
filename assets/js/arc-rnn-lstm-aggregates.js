@@ -30,50 +30,49 @@ function generateChart(fileNameKey) {
         // https://api.highcharts.com/highstock/tooltip.pointFormat
 
 
-
-
         let frame = source[fileNameKey];
+        let estimates = [];
 
-        let indices = source[fileNameKey]['columns'];
-        let i_r_median_se = indices.indexOf('r_median_se'),
-            i_median_ape = indices.indexOf('median_ape'),
-            i_r_mean_se = indices.indexOf('r_mean_se'),
-            i_mean_ape = indices.indexOf('mean_ape'),
-            i_sta_n = indices.indexOf('station_name'),
-            i_riv = indices.indexOf('river_name'),
-            i_cat = indices.indexOf('catchment_name');
+        for (let i = 0; i < frame.length; i += 1) {
 
+            let indices = frame[i]['columns'];
+            let i_r_median_se = indices.indexOf('r_median_se'),
+                i_median_ape = indices.indexOf('median_ape'),
+                i_r_mean_se = indices.indexOf('r_mean_se'),
+                i_mean_ape = indices.indexOf('mean_ape'),
+                i_sta_n = indices.indexOf('station_name'),
+                i_riv = indices.indexOf('river_name');
 
-        // hence ...
-        let data = [];
-        for (let j = 0; j < frame['data'].length; j += 1) {
+            // hence ...
+            let data = [];
+            for (let j = 0; j < frame[i]['data'].length; j += 1) {
 
-            data.push({
-                x: frame['data'][j][i_median_ape], //
-                y: frame['data'][j][i_r_median_se], //
-                name: frame['data'][j][i_sta_n], // station name
-                className: frame['data'][j][i_cat],
-                description:  + '<br>' +
-                    '<b>river:</b> ' + frame['data'][j][i_riv] + '<br>' +
-                    '<b>RMSE:</b> ' + Highcharts.numberFormat(frame['data'][j][i_r_mean_se], 4) + '<br>' +
-                    '<b>Mean APE:</b> ' + Highcharts.numberFormat(frame['data'][j][i_mean_ape], 4) + '<br>'
+                data.push({
+                    x: frame[i]['data'][j][i_median_ape],
+                    y: frame[i]['data'][j][i_r_median_se],
+                    name: frame[i]['data'][j][i_sta_n], // station name
+                    description: '<b>river:</b> ' + frame[i]['data'][j][i_riv] + '<br>' +
+                        '<b>RMSE:</b> ' + Highcharts.numberFormat(frame[i]['data'][j][i_r_mean_se], 4) + '<br>' +
+                        '<b>Mean APE:</b> ' + Highcharts.numberFormat(frame[i]['data'][j][i_mean_ape], 4) + '<br>'
+                });
+
+            }
+
+            estimates.push({
+                type: 'scatter',
+                name: frame[i]['catchment_name'],
+                data: data,
+                tooltip: {
+                    pointFormat: '<br/>' +
+                        '<b>gauge station:</b> {point.name}<br/>' +
+                        '<b>catchment:</b> {series.name}<br/>' +
+                        '<b>stage:</b> ' + fileNameKey + '<br/>' +
+                        '<br/>{point.description}'
+                }
             });
 
         }
 
-        let estimates = [];
-        estimates.push({
-            type: 'scatter',
-            name: this.className,
-            data: data,
-            tooltip: {
-                pointFormat: '<br/>' +
-                    '<b>gauge station:</b> {point.name}<br/>' +
-                    '<b>catchment:</b> {point.className}<br/>' +
-                    '<b>stage:</b> {series.name}' +
-                    '<br><br>{point.description}'
-            }
-        });
 
 
         Highcharts.setOptions({
