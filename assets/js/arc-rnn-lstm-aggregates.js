@@ -21,8 +21,6 @@ dropdown.on('change', function (e) {
 // Generate graphs
 function generateChart(fileNameKey) {
 
-
-
     $.getJSON('../warehouse/arc-rnn-lstm-metrics/aggregates/aggregates.json', function (source) {
 
         // https://api.highcharts.com/highstock/plotOptions.series.dataLabels
@@ -35,6 +33,7 @@ function generateChart(fileNameKey) {
 
         for (let i = 0; i < frame.length; i += 1) {
 
+            // indices ...
             let indices = frame[i]['columns'];
             let i_r_median_se = indices.indexOf('r_median_se'),
                 i_median_ape = indices.indexOf('median_ape'),
@@ -43,7 +42,7 @@ function generateChart(fileNameKey) {
                 i_sta_n = indices.indexOf('station_name'),
                 i_riv = indices.indexOf('river_name');
 
-            // hence ...
+            // the data points of a catchment section
             let data = [];
             for (let j = 0; j < frame[i]['data'].length; j += 1) {
 
@@ -58,6 +57,7 @@ function generateChart(fileNameKey) {
 
             }
 
+            // a catchment structure
             estimates.push({
                 type: 'scatter',
                 name: frame[i]['catchment_name'],
@@ -74,7 +74,7 @@ function generateChart(fileNameKey) {
         }
 
 
-
+        // Formating numbers
         Highcharts.setOptions({
             lang: {
                 thousandsSep: ','
