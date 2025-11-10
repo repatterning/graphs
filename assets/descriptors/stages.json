@@ -1,0 +1,10 @@
+[
+  {
+    "desc": "training",
+    "name": "Training Stage"
+  },
+  {
+    "desc": "testing",
+    "name": "Testing Stage"
+  }
+]
