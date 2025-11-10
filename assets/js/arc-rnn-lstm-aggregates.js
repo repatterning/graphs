@@ -109,7 +109,7 @@ function generateChart(fileNameKey) {
             },
 
             title: {
-                text: 'Error Metrics'
+                text: 'error metrics: ' + fileNameKey + ' stage'
             },
 
             subtitle: {
