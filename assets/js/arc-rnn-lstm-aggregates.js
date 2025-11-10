@@ -1,25 +1,7 @@
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var url =  JSON.stringify([
-    {"desc": "training", "name": "Training Stage"},
-    {"desc": "testing", "name": "Testing Stage"}
-])
-
-$.getJSON(url, function (data) {
-
-    $.each(data, function (key, entry) {
-        dropdown.append($('<option></option>').attr('value', entry.desc).text(entry.name));
-    });
-
-    // Load the first Option by default
-    var defaultOption = dropdown.find("option:first-child").val();
-    optionSelected = dropdown.find("option:first-child").text();
-
-    // Generate
-    generateChart(defaultOption);
-
-});
+var e = document.getElementById('option_selector');
 
 
 // Dropdown
@@ -39,11 +21,15 @@ dropdown.on('change', function (e) {
 // Generate graphs
 function generateChart(fileNameKey) {
 
+
+
     $.getJSON('../warehouse/arc-rnn-lstm-metrics/aggregates/aggregates.json', function (source) {
 
         // https://api.highcharts.com/highstock/plotOptions.series.dataLabels
         // https://api.highcharts.com/class-reference/Highcharts.Point#.name
         // https://api.highcharts.com/highstock/tooltip.pointFormat
+
+
 
 
         let frame = source[fileNameKey];
@@ -68,9 +54,9 @@ function generateChart(fileNameKey) {
                 name: frame['data'][j][i_sta_n], // station name
                 className: frame['data'][j][i_cat],
                 description:  + '<br>' +
-                    '<b>river:</b> ' + source[i]['data'][j][i_riv] + '<br>' +
-                    '<b>RMSE:</b> ' + Highcharts.numberFormat(source[i]['data'][j][i_r_mean_se], 4) + '<br>' +
-                    '<b>Mean APE:</b> ' + Highcharts.numberFormat(source[i]['data'][j][i_mean_ape], 4) + '<br>'
+                    '<b>river:</b> ' + frame['data'][j][i_riv] + '<br>' +
+                    '<b>RMSE:</b> ' + Highcharts.numberFormat(frame['data'][j][i_r_mean_se], 4) + '<br>' +
+                    '<b>Mean APE:</b> ' + Highcharts.numberFormat(frame['data'][j][i_mean_ape], 4) + '<br>'
             });
 
         }
@@ -78,7 +64,7 @@ function generateChart(fileNameKey) {
         let estimates = [];
         estimates.push({
             type: 'scatter',
-            name: fileNameKey,
+            name: this.className,
             data: data,
             tooltip: {
                 pointFormat: '<br/>' +
