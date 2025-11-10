@@ -67,7 +67,9 @@ function generateChart(fileNameKey) {
                     y: frame[i]['data'][j][i_r_median_se],
                     name: frame[i]['data'][j][i_sta_n], // station name
                     description: '<b>river:</b> ' + frame[i]['data'][j][i_riv] + '<br/><br/>' +
+                        '<b>root median square<br/>error:</b> ' + Highcharts.numberFormat(frame[i]['data'][j][i_r_median_se], 4) + '<br/><br/>' +
                         '<b>root mean square<br/>error:</b> ' + Highcharts.numberFormat(frame[i]['data'][j][i_r_mean_se], 4) + '<br/><br/>' +
+                        '<b>median absolute<br/>percentage error:</b> ' + Highcharts.numberFormat(frame[i]['data'][j][i_median_ape], 4) + '<br/><br/>' +
                         '<b>mean absolute<br/>percentage error:</b> ' + Highcharts.numberFormat(frame[i]['data'][j][i_mean_ape], 4) + '<br>'
                 });
 
