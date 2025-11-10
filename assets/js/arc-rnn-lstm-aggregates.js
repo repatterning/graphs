@@ -1,7 +1,23 @@
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var e = document.getElementById('option_selector');
+var url = '../assets/descriptors/stages.json';
+
+
+$.getJSON(url, function (data) {
+
+    $.each(data, function (key, entry) {
+        dropdown.append($('<option></option>').attr('value', entry.desc).text(entry.name));
+    });
+
+    // Load the first Option by default
+    var defaultOption = dropdown.find("option:first-child").val();
+    optionSelected = dropdown.find("option:first-child").text();
+
+    // Generate
+    generateChart(defaultOption);
+
+});
 
 
 // Dropdown
@@ -51,8 +67,8 @@ function generateChart(fileNameKey) {
                     y: frame[i]['data'][j][i_r_median_se],
                     name: frame[i]['data'][j][i_sta_n], // station name
                     description: '<b>river:</b> ' + frame[i]['data'][j][i_riv] + '<br>' +
-                        '<b>RMSE:</b> ' + Highcharts.numberFormat(frame[i]['data'][j][i_r_mean_se], 4) + '<br>' +
-                        '<b>Mean APE:</b> ' + Highcharts.numberFormat(frame[i]['data'][j][i_mean_ape], 4) + '<br>'
+                        '<b>root mean square<br/>error:</b> ' + Highcharts.numberFormat(frame[i]['data'][j][i_r_mean_se], 4) + '<br>' +
+                        '<b>mean absolute<br/>percentage error:</b> ' + Highcharts.numberFormat(frame[i]['data'][j][i_mean_ape], 4) + '<br>'
                 });
 
             }
