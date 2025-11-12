@@ -83,11 +83,14 @@ function generateChart(fileNameKey) {
 
 
         let cte = source['testing'].columns;
-        let ape_testing = cte.indexOf('ape');
+        let ape_testing = cte.indexOf('ape'),
+            t_testing = cte.indexOf('timestamp');
         for (var j = 0; j < source['testing'].data.length; j += 1) {
-            testing.push(
-                [1, source['testing'].data[j][ape_testing]] // absolute percentage error
-            );
+            testing.push({
+                x: 1,
+                y: source['testing'].data[j][ape_testing],
+                description: Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', source['testing'].data[j][t_testing])
+            });
         }
 
         qt = source['q_testing'].columns;
@@ -185,7 +188,7 @@ function generateChart(fileNameKey) {
                         symbol: 'circle'
                     },
                     tooltip: {
-                        pointFormat: 'absolute percentage error: {point.y:.3f}%'
+                        pointFormat: 'absolute percentage error: {point.y:.3f}%<br/>{point.description}'
                     }
                 },
                 boxplot: {
