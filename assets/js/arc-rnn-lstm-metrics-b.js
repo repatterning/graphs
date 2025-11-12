@@ -56,11 +56,14 @@ function generateChart(fileNameKey) {
 
 
         let ctr = source['training'].columns;
-        let ape_training = ctr.indexOf('ape');
-        for (var i = 0; i < source['training'].data.length; i += 1) {
-            training.push(
-                [0, source['training'].data[i][ape_training]] // absolute percentage error
-            );
+        let ape_training = ctr.indexOf('ape'),
+            t_training = ctr.indexOf('timestamp');
+        for (let i = 0; i < source['training'].data.length; i += 1) {
+            training.push({
+                x: 0,
+                y: source['training'].data[i][ape_training],
+                description: Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', source['training'].data[i][t_training])
+            });
         }
 
         let qt = source['q_training'].columns;
