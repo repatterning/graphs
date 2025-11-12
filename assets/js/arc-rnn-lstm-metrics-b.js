@@ -55,15 +55,20 @@ function generateChart(fileNameKey) {
             q_testing = [];
 
 
-        let ctr = source['training'].columns;
-        let ape_training = ctr.indexOf('ape');
-        for (var i = 0; i < source['training'].data.length; i += 1) {
-            training.push(
-                [0, source['training'].data[i][ape_training]] // absolute percentage error
-            );
+        let frame_tr = source['training'];
+        let ctr = frame_tr.columns;
+        let ape_training = ctr.indexOf('ape'),
+            t_training = ctr.indexOf('timestamp');
+        for (let i = 0; i < frame_tr.data.length; i += 1) {
+            training.push({
+                x: 0,
+                y: frame_tr.data[i][ape_training],
+                description: Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', frame_tr.data[i][t_training])
+            });
         }
 
-        let qt = source['q_training'].columns;
+        let frame_trq = source['q_training'];
+        let qt = frame_trq.columns;
         let lw = qt.indexOf('l_whisker'),
             lq = qt.indexOf('l_quartile'),
             me = qt.indexOf('median'),
@@ -71,23 +76,28 @@ function generateChart(fileNameKey) {
             uw = qt.indexOf('u_whisker');
         q_training = [{
             x: -0.1,
-            low: source['q_training'].data[0][lw],
-            q1: source['q_training'].data[0][lq],
-            median: source['q_training'].data[0][me],
-            q3: source['q_training'].data[0][uq],
-            high: source['q_training'].data[0][uw]
+            low: frame_trq.data[0][lw],
+            q1: frame_trq.data[0][lq],
+            median: frame_trq.data[0][me],
+            q3: frame_trq.data[0][uq],
+            high: frame_trq.data[0][uw]
         }];
 
 
-        let cte = source['testing'].columns;
-        let ape_testing = cte.indexOf('ape');
-        for (var j = 0; j < source['testing'].data.length; j += 1) {
-            testing.push(
-                [1, source['testing'].data[j][ape_testing]] // absolute percentage error
-            );
+        let frame_te = source['testing'];
+        let cte = frame_te.columns;
+        let ape_testing = cte.indexOf('ape'),
+            t_testing = cte.indexOf('timestamp');
+        for (var j = 0; j < frame_te.data.length; j += 1) {
+            testing.push({
+                x: 1,
+                y: frame_te.data[j][ape_testing],
+                description: Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', frame_te.data[j][t_testing])
+            });
         }
 
-        qt = source['q_testing'].columns;
+        let frame_teq = source['q_testing'];
+        qt = frame_teq.columns;
         lw = qt.indexOf('l_whisker');
         lq = qt.indexOf('l_quartile');
         me = qt.indexOf('median');
@@ -95,11 +105,11 @@ function generateChart(fileNameKey) {
         uw = qt.indexOf('u_whisker');
         q_testing = [{
             x: 1.1,
-            low: source['q_testing'].data[0][lw],
-            q1: source['q_testing'].data[0][lq],
-            median: source['q_testing'].data[0][me],
-            q3: source['q_testing'].data[0][uq],
-            high: source['q_testing'].data[0][uw]
+            low: frame_teq.data[0][lw],
+            q1: frame_teq.data[0][lq],
+            median: frame_teq.data[0][me],
+            q3: frame_teq.data[0][uq],
+            high: frame_teq.data[0][uw]
         }];
 
 
@@ -182,7 +192,7 @@ function generateChart(fileNameKey) {
                         symbol: 'circle'
                     },
                     tooltip: {
-                        pointFormat: 'absolute percentage error: {point.y:.3f}%'
+                        pointFormat: 'absolute percentage error: {point.y:.3f}%<br/>{point.description}'
                     }
                 },
                 boxplot: {

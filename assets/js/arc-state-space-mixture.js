@@ -61,7 +61,8 @@ function generateChart(fileNameKey){
             ]];
 
 
-        let ctr = source['training'].columns;
+        let training = source['training'];
+        let ctr = training.columns;
         let ltr = ctr.indexOf('lower_q'),
             utr = ctr.indexOf('upper_q'),
             mtr = ctr.indexOf('median'),
@@ -69,33 +70,34 @@ function generateChart(fileNameKey){
             pel = ctr.indexOf('p_e_lower_q'),
             peu = ctr.indexOf('p_e_upper_q'); // percentage error
 
-        for (var i = 0; i < source['training'].data.length; i += 1) {
+        for (var i = 0; i < training.data.length; i += 1) {
 
             estimate.push({
-                x: source['training'].data[i][0], // date
-                y: source['training'].data[i][mtr] // median
+                x: training.data[i][0], // date
+                y: training.data[i][mtr] // median
             });
 
             boundary.push([
-                source['training'].data[i][0], // date
-                source['training'].data[i][ltr], // lower
-                source['training'].data[i][utr] // upper
+                training.data[i][0], // date
+                training.data[i][ltr], // lower
+                training.data[i][utr] // upper
             ]);
 
             observations.push({
-                x: source['training'].data[i][0], // date
-                y: source['training'].data[i][otr] // original values
+                x: training.data[i][0], // date
+                y: training.data[i][otr] // original values
             });
 
             percentage.push([
-                source['training'].data[i][0], // date
-                source['training'].data[i][pel], // ...
-                source['training'].data[i][peu] // ...
+                training.data[i][0], // date
+                training.data[i][pel], // ...
+                training.data[i][peu] // ...
             ]);
         }
 
 
-        let cte = source['testing'].columns;
+        let testing = source['testing'];
+        let cte = testing.columns;
         let lte = cte.indexOf('lower_q'),
             ute = cte.indexOf('upper_q'),
             mte = cte.indexOf('median'),
@@ -103,49 +105,50 @@ function generateChart(fileNameKey){
             ptl = cte.indexOf('p_e_lower_q'),
             ptu = cte.indexOf('p_e_upper_q');
 
-        for (var j = 0; j < source['testing'].data.length; j += 1) {
+        for (var j = 0; j < testing.data.length; j += 1) {
 
             t_estimate.push({
-                x: source['testing'].data[j][0], // date
-                y: source['testing'].data[j][mte] // estimate
+                x: testing.data[j][0], // date
+                y: testing.data[j][mte] // estimate
             });
 
             t_boundary.push([
-                source['testing'].data[j][0], // date
-                source['testing'].data[j][lte], // lower
-                source['testing'].data[j][ute] // upper
+                testing.data[j][0], // date
+                testing.data[j][lte], // lower
+                testing.data[j][ute] // upper
             ]);
 
             t_observations.push({
-                x: source['testing'].data[j][0], // date
-                y: source['testing'].data[j][ote] // original values
+                x: testing.data[j][0], // date
+                y: testing.data[j][ote] // original values
             });
 
             t_percentage.push([
-                source['testing'].data[j][0], // date
-                source['testing'].data[j][ptl], // ...
-                source['testing'].data[j][ptu] // ...
+                testing.data[j][0], // date
+                testing.data[j][ptl], // ...
+                testing.data[j][ptu] // ...
             ]);
         }
 
 
-        let ctf = source['futures'].columns;
+        let futures = source['futures'];
+        let ctf = futures.columns;
         let ltf = ctf.indexOf('lower_q'),
             utf = ctf.indexOf('upper_q'),
             mtf = ctf.indexOf('median'),
             tsf = ctf.indexOf('date');
 
-        for (var k = 0; k < source['futures'].data.length; k += 1) {
+        for (var k = 0; k < futures.data.length; k += 1) {
 
             f_estimate.push({
-                x: source['futures'].data[k][tsf], // date
-                y: source['futures'].data[k][mtf] // estimate
+                x: futures.data[k][tsf], // date
+                y: futures.data[k][mtf] // estimate
             });
 
             f_boundary.push([
-                source['futures'].data[k][tsf], // date
-                source['futures'].data[k][ltf], // lower
-                source['futures'].data[k][utf] // upper
+                futures.data[k][tsf], // date
+                futures.data[k][ltf], // lower
+                futures.data[k][utf] // upper
             ]);
 
         }

@@ -47,11 +47,12 @@ function generateChart(fileNameKey){
                 [1]                            // allowed multiples
             ]];
 
-        for (var i = 0; i < source.data.length; i += 1) {
+        let frame = source;
+        for (let i = 0; i < frame.data.length; i += 1) {
 
             sectors.push({
-                name: source['periods'][i].substring(0, 4),
-                data: source.data[i],
+                name: frame['periods'][i].substring(0, 4),
+                data: frame.data[i],
                 type: 'spline',
                 dataGrouping: {
                     enabled: true,
@@ -115,7 +116,7 @@ function generateChart(fileNameKey){
             },
 
             subtitle: {
-                text: 'Gauge River/Water Spot: ' + source['attributes']['river_name']
+                text: 'Gauge River/Water Spot: ' + frame['attributes']['river_name']
             },
 
             credits: {
@@ -178,8 +179,8 @@ function generateChart(fileNameKey){
 
             plotOptions: {
                 series: {
-                    pointStart: source['starting'],
-                    pointInterval: source['interval'],
+                    pointStart: frame['starting'],
+                    pointInterval: frame['interval'],
                     turboThreshold: 4000
                 }
             },

@@ -133,7 +133,22 @@
 
               <div class="card mb-4">
 
-                <p style="margin-left: 35px; margin-top: 25px; color: #696cff"><b>Latest/Most Recent Warning Period</b></p>
+                <div style="margin-left: 35px; margin-top: 25px; color: #696cff">
+                  <p id="state" style="color: #696cff">
+                    <script>$.getJSON("../warehouse/warning/times.json", function (data){
+                        let cells = "",
+                            elements = document.getElementById('state');
+                        if (data['testing']) {
+                            cells = "<h4 style='font-variant: small-caps'>Latest Test</h4>";
+                        } else {
+                            cells = "<h4 style='font-variant: small-caps'>Latest/Most Recent Warning Period</h4>";
+                        }
+                        elements.innerHTML = cells;
+                    });
+                    </script>
+                  </p>
+                  <p>Outwith warning periods, random test runs will occur; the title automatically updates accordingly.</p>
+                </div>
 
                 <table class="briefings" style="width: 65%">
                   <colgroup>
@@ -145,8 +160,8 @@
                       <p id="dates" style="color: #696cff">
                         <script>$.getJSON("../warehouse/warning/times.json", function (data){
                             let cells = "",
-                                elements = document.getElementById('dates')
-                            cells = data.starting + " &Rarr; " + data.ending;
+                                elements = document.getElementById('dates');
+                            cells = data['starting'] + " &Rarr; " + data['ending'];
                             elements.innerHTML = cells;
                         });</script>
                       </p>
