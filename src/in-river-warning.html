@@ -138,7 +138,7 @@
                     <script>$.getJSON("../warehouse/warning/times.json", function (data){
                         let cells = "",
                             elements = document.getElementById('state');
-                        if (data.testing) {
+                        if (data['testing']) {
                             cells = "<h4 style='font-variant: small-caps'>Latest Test</h4>";
                         } else {
                             cells = "<h4 style='font-variant: small-caps'>Latest/Most Recent Warning Period</h4>";
@@ -161,7 +161,7 @@
                         <script>$.getJSON("../warehouse/warning/times.json", function (data){
                             let cells = "",
                                 elements = document.getElementById('dates');
-                            cells = data.starting + " &Rarr; " + data.ending;
+                            cells = data['starting'] + " &Rarr; " + data['ending'];
                             elements.innerHTML = cells;
                         });</script>
                       </p>
