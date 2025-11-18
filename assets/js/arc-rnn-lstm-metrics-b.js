@@ -57,7 +57,7 @@ function generateChart(fileNameKey) {
 
         let frame_tr = source['training'];
         let ctr = frame_tr.columns;
-        let ape_training = ctr.indexOf('ape'),
+        let ape_training = ctr.indexOf('p_error'),
             t_training = ctr.indexOf('timestamp');
         for (let i = 0; i < frame_tr.data.length; i += 1) {
             training.push({
@@ -86,7 +86,7 @@ function generateChart(fileNameKey) {
 
         let frame_te = source['testing'];
         let cte = frame_te.columns;
-        let ape_testing = cte.indexOf('ape'),
+        let ape_testing = cte.indexOf('p_error'),
             t_testing = cte.indexOf('timestamp');
         for (var j = 0; j < frame_te.data.length; j += 1) {
             testing.push({
@@ -134,7 +134,7 @@ function generateChart(fileNameKey) {
             },
 
             subtitle: {
-                text: '<p>Absolute Percentage Errors</p> <br/><br/>'
+                text: '<p>Error Percentages</p> <br/><br/>'
             },
 
             credits: {
@@ -151,7 +151,7 @@ function generateChart(fileNameKey) {
             },
 
             caption: {
-                text: '<p>a.p.e.: absolute percentage error</p>'
+                text: '<p>p.e.: percentage error</p>'
             },
 
             exporting: {
@@ -173,14 +173,13 @@ function generateChart(fileNameKey) {
 
             yAxis: {
                 title: {
-                    text: 'absolute percentage error (%)'
-                },
-                min: -0.01
+                    text: 'percentage error (%)'
+                }
             },
 
             plotOptions: {
                 series: {
-                    turboThreshold: 4000
+                    turboThreshold: 8000
                 },
                 scatter: {
                     jitter: {
@@ -192,7 +191,7 @@ function generateChart(fileNameKey) {
                         symbol: 'circle'
                     },
                     tooltip: {
-                        pointFormat: 'absolute percentage error: {point.y:.3f}%<br/>{point.description}'
+                        pointFormat: 'percentage error: {point.y:.3f}%<br/>{point.description}'
                     }
                 },
                 boxplot: {
@@ -218,25 +217,25 @@ function generateChart(fileNameKey) {
             series: [
                 {
                     type: 'scatter',
-                    name: '<b><abbr title="absolute percentage error">a.p.e.</abbr> per point</b>: training stage',
+                    name: '<b><abbr title="percentage error">p.e.</abbr> per point</b>: training stage',
                     data: training,
                     color: 'orange'
                 }, {
                     type: 'boxplot',
-                    name: '<b><abbr title="absolute percentage error">a.p.e.</abbr> quantiles</b>: training stage',
+                    name: '<b><abbr title="percentage error">p.e.</abbr> quantiles</b>: training stage',
                     data: q_training,
                     color: 'orange',
                     fillColor: 'orange'
                 },
                 {
                     type: 'scatter',
-                    name: '<b><abbr title="absolute percentage error">a.p.e.</abbr> per point</b>: testing stage',
+                    name: '<b><abbr title="percentage error">p.e.</abbr> per point</b>: testing stage',
                     data: testing,
                     color: 'olive'
                 },
                 {
                     type: 'boxplot',
-                    name: '<b><abbr title="absolute percentage error">a.p.e.</abbr> quantiles</b>: testing stage',
+                    name: '<b><abbr title="percentage error">p.e.</abbr> quantiles</b>: testing stage',
                     data: q_testing,
                     color: 'olive',
                     fillColor: 'olive'
