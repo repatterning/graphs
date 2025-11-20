@@ -58,7 +58,7 @@ function generateChart(fileNameKey){
         let ctr = source['estimates'].columns;
         let mr = ctr.indexOf('measure'),
             er = ctr.indexOf('e_measure'),
-            ape = ctr.indexOf('ape')
+            ape = ctr.indexOf('ape');
 
         for (var i = 0; i < source['estimates'].data.length; i += 1) {
 

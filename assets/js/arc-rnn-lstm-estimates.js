@@ -60,7 +60,7 @@ function generateChart(fileNameKey) {
         let ctr = source['training'].columns;
         let etr = ctr.indexOf('e_measure'),
             gtr = ctr.indexOf('measure'), // original
-            tre = ctr.indexOf('ape'); // percentage error
+            tre = ctr.indexOf('p_error'); // percentage error
 
         for (var i = 0; i < source['training'].data.length; i += 1) {
 
@@ -84,7 +84,7 @@ function generateChart(fileNameKey) {
         let cte = source['testing'].columns;
         let ete = cte.indexOf('e_measure'),
             gte = cte.indexOf('measure'), // original
-            tee = cte.indexOf('ape');
+            tee = cte.indexOf('p_error');
 
         for (var j = 0; j < source['testing'].data.length; j += 1) {
 
