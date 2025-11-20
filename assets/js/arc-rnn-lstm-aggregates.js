@@ -56,34 +56,33 @@ function generateChart(fileNameKey) {
         // training
         let ctr = source['training']['columns'];
         let tr_sn = ctr.indexOf('station_name'),
-            tr_rmse = ctr.indexOf('r_median_se');
+            tr_r_median_se = ctr.indexOf('r_median_se');
 
         let categories_tr = [];
         for (let k = 0;  k < source['training']['data'].length; k += 1) {
             categories_tr.push(source['training']['data'][k][tr_sn]);
         }
 
+        // y: source['training']['data'][i][tr_r_median_se]
         for (let i = 0; i < source['training']['data'].length; i += 1) {
-            training.push(source['training']['data'][i][tr_rmse]);
+            training.push(source['training']['data'][i][tr_r_median_se]);
         }
 
 
         // testing
         let cte = source['testing']['columns'];
         let te_sn = cte.indexOf('station_name'),
-            te_rmse = cte.indexOf('r_median_se');
+            te_r_median_se = cte.indexOf('r_median_se');
 
         let categories_te = [];
         for (let k = 0;  k < source['testing']['data'].length; k += 1) {
-            categories_te.push(source['training']['data'][k][tr_sn]);
+            categories_te.push(source['training']['data'][k][te_sn]);
         }
 
-        // y: source['testing']['data'][j][te_rmse], //
+        // y: source['testing']['data'][j][te_r_median_se]
         for (let j = 0; j < source['testing']['data'].length; j += 1) {
-            testing.push(source['testing']['data'][j][te_rmse]);
+            testing.push(source['testing']['data'][j][te_r_median_se]);
         }
-
-
 
 
         // Draw a graph
