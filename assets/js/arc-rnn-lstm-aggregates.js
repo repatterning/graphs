@@ -96,11 +96,11 @@ function generateChart(fileNameKey) {
 
 
             title: {
-                text: 'Errors: ' + source['catchment_name']
+                text: 'Errors: ' + source['catchment_name'] + ' Catchment'
             },
 
             subtitle: {
-                text: '<p>The root median square errors per gauge<br>station within ' + source['catchment_name'] + '</p>'
+                text: '<p>The root median square errors per gauge station<br>within the ' + source['catchment_name'] + ' catchment area.</p>'
             },
 
             time: {
