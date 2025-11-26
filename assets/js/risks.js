@@ -155,7 +155,8 @@ function generateChart(fileNameKey) {
                 title: {
                     text: 'maximum (mm/hr)',
                     x: 0
-                }
+                },
+                max: 1000
             },
 
             plotOptions: {
