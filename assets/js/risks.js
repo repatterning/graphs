@@ -112,7 +112,7 @@ function generateChart(fileNameKey) {
 
             subtitle: {
                 useHTML: true,
-                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.</p>'
+                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.<br>LOGARITHMIC AXES</p>'
             },
 
             time: {
