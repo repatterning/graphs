@@ -112,7 +112,7 @@ function generateChart(fileNameKey) {
 
             subtitle: {
                 useHTML: true,
-                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.</p>'
+                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.<br>LOGARITHMIC AXES</p>'
             },
 
             time: {
@@ -138,6 +138,7 @@ function generateChart(fileNameKey) {
             },
 
             xAxis: {
+                type: 'logarithmic',
                 title: {
                     text: 'latest (mm/hr)'
                 },
@@ -147,13 +148,15 @@ function generateChart(fileNameKey) {
             },
 
             yAxis: {
+                type: 'logarithmic',
                 labels: {
                     format: '{value}'
                 },
                 title: {
                     text: 'maximum (mm/hr)',
                     x: 0
-                }
+                },
+                max: 1000
             },
 
             plotOptions: {
