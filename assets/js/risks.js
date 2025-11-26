@@ -138,6 +138,7 @@ function generateChart(fileNameKey) {
             },
 
             xAxis: {
+                type: 'logarithmic',
                 title: {
                     text: 'latest (mm/hr)'
                 },
@@ -147,6 +148,7 @@ function generateChart(fileNameKey) {
             },
 
             yAxis: {
+                type: 'logarithmic',
                 labels: {
                     format: '{value}'
                 },
