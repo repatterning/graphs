@@ -139,8 +139,8 @@
                         <col span="1" style="width: 100%;">
                       </colgroup>
                       <tr><td>
-                        <p>Note, the timeliness of a gauge's drift series depends on the availability pattern of the underlying raw river level measures.  At present, the drift of each gauge's time series is quantified via the Jensen-Shannon Distance
-                          $\in [0 \quad 1]$, and the Wasserstein Metric/Distance. Whilst the Jensen-Shannon Distance is a measure of similarity between two distributions, the Wasserstein Distance is a distance measure [<a href="https://arxiv.org/pdf/1904.08994" target="_blank">Part 6</a>] between a pair of distributions.  Herein, the distributions of a drift score are the data sets of two contiguous years.</p>
+                        <p>At present, the drift of each gauge's time series is quantified via (a) the Jensen-Shannon Distance
+                          $\in [0 \quad 1]$, and (b) the Wasserstein Metric. Whilst the Jensen-Shannon Distance is a measure of similarity between two distributions, the Wasserstein Metric is akin to the cost of converting one distribution to another [<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6024256/" target="_blank">Optimal Mass Transport</a> | <a href="https://arxiv.org/pdf/1904.08994" target="_blank">From GAN to WGAN, Part 6</a>].  Herein, the distributions of a drift score are the data sets of two contiguous years.</p>
                       </td></tr>
                       <tr>
                         <td><br><br>
