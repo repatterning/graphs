@@ -151,9 +151,11 @@
                       <li>$9 \: days \times 24 \: hours \times \frac{1}{1} = 216 \: $ &Larr; 1-hour-blocks</li>
                     </ul>
 
-                    The graph illustrates the maximum & latest weighted-rate-of-change value per gauge station, vis-a-vis blocks and time span; the unit of measure is millimetres/hour (mm/hr).<br><br>
+                    The graph illustrates the maximum & latest weighted-rate-of-change value per gauge station, vis-à-vis blocks and time span; the unit of measure is millimetres/hour (mm/hr).<br><br>
 
-                      Below, hovering over a legend-catchment-name will bring the catchment's points into focus.  To disable a catchment's points, click on its legend name.  Finally, each graph has an accompanying map representation; the <a href="https://github.com/repatterning/configurations/blob/51cb09a799ff26210b696e9544823c8a674297aa/src/risks/arguments.yaml#L9" target="_blank">N</a> catchments that have the highest latest-millimetres-per-hour values are displayed by default, more can be enabled/disabled via the control.  <a href="/warehouse/risks/maps/0001.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/warehouse/risks/maps/0001.html', 'newwindow', 'width=999,height=690'); return false;">Map: 0.25 hours</a> &nbsp; <a href="/warehouse/risks/maps/0004.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/warehouse/risks/maps/0004.html', 'newwindow', 'width=999,height=690'); return false;">Map: 1 hour</a>
+                    <b>During a weather warning period</b>, keep an eye on the gauge stations on the right-hand-side of a graph - at a point in time, these are the stations with the highest weighted-rate-of-change values.  The higher a gauge station's weighted-river-level-change value is - within a 15-minute or 1-hour period - the greater the risk of a problem in the vicinity.<br><br>
+
+
                     </p>
                   </td><td></td></tr>
                   <tr>
@@ -173,6 +175,10 @@
                       <div><div id="container0002"></div></div>
                       <script src="../assets/js/risks.js" type="text/javascript"></script><br><br>
                     </td><td style="vertical-align: top"></td>
+                  </tr>
+                  <tr>
+                    <td>Hovering over a legend-catchment-name will bring the catchment's points into focus.  To disable a catchment's points, click on its legend name.  Finally, each graph has an accompanying map representation; the <a href="https://github.com/repatterning/configurations/blob/51cb09a799ff26210b696e9544823c8a674297aa/src/risks/arguments.yaml#L9" target="_blank">N</a> catchments that have the highest latest-millimetres-per-hour values are displayed by default, more can be enabled/disabled via the control.</td>
+                    <td></td>
                   </tr>
                 </table>
 
