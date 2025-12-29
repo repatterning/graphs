@@ -119,7 +119,10 @@ function generateChart(fileNameKey) {
                 y: 65
             },
             title: {
-                text: 'Rates of Change of River Levels'
+                useHTML: true,
+                text: 'Rates of Change of River Levels' +
+                    `<a href='/warehouse/risks/maps/${fileNameKey}.html' ` +
+                       `onClick=\"window.open('/warehouse/risks/maps/${fileNameKey}.html', 'newwindow', 'width=999,height=690'); return false;\" target="_blank"> Map</a>`
             },
 
             subtitle: {
