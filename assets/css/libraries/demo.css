@@ -106,7 +106,6 @@
   margin-top: 1rem;
 }
 
-
 .drop-cap {
   color: #100f10;
   float: left;
@@ -115,4 +114,31 @@
   padding-top: 4px;
   padding-right: 8px;
   padding-left: 3px;
+}
+
+/* Details */
+
+details {
+  border: 0;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+}
+
+summary::marker {
+  color: #696cff;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  border-bottom: 0;
+  margin-bottom: 0.5em;
 }

@@ -137,4 +137,5 @@ dist
 
 # Exclude
 script.sh
+approve.sh
 .idea

@@ -103,11 +103,27 @@ function generateChart(fileNameKey) {
 
             chart: {
                 type: 'scatter',
-                zoomType: 'xy'
+                zoomType: 'xy',
+                width: 585,
+                height: 395,
+                marginRight: 225
             },
 
+            legend: {
+                enabled: true,
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                maxHeight: 200,
+                floating: true,
+                y: 65
+            },
             title: {
-                text: 'Rates of Change of River Levels'
+                useHTML: true,
+                text: 'Rates of Change of River Levels  ' +
+                    `<a href='/warehouse/risks/maps/${fileNameKey}.html' class='btn btn-sm btn-outline-primary' ` +
+                    `onClick=\"window.open('/warehouse/risks/maps/${fileNameKey}.html', 'newwindow', 'width=999,height=690'); ` +
+                    `return false;\" target="_blank">View Map</a>`
             },
 
             subtitle: {
@@ -121,10 +137,6 @@ function generateChart(fileNameKey) {
 
             credits: {
                 enabled: false
-            },
-
-            legend: {
-                enabled: true
             },
 
             exporting: {
@@ -184,7 +196,7 @@ function generateChart(fileNameKey) {
             responsive: {
                 rules: [{
                     condition: {
-                        maxWidth: 700
+                        maxWidth: 600
                     },
                     chartOptions: {
                         rangeSelector: {
