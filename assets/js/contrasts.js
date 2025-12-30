@@ -117,7 +117,8 @@ function generateChart(fileNameKey){
             chart: {
                 type: 'spline',
                 zoomType: 'xy',
-                marginRight: 195
+                width: 615,
+                marginRight: 265
             },
 
             title: {
@@ -125,7 +126,7 @@ function generateChart(fileNameKey){
             },
 
             subtitle: {
-                text: 'Catchment: ' + optionSelected
+                text: 'Catchment: <b>' + optionSelected + '</b>'
             },
 
             credits: {
@@ -138,9 +139,9 @@ function generateChart(fileNameKey){
                 align: 'right',
                 verticalAlign: 'top',
                 maxHeight: 285,
-                width: '39%',
+                width: '60%',
                 useHTML: true,
-                x: 125,
+                x: 200,
                 itemStyle: {
                     fontSize: '13px',
                     fontWeight: 400,

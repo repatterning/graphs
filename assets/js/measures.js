@@ -77,7 +77,9 @@ function generateChart(fileNameKey){
 
             chart: {
                 type: 'spline',
-                zoomType: 'xy'
+                zoomType: 'xy',
+                width: 415,
+                height: 410
             },
 
             title: {

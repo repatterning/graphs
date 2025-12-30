@@ -95,9 +95,9 @@ function generateChart(fileNameKey){
             },
 
             chart: {
-                zoomType: 'x'
-                // borderWidth: 2,
-                // marginRight: 100
+                zoomType: 'xy',
+                width: 425,
+                height: 400
             },
 
             title: {
@@ -136,7 +136,8 @@ function generateChart(fileNameKey){
                     x: 9
                 },
                 title: {
-                    text: 'JS',
+                    useHTML: true,
+                    text: '$J_{dist}$',
                     x: 0
                 },
                 height: '45%',
@@ -150,7 +151,8 @@ function generateChart(fileNameKey){
                     x: 5
                 },
                 title: {
-                    text: 'W<sub>p</sub>',
+                    useHTML: true,
+                    text: '$W_{p}$',
                     align: 'middle',
                     x: 7
                 },
