@@ -95,9 +95,8 @@ function generateChart(fileNameKey){
             },
 
             chart: {
-                zoomType: 'x'
-                // borderWidth: 2,
-                // marginRight: 100
+                zoomType: 'xy',
+                width: 425
             },
 
             title: {
@@ -136,7 +135,7 @@ function generateChart(fileNameKey){
                     x: 9
                 },
                 title: {
-                    text: 'JS',
+                    text: 'J<sub>dist</sub>',
                     x: 0
                 },
                 height: '45%',
