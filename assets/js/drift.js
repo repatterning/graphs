@@ -136,7 +136,8 @@ function generateChart(fileNameKey){
                     x: 9
                 },
                 title: {
-                    text: 'J<sub>dist</sub>',
+                    useHTML: true,
+                    text: '$J_{dist}$',
                     x: 0
                 },
                 height: '45%',
@@ -150,7 +151,8 @@ function generateChart(fileNameKey){
                     x: 5
                 },
                 title: {
-                    text: 'W<sub>p</sub>',
+                    useHTML: true,
+                    text: '$W_{p}$',
                     align: 'middle',
                     x: 7
                 },
