@@ -87,9 +87,10 @@ function generateChart(fileNameKey) {
                         lineWidth: line_width,
                         lineColor: line_colour
                     },
-                    description: Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', source[i]['data'][j][i_end]) + '<br>' +
+                    description: Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', source[i]['data'][j][i_end]) + '<br/>' +
                         '<b>latest rate:</b> ' + Highcharts.numberFormat(source[i]['data'][j][i_lat], 4) + ' mm/hr<br/>' +
-                        '<b>maximum rate:</b> ' + Highcharts.numberFormat(source[i]['data'][j][i_max], 4) + ' mm/hr<br/>'
+                        '<b>maximum rate:</b> ' + Highcharts.numberFormat(source[i]['data'][j][i_max], 4) + ' mm/hr<br/>' +
+                        '<b>river/water:</b> ' + source[i]['data'][j][i_riv] + '<br/>'
                 });
 
             }
@@ -125,9 +126,9 @@ function generateChart(fileNameKey) {
                 type: 'scatter',
                 zoomType: 'xy',
                 width: 585,
-                height: 445,
+                height: 465,
                 marginRight: 225,
-                marginBottom: 115
+                marginBottom: 155
             },
 
             legend: {
@@ -149,7 +150,7 @@ function generateChart(fileNameKey) {
 
             subtitle: {
                 useHTML: true,
-                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.<br><b>LOGARITHMIC AXES</b></p><br><br>'
+                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.<br><b>LOGARITHMIC AXES</b></p>'
             },
 
             time: {
@@ -206,7 +207,7 @@ function generateChart(fileNameKey) {
                     verticalAlign: 'bottom',
                     relativeTo: 'spacingBox',
                     x: 30,
-                    y: 365
+                    y: 425
                 },
                 useHTML: true,
                 style: {
