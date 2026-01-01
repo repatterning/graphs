@@ -56,19 +56,40 @@ function generateChart(fileNameKey) {
                 i_med = indices.indexOf('median'),
                 i_sta_n = indices.indexOf('station_name'),
                 i_riv = indices.indexOf('river_name'),
-                i_end = indices.indexOf('ending');
+                i_end = indices.indexOf('ending'),
+                i_ran = indices.indexOf('rank');
+
+            let visible = false;
+            if (source[i]['data'][0][i_ran] < 15)
+                visible = true
 
 
-            let data = [];
+            let data = [], fill_colour = [], line_width = [], line_colour = [];
             for (let j = 0; j < source[i]['data'].length; j += 1) {
 
+                if (source[i]['data'][j][i_lat] < 0) {
+                    fill_colour = null;
+                    line_width = 2;
+                    line_colour = '#444444';
+                }
+                else {
+                    fill_colour = null;
+                    line_width = 0;
+                    line_colour = '#FFFFFF';
+                }
+
                 data.push({
-                    x: source[i]['data'][j][i_lat], // maximum
-                    y: source[i]['data'][j][i_max], // latest
+                    x: Math.abs(source[i]['data'][j][i_lat]), // maximum
+                    y: Math.abs(source[i]['data'][j][i_max]), // latest
                     name: source[i]['data'][j][i_sta_n], // station name
+                    marker: {
+                        fillColor: fill_colour,
+                        lineWidth: line_width,
+                        lineColor: line_colour
+                    },
                     description: Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', source[i]['data'][j][i_end]) + '<br>' +
-                        '<b>river:</b> ' + source[i]['data'][j][i_riv] + '<br><b>median:</b> ' +
-                        Highcharts.numberFormat(source[i]['data'][j][i_med], 4) + ' mm/hr<br>'
+                        '<b>latest rate:</b> ' + Highcharts.numberFormat(source[i]['data'][j][i_lat], 4) + ' mm/hr<br/>' +
+                        '<b>maximum rate:</b> ' + Highcharts.numberFormat(source[i]['data'][j][i_max], 4) + ' mm/hr<br/>'
                 });
 
             }
@@ -77,12 +98,11 @@ function generateChart(fileNameKey) {
                 type: 'scatter',
                 name: source[i]['catchment_name'],
                 data: data,
+                visible: visible,
                 className: source[i]['catchment_name'], // for point classification by catchment
                 tooltip: {
                     pointFormat: '<br/>' +
                         '<b>gauge station:</b> {point.name}<br/>' +
-                        '<b>maximum rate:</b> {point.y:,.3f} mm/hr<br/>' +
-                        '<b>latest rate:</b> {point.x:,.3f}mm/hr<br/>' +
                         '<b>period ending:</b> {point.description}' +
                         '<b>catchment:</b> {series.name}'
                 }
