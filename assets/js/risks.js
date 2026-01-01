@@ -60,7 +60,7 @@ function generateChart(fileNameKey) {
                 i_ran = indices.indexOf('rank');
 
             let visible = false;
-            if (source[i]['data'][0][i_ran] < 15)
+            if (source[i]['data'][0][i_ran] < 8)
                 visible = true
 
 
@@ -87,9 +87,10 @@ function generateChart(fileNameKey) {
                         lineWidth: line_width,
                         lineColor: line_colour
                     },
-                    description: Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', source[i]['data'][j][i_end]) + '<br>' +
+                    description: Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', source[i]['data'][j][i_end]) + '<br/>' +
                         '<b>latest rate:</b> ' + Highcharts.numberFormat(source[i]['data'][j][i_lat], 4) + ' mm/hr<br/>' +
-                        '<b>maximum rate:</b> ' + Highcharts.numberFormat(source[i]['data'][j][i_max], 4) + ' mm/hr<br/>'
+                        '<b>maximum rate:</b> ' + Highcharts.numberFormat(source[i]['data'][j][i_max], 4) + ' mm/hr<br/>' +
+                        '<b>river/water:</b> ' + source[i]['data'][j][i_riv] + '<br/>'
                 });
 
             }
@@ -125,8 +126,9 @@ function generateChart(fileNameKey) {
                 type: 'scatter',
                 zoomType: 'xy',
                 width: 585,
-                height: 395,
-                marginRight: 225
+                height: 465,
+                marginRight: 225,
+                marginBottom: 155
             },
 
             legend: {
@@ -136,7 +138,7 @@ function generateChart(fileNameKey) {
                 verticalAlign: 'top',
                 maxHeight: 200,
                 floating: true,
-                y: 65
+                y: 85
             },
             title: {
                 useHTML: true,
@@ -148,7 +150,7 @@ function generateChart(fileNameKey) {
 
             subtitle: {
                 useHTML: true,
-                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.<br>LOGARITHMIC AXES</p>'
+                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.<br><b>LOGARITHMIC AXES</b></p>'
             },
 
             time: {
@@ -199,6 +201,18 @@ function generateChart(fileNameKey) {
 
             tooltip: {
                 split: true,
+                fixed: true,
+                position: {
+                    align: 'right',
+                    verticalAlign: 'bottom',
+                    relativeTo: 'spacingBox',
+                    x: 30,
+                    y: 425
+                },
+                useHTML: true,
+                style: {
+                    fontSize: 12
+                },
                 dateTimeLabelFormats: {
                     millisecond: "%A, %e %b, %H:%M:%S.%L",
                     second: "%A, %e %b, %H:%M:%S",
