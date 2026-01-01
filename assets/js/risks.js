@@ -60,7 +60,7 @@ function generateChart(fileNameKey) {
                 i_ran = indices.indexOf('rank');
 
             let visible = false;
-            if (source[i]['data'][0][i_ran] < 15)
+            if (source[i]['data'][0][i_ran] < 8)
                 visible = true
 
 
