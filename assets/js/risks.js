@@ -125,9 +125,9 @@ function generateChart(fileNameKey) {
                 type: 'scatter',
                 zoomType: 'xy',
                 width: 585,
-                height: 465,
+                height: 445,
                 marginRight: 225,
-                marginBottom: 135
+                marginBottom: 115
             },
 
             legend: {
@@ -206,7 +206,7 @@ function generateChart(fileNameKey) {
                     verticalAlign: 'bottom',
                     relativeTo: 'spacingBox',
                     x: 30,
-                    y: 335
+                    y: 365
                 },
                 useHTML: true,
                 style: {
