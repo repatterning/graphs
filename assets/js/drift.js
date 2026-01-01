@@ -96,7 +96,7 @@ function generateChart(fileNameKey){
 
             chart: {
                 zoomType: 'xy',
-                width: 425,
+                width: 465,
                 height: 420
             },
 
@@ -117,7 +117,8 @@ function generateChart(fileNameKey){
             },
 
             legend: {
-                enabled: true
+                enabled: true,
+                x: -25
             },
 
             exporting: {
