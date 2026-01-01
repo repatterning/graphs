@@ -125,8 +125,9 @@ function generateChart(fileNameKey) {
                 type: 'scatter',
                 zoomType: 'xy',
                 width: 585,
-                height: 395,
-                marginRight: 225
+                height: 465,
+                marginRight: 225,
+                marginBottom: 135
             },
 
             legend: {
@@ -136,7 +137,7 @@ function generateChart(fileNameKey) {
                 verticalAlign: 'top',
                 maxHeight: 200,
                 floating: true,
-                y: 65
+                y: 85
             },
             title: {
                 useHTML: true,
@@ -148,7 +149,7 @@ function generateChart(fileNameKey) {
 
             subtitle: {
                 useHTML: true,
-                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.<br>LOGARITHMIC AXES</p>'
+                text: '<p>vis-à-vis Scotland\'s river level gauge station measures.<br><b>LOGARITHMIC AXES</b></p><br><br>'
             },
 
             time: {
@@ -199,6 +200,18 @@ function generateChart(fileNameKey) {
 
             tooltip: {
                 split: true,
+                fixed: true,
+                position: {
+                    align: 'right',
+                    verticalAlign: 'bottom',
+                    relativeTo: 'spacingBox',
+                    x: 30,
+                    y: 335
+                },
+                useHTML: true,
+                style: {
+                    fontSize: 12
+                },
                 dateTimeLabelFormats: {
                     millisecond: "%A, %e %b, %H:%M:%S.%L",
                     second: "%A, %e %b, %H:%M:%S",
