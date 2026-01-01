@@ -140,21 +140,9 @@
 
                     <h4 style='font-variant: small-caps'>Weighted Rates of Change of River Levels</h4><br>
 
-                    <details>
-                      <summary style="color: #696cff">Read Explanatory Notes</summary>
-                      This page publishes river level <a href="https://repatterning.github.io/abstracts/mathematics/risks/#rates-of-change-of-river-level" target="_blank">weighted-rates-of-change</a>, within the vicinity of a gauge.  Per gauge station series, weighted-rates-of-change are calculated per contiguous<br><br><ul><li>0.25-hours-blocks</li><li>1-hour-blocks</li></ul>across a specified time span; <a href="https://github.com/repatterning/configurations/blob/51cb09a799ff26210b696e9544823c8a674297aa/src/risks/arguments.yaml#L5" target="_blank">currently $\approx 9$ days</a>.  During a 9-day time span there are approximately<br><br>
-
-                      <ul>
-                        <li>$9 \: days \times 24 \: hours \times \frac{1}{0.25} = 864 \: $ &Larr; 0.25-hours-blocks</li>
-                        <li>$9 \: days \times 24 \: hours \times \frac{1}{1} = 216 \: $ &Larr; 1-hour-blocks</li>
-                      </ul>
-
-                      The graph illustrates the maximum & latest weighted-rate-of-change value per gauge station, vis-à-vis blocks and time span; the unit of measure is millimetres/hour (mm/hr).<br><br>
-                    </details>
-
                   </td><td></td></tr>
                   <tr>
-                    <td><br><br>
+                    <td>
                       <!-- <label for="option_selector"></label> -->
                       <select id="option_selector" style="width: 300px;">
                         <!-- <option id="option_selector_title">Please select a ...</option> -->
@@ -168,14 +156,17 @@
                       <br><br><br>
 
                       <div><div id="container0002"></div></div>
-                      <script src="../assets/js/risks.js" type="text/javascript"></script><br><br>
+                      <script src="../assets/js/risks.js" type="text/javascript"></script>
                     </td><td style="vertical-align: top"></td>
                   </tr>
                   <tr>
                     <td>
                       <figure>
                         <figcaption style="margin-right: 125px;">
-                          <b>FIGURE CAPTION:</b> Hovering over a legend-catchment-name will bring the catchment's <i>gauge station points</i> into focus.  To disable a catchment's points, click on its legend name.
+                        <details>
+                          <summary style="color: #696cff; margin-top: -20px">Graph Notes</summary>
+
+                          Hovering over a legend-catchment-name will bring the catchment's <i>gauge station points</i> into focus.  To disable a catchment's points, click on its legend name.
 
                           <b>During a weather warning period</b> beware of the values towards the right-hand-side of each graph; especially the <i><b>latest</b> (mm/hr)</i> values.  At a point in time, vis-à-vis <i><b>latest</b> (mm/hr)</i> values,<br><br>
 
@@ -184,7 +175,17 @@
                             <li><b>Bordered Gauge Station Points:</b>  These indicate negative-weighted-rate-of-change values.  Do high negative values indicate a problem?</li>
                           </ul>
 
-                          Note, each graph has an accompanying map; the <a href="https://github.com/repatterning/configurations/blob/51cb09a799ff26210b696e9544823c8a674297aa/src/risks/arguments.yaml" target="_blank">N</a> catchments that have the highest latest-millimetres-per-hour values are displayed by default, more can be enabled/disabled via the control.
+                          Note, each graph has an accompanying map; the <a href="https://github.com/repatterning/configurations/blob/51cb09a799ff26210b696e9544823c8a674297aa/src/risks/arguments.yaml" target="_blank">N</a> catchments that have the highest latest-millimetres-per-hour values are displayed by default, more can be enabled/disabled via the control.<br><br>
+
+                          Per gauge station series, <a href="https://repatterning.github.io/abstracts/mathematics/risks/#rates-of-change-of-river-level" target="_blank">weighted-rate-of-change</a> values are calculated for contiguous<br><br><ul><li>0.25-hours-blocks</li><li>1-hour-blocks</li></ul>across a specified time span; <a href="https://github.com/repatterning/configurations/blob/51cb09a799ff26210b696e9544823c8a674297aa/src/risks/arguments.yaml#L5" target="_blank">currently $\approx 9$ days</a>.  During a 9-day time span there are approximately<br><br>
+
+                          <ul>
+                            <li>$9 \: days \times 24 \: hours \times 0.25^{-1} = 864 \: $ &Larr; 0.25-hours-blocks</li>
+                            <li>$9 \: days \times 24 \: hours \times 1^{-1} = 216 \: $ &Larr; 1-hour-blocks</li>
+                          </ul>
+
+                          The graph illustrates the maximum & latest weighted-rate-of-change value per gauge station, vis-à-vis blocks and time span; the unit of measure is millimetres/hour (mm/hr).<br><br>
+                        </details>
                         </figcaption>
                       </figure>
                       </td>
