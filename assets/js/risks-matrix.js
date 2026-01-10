@@ -60,6 +60,10 @@ function generateChart(fileNameKey) {
 
             for (let j = 0; j < source[i]['data'].length; j += 1) {
 
+                if (source[i]['data'][j][i_lat] < 0) {
+                    continue;
+                }
+
                 columns.station.push(Highcharts.numberFormat(source[i]['data'][j][i_station], 4));
 
 
