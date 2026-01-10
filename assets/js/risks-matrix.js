@@ -73,9 +73,14 @@ function generateChart(fileNameKey) {
 
             }
 
-
-
         }
+
+
+
+
+
+
+
 
 
     }).fail(function () {
