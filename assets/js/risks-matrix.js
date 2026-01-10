@@ -60,13 +60,16 @@ function generateChart(fileNameKey) {
 
             for (let j = 0; j < source[i]['data'].length; j += 1) {
 
-                if (source[i]['data'][j][i_lat] < 0) {
+                if (source[i]['data'][j][i_latest] < 0) {
                     continue;
                 }
 
-                columns.station.push(Highcharts.numberFormat(source[i]['data'][j][i_station], 4));
+                columns.station.push(source[i]['data'][j][i_station]);
+                columns.latest.push(Highcharts.numberFormat(source[i]['data'][j][i_latest], 4));
+                columns.catchment.push(source[i]['catchment_name']);
 
-
+                let point = [source[i]['data'][j][i_latitude], source[i]['data'][j][i_longitude]];
+                columns.coordinates.push(point);
 
             }
 
