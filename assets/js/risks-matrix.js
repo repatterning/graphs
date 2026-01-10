@@ -75,11 +75,9 @@ function generateChart(fileNameKey) {
 
         }
 
+        Grid.grid('container0002', {
 
-
-
-
-
+        });
 
 
 
