@@ -46,14 +46,16 @@ function generateChart(fileNameKey) {
         const columns = {
             station: [],
             latest: [],
-            catchment: [],
-            coordinates: []
+            maximum: [],
+            catchment: []
+            // coordinates: []
         };
 
         for (let i = 0; i < source.length; i += 1) {
 
             let indices = source[i]['columns'];
             let i_latest = indices.indexOf('latest'),
+                i_maximum = indices.indexOf('maximum'),
                 i_station = indices.indexOf('station_name'),
                 i_latitude = indices.indexOf('latitude'),
                 i_longitude = indices.indexOf('longitude');
@@ -66,10 +68,11 @@ function generateChart(fileNameKey) {
 
                 columns.station.push(source[i]['data'][j][i_station]);
                 columns.latest.push(Highcharts.numberFormat(source[i]['data'][j][i_latest], 4));
+                columns.maximum.push(Highcharts.numberFormat(source[i]['data'][j][i_maximum], 4))
                 columns.catchment.push(source[i]['catchment_name']);
 
-                let point = [source[i]['data'][j][i_latitude], source[i]['data'][j][i_longitude]];
-                columns.coordinates.push(point);
+                // let point = [source[i]['data'][j][i_latitude], source[i]['data'][j][i_longitude]];
+                // columns.coordinates.push(point);
 
             }
 
@@ -136,6 +139,12 @@ function generateChart(fileNameKey) {
                     order: 'desc'
                 }
             }, {
+                id: 'maximum',
+                width: 115,
+                header: {
+                    format: '<b>Maximum</b><br>(mm/hr)'
+                }
+            },{
                 id: 'catchment',
                 width: 205,
                 header: {
@@ -152,17 +161,9 @@ function generateChart(fileNameKey) {
                 header: {
                     format: '<b>Station</b>'
                 }
-            }, {
-                id: 'coordinates',
-                width: 215,
-                header: {
-                    format: '<b>Co&ouml;rdinates</b><br><span style="color: #afacac">links upcoming</span>'
-                }
             }]
 
         });
-
-
 
     }).fail(function () {
         console.log("Missing");
