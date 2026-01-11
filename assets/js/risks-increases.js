@@ -43,6 +43,8 @@ function generateChart(fileNameKey) {
         // https://api.highcharts.com/class-reference/Highcharts.Point#.name
         // https://api.highcharts.com/highstock/tooltip.pointFormat
 
+
+        // The fields
         const columns = {
             station: [],
             latest: [],
@@ -51,14 +53,16 @@ function generateChart(fileNameKey) {
             // coordinates: []
         };
 
+
+        // Data
         for (let i = 0; i < source.length; i += 1) {
 
             let indices = source[i]['columns'];
             let i_latest = indices.indexOf('latest'),
                 i_maximum = indices.indexOf('maximum'),
-                i_station = indices.indexOf('station_name'),
-                i_latitude = indices.indexOf('latitude'),
-                i_longitude = indices.indexOf('longitude');
+                i_station = indices.indexOf('station_name');
+                // i_latitude = indices.indexOf('latitude'),
+                // i_longitude = indices.indexOf('longitude');
 
             for (let j = 0; j < source[i]['data'].length; j += 1) {
 
@@ -78,6 +82,8 @@ function generateChart(fileNameKey) {
 
         }
 
+
+        // Grid
         Grid.grid('container0003', {
 
             dataTable: {
