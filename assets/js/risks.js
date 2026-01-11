@@ -23,7 +23,7 @@ $.getJSON(url, function (data) {
 // Dropdown
 dropdown.on('change', function (e) {
 
-    $('#option_selector_title').remove();
+    // $('#option_selector_title').remove();
 
     // Save name and value of the selected option
     optionSelected = this.options[e.target.selectedIndex].text;
