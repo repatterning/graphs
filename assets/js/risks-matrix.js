@@ -75,7 +75,66 @@ function generateChart(fileNameKey) {
 
         }
 
-        Grid.grid('container0002', {
+        Grid.grid('container0003', {
+
+            dataTable: {
+                columns: columns
+            },
+
+            lang: {
+                pagination: {
+                    pageInfo: `Showing {start} - {end} of {total}
+                (page {currentPage} of {totalPages})`,
+                    rowsPerPage: 'rows per page'
+                }
+            },
+
+            rendering: {
+                rows: {
+                    minVisibleRows: 10
+                }
+            },
+
+            pagination: {
+                enabled: true,
+                pageSize: 10,
+                controls: {
+                    pageSizeSelector: {
+                        enabled: true,
+                        options: [10, 20, 50]
+                    },
+                    pageInfo: true,
+                    firstLastButtons: true,
+                    previousNextButtons: true,
+                    pageButtons: {
+                        enabled: true,
+                        count: 7
+                    }
+                }
+            },
+
+            columnDefaults: {
+                sorting: {
+                    sortable: true
+                }
+            },
+
+            // https://api.highcharts.com/grid/typedoc/interfaces/Grid_Core_Options.IndividualColumnOptions.html
+            columns: [{
+                id: 'latest',
+                width: 65,
+                sorting: {
+                    enabled: true,
+                    order: 'desc'
+                }
+            }, {
+                id: 'catchment',
+                filtering: {
+                    enabled: true,
+                    inline: false,
+                    condition: 'contains'
+                }
+            }]
 
         });
 
@@ -83,7 +142,7 @@ function generateChart(fileNameKey) {
 
     }).fail(function () {
         console.log("Missing");
-        $('#container0002').empty();
+        $('#container0003').empty();
     });
 
 }
