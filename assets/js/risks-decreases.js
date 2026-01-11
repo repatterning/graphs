@@ -166,6 +166,11 @@ function generateChart(fileNameKey) {
                 width: 165,
                 header: {
                     format: '<b>Station</b>'
+                },
+                filtering: {
+                    enabled: true,
+                    inline: false,
+                    condition: 'contains'
                 }
             }]
 
