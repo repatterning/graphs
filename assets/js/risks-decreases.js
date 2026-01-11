@@ -49,8 +49,8 @@ function generateChart(fileNameKey) {
             station: [],
             latest: [],
             maximum: [],
-            catchment: []
-            // coordinates: []
+            catchment: [],
+            satellite: []
         };
 
 
@@ -75,15 +75,18 @@ function generateChart(fileNameKey) {
                     longitude = source[i]['data'][j][i_longitude],
                     name = source[i]['data'][j][i_station];
 
-                let satellite = `<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:today;@${longitude},${latitude},16.000z" target="_blank">${name}</a>`;
                 let point = `<a href="https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}&zoom=12#map=16/${latitude}/${longitude}" 
                                      target="_blank">${name}</a>`;
+                columns.station.push(point);
 
-                columns.station.push(point); // source[i]['data'][j][i_station]
+                let image = `<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:today;@${longitude},${latitude},16.000z" target="_blank">
+                                       <img src="../assets/img/favicon/satellite.svg" height="20px" width="20px" alt="image" /></a>`;
+                columns.satellite.push(image);
+
                 columns.latest.push(Highcharts.numberFormat(source[i]['data'][j][i_latest], 4));
                 columns.maximum.push(Highcharts.numberFormat(source[i]['data'][j][i_maximum], 4))
                 columns.catchment.push(source[i]['catchment_name']);
-                
+
             }
 
         }
@@ -177,6 +180,15 @@ function generateChart(fileNameKey) {
                     enabled: true,
                     inline: false,
                     condition: 'contains'
+                }
+            }, {
+                id: 'satellite',
+                width: 100,
+                header: {
+                    format: ' '
+                },
+                sorting: {
+                    enabled: false
                 }
             }]
 
