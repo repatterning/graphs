@@ -136,7 +136,7 @@ function generateChart(fileNameKey) {
             // https://api.highcharts.com/grid/#interfaces/Grid_Core_Options.Options#columns
             columns: [{
                 id: 'latest',
-                width: 115,
+                width: 125,
                 header: {
                     format: '<b>Latest</b><br>(mm/hr)'
                 },
@@ -146,7 +146,7 @@ function generateChart(fileNameKey) {
                 }
             }, {
                 id: 'maximum',
-                width: 115,
+                width: 125,
                 header: {
                     format: '<b>Maximum</b><br>(mm/hr)'
                 }
