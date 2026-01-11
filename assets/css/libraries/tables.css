@@ -20,6 +20,10 @@
     --hcg-font-size: 13px;
 }
 
+.hcg-credits, .highcharts-light .hcg-credits {
+    display: none;
+}
+
 .matrix {
     padding: 2px 2px;
 }
