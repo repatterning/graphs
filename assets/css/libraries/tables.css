@@ -1,6 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/@highcharts/grid-lite/css/grid-lite.css");
 
-
 * {
     font-family:
             -apple-system,
@@ -17,14 +16,13 @@
     color: var(#000000);
 }
 
-.hcg-theme-default{
-    font-size: xx-small;
+.hcg-theme-default, .highcharts-light .hcg-theme-default {
+    --hcg-font-size: 13px;
 }
 
 .matrix {
-    padding: 8px 12px;
+    padding: 2px 2px;
 }
-
 
 table.briefings {
     border-collapse: collapse;
