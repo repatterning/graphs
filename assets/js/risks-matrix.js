@@ -83,7 +83,7 @@ function generateChart(fileNameKey) {
 
             lang: {
                 pagination: {
-                    pageInfo: `Showing {start} - {end} of {total}
+                    pageInfo: `{start} - {end} of {total}
                 (page {currentPage} of {totalPages})`,
                     rowsPerPage: 'rows per page'
                 }
@@ -122,18 +122,25 @@ function generateChart(fileNameKey) {
             // https://api.highcharts.com/grid/typedoc/interfaces/Grid_Core_Options.IndividualColumnOptions.html
             columns: [{
                 id: 'latest',
-                width: 65,
+                width: 115,
                 sorting: {
                     enabled: true,
                     order: 'desc'
                 }
             }, {
                 id: 'catchment',
+                width: 235,
                 filtering: {
                     enabled: true,
                     inline: false,
                     condition: 'contains'
                 }
+            }, {
+                id: 'station',
+                width: 165
+            }, {
+                id: 'coordinates',
+                width: 265
             }]
 
         });
