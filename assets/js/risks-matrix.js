@@ -89,6 +89,10 @@ function generateChart(fileNameKey) {
                 }
             },
 
+            credits: {
+                enabled: false
+            },
+
             rendering: {
                 rows: {
                     minVisibleRows: 10
@@ -113,23 +117,30 @@ function generateChart(fileNameKey) {
                 }
             },
 
+            // https://api.highcharts.com/grid/#interfaces/Grid_Core_Options.Options#columndefaults
             columnDefaults: {
                 sorting: {
                     sortable: true
                 }
             },
 
-            // https://api.highcharts.com/grid/typedoc/interfaces/Grid_Core_Options.IndividualColumnOptions.html
+            // https://api.highcharts.com/grid/#interfaces/Grid_Core_Options.Options#columns
             columns: [{
                 id: 'latest',
                 width: 115,
+                header: {
+                    format: '<b>Latest</b><br>(mm/hr)'
+                },
                 sorting: {
                     enabled: true,
                     order: 'desc'
                 }
             }, {
                 id: 'catchment',
-                width: 235,
+                width: 205,
+                header: {
+                    format: '<b>Catchment</b>'
+                },
                 filtering: {
                     enabled: true,
                     inline: false,
@@ -137,10 +148,16 @@ function generateChart(fileNameKey) {
                 }
             }, {
                 id: 'station',
-                width: 165
+                width: 165,
+                header: {
+                    format: '<b>Station</b>'
+                }
             }, {
                 id: 'coordinates',
-                width: 265
+                width: 215,
+                header: {
+                    format: '<b>Co&ouml;rdinates</b><br><span style="color: #afacac">links upcoming</span>'
+                }
             }]
 
         });
