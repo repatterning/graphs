@@ -60,9 +60,9 @@ function generateChart(fileNameKey) {
             let indices = source[i]['columns'];
             let i_latest = indices.indexOf('latest'),
                 i_maximum = indices.indexOf('maximum'),
-                i_station = indices.indexOf('station_name');
-            // i_latitude = indices.indexOf('latitude'),
-            // i_longitude = indices.indexOf('longitude');
+                i_station = indices.indexOf('station_name'),
+                i_latitude = indices.indexOf('latitude'),
+                i_longitude = indices.indexOf('longitude');
 
             for (let j = 0; j < source[i]['data'].length; j += 1) {
 
@@ -70,14 +70,20 @@ function generateChart(fileNameKey) {
                     continue;
                 }
 
-                columns.station.push(source[i]['data'][j][i_station]);
+
+                let latitude = source[i]['data'][j][i_latitude],
+                    longitude = source[i]['data'][j][i_longitude],
+                    name = source[i]['data'][j][i_station];
+
+                let satellite = `<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:today;@${longitude},${latitude},16.000z" target="_blank">${name}</a>`;
+                let point = `<a href="https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}&zoom=12#map=16/${latitude}/${longitude}" 
+                                     target="_blank">${name}</a>`;
+
+                columns.station.push(point); // source[i]['data'][j][i_station]
                 columns.latest.push(Highcharts.numberFormat(source[i]['data'][j][i_latest], 4));
                 columns.maximum.push(Highcharts.numberFormat(source[i]['data'][j][i_maximum], 4))
                 columns.catchment.push(source[i]['catchment_name']);
-
-                // let point = [source[i]['data'][j][i_latitude], source[i]['data'][j][i_longitude]];
-                // columns.coordinates.push(point);
-
+                
             }
 
         }
