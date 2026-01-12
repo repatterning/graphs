@@ -83,7 +83,7 @@ function generateChart(fileNameKey) {
                 columns.station.push(point);
 
                 // Satellite Images
-                let image = `<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:today;@${longitude},${latitude},16.000z" target="_blank"><img src="../assets/img/favicon/satellite.svg" height="15px" width="15px" alt="image" /></a>`;
+                let image = `<a href="https://firms.modaps.eosdis.nasa.gov/map/#t:tsd;d:today;l:fires_all,earth;@${longitude},${latitude},16.000z" target="_blank"><img src="../assets/img/favicon/satellite.svg" height="15px" width="15px" alt="image" /></a>`;
                 columns.satellite.push(image);
 
                 columns.latest.push(Highcharts.numberFormat(source[i]['data'][j][i_latest], 4));
