@@ -84,6 +84,7 @@ function generateChart(fileNameKey) {
                 let image = `<a href="https://firms.modaps.eosdis.nasa.gov/map/#t:tsd;d:today;l:fires_all,earth;@${longitude},${latitude},16.000z" target="_blank"><img src="../assets/img/favicon/satellite.svg" height="15px" width="15px" alt="image" /></a>`;
                 columns.satellite.push(image);
 
+                // ... and
                 columns.latest.push(Highcharts.numberFormat(source[i]['data'][j][i_latest], 4));
                 columns.maximum.push(Highcharts.numberFormat(source[i]['data'][j][i_maximum], 4))
                 columns.catchment.push(source[i]['catchment_name']);
