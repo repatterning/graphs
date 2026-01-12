@@ -70,7 +70,6 @@ function generateChart(fileNameKey) {
                     continue;
                 }
 
-
                 let latitude = source[i]['data'][j][i_latitude],
                     longitude = source[i]['data'][j][i_longitude],
                     name = source[i]['data'][j][i_station];
@@ -157,7 +156,7 @@ function generateChart(fileNameKey) {
                 id: 'maximum',
                 width: 125,
                 header: {
-                    format: '<b>Maximum</b><br>(mm/hr)'
+                    format: '<b><abbr title="During the last 9 days, approximately.  Read the graph notes.">Maximum</abbr></b><br>(mm/hr)'
                 }
             },{
                 id: 'catchment',
