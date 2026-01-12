@@ -1,3 +1,37 @@
+@import url("https://cdn.jsdelivr.net/npm/@highcharts/grid-lite/css/grid-lite.css");
+
+* {
+    font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Helvetica,
+            Arial,
+            "Apple Color Emoji",
+            "Segoe UI Emoji",
+            "Segoe UI Symbol",
+            sans-serif;
+    background: var(#ffffff);
+    color: var(#000000);
+}
+
+.hcg-theme-default, .highcharts-light .hcg-theme-default {
+    --hcg-font-size: 13px;
+}
+
+.hcg-pagination-wrapper {
+    margin-top: 25px;
+    margin-left: -125px;
+}
+
+.hcg-credits, .highcharts-light .hcg-credits {
+    display: none;
+}
+
+.matrix {
+    padding: 2px 2px;
+}
 
 table.briefings {
     border-collapse: collapse;
