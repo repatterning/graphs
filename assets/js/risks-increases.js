@@ -75,8 +75,7 @@ function generateChart(fileNameKey) {
                     name = source[i]['data'][j][i_station];
 
                 // Street Images
-                let point = `<a href="https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}&zoom=12#map=16/${latitude}/${longitude}" 
-                                     target="_blank">${name}</a>`;
+                let point = `<a href="https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}&zoom=12#map=16/${latitude}/${longitude}"                                      target="_blank">${name}</a>`;
                 columns.station.push(point);
 
                 // Satellite Images
