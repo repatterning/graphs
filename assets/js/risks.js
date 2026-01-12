@@ -144,8 +144,8 @@ function generateChart(fileNameKey) {
                 useHTML: true,
                 text: 'Rates of Change of River Levels  ' +
                     `<a href='/warehouse/risks/maps/${fileNameKey}.html' class='btn btn-sm btn-outline-primary' ` +
-                    `onClick=\"window.open('/warehouse/risks/maps/${fileNameKey}.html', 'newwindow', 'width=999,height=690'); ` +
-                    `return false;\" target="_blank">View Map</a>`
+                    `onClick="window.open('/warehouse/risks/maps/${fileNameKey}.html', 'newwindow', 'popup=true,width=999,height=690,rel=noreferrer'); ` +
+                    `return false;" target="_blank">View Map</a>`
             },
 
             subtitle: {
