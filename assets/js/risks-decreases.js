@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
@@ -74,12 +76,14 @@ function generateChart(fileNameKey) {
                     longitude = source[i]['data'][j][i_longitude],
                     name = source[i]['data'][j][i_station];
 
-                let point = `<a href="https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}&zoom=12#map=16/${latitude}/${longitude}" 
-                                     target="_blank">${name}</a>`;
+                // Street Images
+                // let point = `<a href="https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}&zoom=12#map=16/${latitude}/${longitude}"
+                //                      target="_blank">${name}</a>`;
+                let point = `<a href='https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}&zoom=12#map=16/${latitude}/${longitude}' class='btn btn-sm btn-outline-primary' onClick="window.open('https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}&zoom=12#map=16/${latitude}/${longitude}', '_blank', 'popup=true,rel=noreferrer'); return false;" target="_blank">${name}</a>`;
                 columns.station.push(point);
 
-                let image = `<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:today;@${longitude},${latitude},16.000z" target="_blank">
-                                       <img src="../assets/img/favicon/satellite.svg" height="15px" width="15px" alt="image" /></a>`;
+                // Satellite Images
+                let image = `<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:today;@${longitude},${latitude},16.000z" target="_blank"><img src="../assets/img/favicon/satellite.svg" height="15px" width="15px" alt="image" /></a>`;
                 columns.satellite.push(image);
 
                 columns.latest.push(Highcharts.numberFormat(source[i]['data'][j][i_latest], 4));
