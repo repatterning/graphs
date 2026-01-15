@@ -166,7 +166,7 @@ function generateChart(fileNameKey) {
 
             series: [
                 {
-                    type: 'column',
+                    type: 'bar',
                     name: 'training stage',
                     data: training,
                     color: '#000000',
@@ -176,7 +176,7 @@ function generateChart(fileNameKey) {
                     }
                 },
                 {
-                    type: 'column',
+                    type: 'bar',
                     name: 'testing stage',
                     data: testing,
                     color: '#ff8c00',
