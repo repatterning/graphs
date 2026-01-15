@@ -16,7 +16,7 @@ html {
  */
 body {
     padding-right: 100px; /* padding */
-    padding-left: 100px; /* padding */
+    padding-left: 60px; /* padding */
     padding-top: 10px; /* padding */
 }
 
@@ -419,7 +419,7 @@ th {
     background-color: #FFFFFF;
     padding: 10px;
     align-content: flex-start;
-    gap: 60px;
+    gap: 30px;
 }
 
 .grid-item {
