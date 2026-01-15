@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
@@ -91,7 +93,17 @@ function generateChart(fileNameKey) {
             chart: {
                 type: 'bar',
                 zoomType: 'xy',
-                lineWidth: 0.5
+                lineWidth: 0.5,
+                events: {
+                    load: function() {
+                        let barHeight = 20;
+                        this.update({
+                            chart: {
+                                height: barHeight * this.pointCount + (this.chartHeight - this.plotHeight)
+                            }
+                        })
+                    }
+                }
             },
 
 
@@ -150,13 +162,13 @@ function generateChart(fileNameKey) {
             },
 
             plotOptions: {
-                column: {
+                bar: {
                     pointPadding: 0.2,
-                    pointWidth: 13,
-                    borderWidth: 0
+                    pointWidth: 5,
+                    borderWidth: 0,
                 },
                 series: {
-
+                    groupPadding: 0.25
                 }
 
             },
@@ -167,7 +179,7 @@ function generateChart(fileNameKey) {
 
             series: [
                 {
-                    type: 'column',
+                    type: 'bar',
                     name: 'training stage',
                     data: training,
                     color: '#000000',
@@ -177,7 +189,7 @@ function generateChart(fileNameKey) {
                     }
                 },
                 {
-                    type: 'column',
+                    type: 'bar',
                     name: 'testing stage',
                     data: testing,
                     color: '#ff8c00',
