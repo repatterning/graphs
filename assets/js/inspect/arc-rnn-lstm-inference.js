@@ -118,13 +118,13 @@ function generateChart(fileNameKey){
             },
 
             chart: {
-                zoomType: 'x'
-                // borderWidth: 2,
-                // marginRight: 100
+                zoomType: 'xy',
+                width: 485,
+                height: 595
             },
 
             title: {
-                text: 'Predictions: ' + optionSelected
+                text: 'Inference: ' + optionSelected
             },
 
             subtitle: {
