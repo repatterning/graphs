@@ -148,7 +148,7 @@ function generateChart(fileNameKey) {
                     x: 0
                 },
                 title: {
-                    text: 'median<br>percentage errors',
+                    text: 'median percentage errors<br>',
                     x: 0
                 },
                 gridLineWidth: 0.25,
