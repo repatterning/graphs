@@ -39,6 +39,7 @@ dropdown.on('change', function (e) {
 // Generate graphs
 function generateChart(fileNameKey) {
 
+
     // Relative to Amazon S3 (Simple Storage Service) Set Up
     $.getJSON('../../../warehouse-t/arc-rnn-lstm-metrics/aggregates/aggregates.json', function (data) {
 
@@ -46,14 +47,11 @@ function generateChart(fileNameKey) {
         // https://api.highcharts.com/class-reference/Highcharts.Point#.name
         // https://api.highcharts.com/highstock/tooltip.pointFormat
 
-
         let source = data[fileNameKey];
-
 
         // splits
         var training = [],
             testing = [];
-
 
         // training
         let ctr = source['training']['columns'];
@@ -69,7 +67,6 @@ function generateChart(fileNameKey) {
         for (let i = 0; i < source['training']['data'].length; i += 1) {
             training.push(source['training']['data'][i][tr_mpe]);
         }
-
 
         // testing
         let cte = source['testing']['columns'];
@@ -170,7 +167,6 @@ function generateChart(fileNameKey) {
                 series: {
                     groupPadding: 0.25
                 }
-
             },
 
             tooltip: {
