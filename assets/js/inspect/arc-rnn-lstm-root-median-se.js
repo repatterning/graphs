@@ -105,7 +105,7 @@ function generateChart(fileNameKey) {
 
 
             title: {
-                text: 'Errors: ' + source['catchment_name'] + ' Catchment'
+                text: source['catchment_name'] + ' Catchment'
             },
 
             subtitle: {
@@ -148,7 +148,7 @@ function generateChart(fileNameKey) {
                     x: 0
                 },
                 title: {
-                    text: 'root median<br>square errors',
+                    text: 'root median square errors<br>',
                     x: 0
                 },
                 gridLineWidth: 0.25,
