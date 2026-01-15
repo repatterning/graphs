@@ -119,7 +119,7 @@ function generateChart(fileNameKey){
 
             chart: {
                 zoomType: 'xy',
-                width: 485,
+                width: 535,
                 height: 595
             },
 
@@ -298,19 +298,7 @@ function generateChart(fileNameKey){
                     },
                     visible: true
                 }
-            ],
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 700
-                    },
-                    chartOptions: {
-                        rangeSelector: {
-                            inputEnabled: false
-                        }
-                    }
-                }]
-            }
+            ]
         });
 
     }).fail(function() {
