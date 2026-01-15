@@ -126,11 +126,13 @@ function generateChart(fileNameKey) {
             chart: {
 
                 zoomType: 'xy',
-                inverted: true
+                inverted: true,
+                height: 365,
+                width: 495
             },
 
             title: {
-                text: 'Model of: ' + optionSelected
+                text: optionSelected
             },
 
             subtitle: {
