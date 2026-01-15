@@ -128,7 +128,7 @@ function generateChart(fileNameKey){
             },
 
             subtitle: {
-                text: '<p>River Level Prediction</p> <br/><br/>'
+                text: '<p>River Level Predictions/Forecasts</p> <br/><br/>'
             },
 
             time: {
