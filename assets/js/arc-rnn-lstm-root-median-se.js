@@ -3,9 +3,11 @@
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var url = '../warehouse-t/arc-rnn-lstm-metrics/aggregates/catchments.json';
+var endpoint = document.getElementById("endpoint").getAttribute("url")
+var url = endpoint + '/catchments.json';
 
 
+// Dropdown: Launch
 $.getJSON(url, function (data) {
 
     $.each(data, function (key, entry) {
@@ -22,7 +24,7 @@ $.getJSON(url, function (data) {
 });
 
 
-// Dropdown
+// Dropdown: Select
 dropdown.on('change', function (e) {
 
     $('#option_selector_title').remove();
@@ -41,7 +43,7 @@ function generateChart(fileNameKey) {
 
 
     // Relative to Amazon S3 (Simple Storage Service) Set Up
-    $.getJSON('../warehouse-t/arc-rnn-lstm-metrics/aggregates/aggregates.json', function (data) {
+    $.getJSON(endpoint + '/aggregates.json', function (data) {
 
         // https://api.highcharts.com/highstock/plotOptions.series.dataLabels
         // https://api.highcharts.com/class-reference/Highcharts.Point#.name
