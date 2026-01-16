@@ -7,6 +7,7 @@ var endpoint = document.getElementById("endpoint").getAttribute("url")
 var url = endpoint + '/catchments.json';
 
 
+// Dropdown: Launch
 $.getJSON(url, function (data) {
 
     $.each(data, function (key, entry) {
@@ -23,7 +24,7 @@ $.getJSON(url, function (data) {
 });
 
 
-// Dropdown
+// Dropdown: Select
 dropdown.on('change', function (e) {
 
     $('#option_selector_title').remove();
