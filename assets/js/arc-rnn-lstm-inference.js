@@ -1,7 +1,8 @@
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var url = '../warehouse/arc-rnn-lstm-inference/menu/menu.json';
+var url = '../warehouse/arc-rnn-lstm-inference/menu/menu.json'
+;
 
 
 $.getJSON(url, function (data) {
@@ -118,17 +119,17 @@ function generateChart(fileNameKey){
             },
 
             chart: {
-                zoomType: 'x'
-                // borderWidth: 2,
-                // marginRight: 100
+                zoomType: 'xy',
+                width: 535,
+                height: 595
             },
 
             title: {
-                text: 'Predictions: ' + optionSelected
+                text: 'Inference: ' + optionSelected
             },
 
             subtitle: {
-                text: '<p>River Level Prediction</p> <br/><br/>'
+                text: '<p>River Level Predictions/Forecasts</p> <br/><br/>'
             },
 
             time: {
@@ -298,19 +299,7 @@ function generateChart(fileNameKey){
                     },
                     visible: true
                 }
-            ],
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 700
-                    },
-                    chartOptions: {
-                        rangeSelector: {
-                            inputEnabled: false
-                        }
-                    }
-                }]
-            }
+            ]
         });
 
     }).fail(function() {
