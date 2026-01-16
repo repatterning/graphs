@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
@@ -35,7 +37,7 @@ dropdown.on('change', function (e) {
 
 
 // Generate graphs
-function generateChart(fileNameKey) {
+function generateChart(fileNameKey){
 
     $.getJSON('../warehouse/arc-rnn-lstm-metrics/disaggregates/points/' + fileNameKey + '.json', function (source) {
 
@@ -132,17 +134,17 @@ function generateChart(fileNameKey) {
             },
 
             chart: {
-                zoomType: 'x'
-                // borderWidth: 2,
-                // marginRight: 100
+                zoomType: 'x',
+                width: 535,
+                height: 595
             },
 
             title: {
-                text: 'Predictions: ' + optionSelected
+                text: 'Inference: ' + optionSelected
             },
 
             subtitle: {
-                text: '<p>River Level Prediction</p> <br/><br/>'
+                text: '<p>River Level Predictions</p> <br/><br/>'
             },
 
             time: {
