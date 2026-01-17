@@ -181,9 +181,9 @@ function generateChart(fileNameKey){
             },
 
             chart: {
-                zoomType: 'x'
-                // borderWidth: 2,
-                // marginRight: 100
+                zoomType: 'x',
+                width: 515,
+                height: 625
             },
 
             title: {
@@ -446,19 +446,7 @@ function generateChart(fileNameKey){
                             'Lower Boundary: {point.low:,.2f}%' + '<br/>'
                     }
                 }
-            ],
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 700
-                    },
-                    chartOptions: {
-                        rangeSelector: {
-                            inputEnabled: false
-                        }
-                    }
-                }]
-            }
+            ]
         });
 
     }).fail(function() {
