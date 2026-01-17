@@ -191,7 +191,7 @@ function generateChart(fileNameKey) {
                     align: 'left'
                 },
                 title: {
-                    text: '...'
+                    text: 'median percentage error:<br>training stage'
                 },
                 lineWidth: 1,
                 height: '48.5%'
@@ -200,7 +200,7 @@ function generateChart(fileNameKey) {
                     align: 'left'
                 },
                 title: {
-                    text: '...'
+                    text: 'median percentage error:<br>testing stage'
                 },
                 lineWidth: 1,
                 height: '48.5%',
