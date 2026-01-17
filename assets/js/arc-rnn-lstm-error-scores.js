@@ -125,6 +125,15 @@ function generateChart(fileNameKey) {
         }
 
 
+        // formatting: numbers
+        Highcharts.setOptions({
+            lang: {
+                thousandsSep: ','
+            }
+        });
+
+
+
     }).fail(function () {
         console.log("Missing");
         $('#container0002').empty();
