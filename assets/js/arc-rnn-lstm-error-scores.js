@@ -132,6 +132,84 @@ function generateChart(fileNameKey) {
             }
         });
 
+        // Draw
+        Highcharts.chart('container0002', {
+
+            chart: {
+                type: 'scatter',
+                zoomType: 'xy'
+            },
+
+            legend: {
+                enabled: true,
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                maxHeight: 200,
+                floating: true,
+                y: 85
+            },
+
+            title: {
+                text: 'Error Metrics'
+            },
+
+            subtitle: {
+                useHTML: true,
+                text: '<p>training & testing stages</p>'
+            },
+
+            time: {
+                timezone: 'Europe/London'
+            },
+
+            credits: {
+                enabled: false
+            },
+
+            exporting: {
+                buttons: {
+                    contextButton: {
+                        menuItems: ['viewFullscreen', 'printChart', 'separator',
+                            'downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG', 'separator',
+                            'downloadXLS', 'downloadCSV']
+                    }
+                }
+            },
+
+            xAxis: {
+                title: {
+                    text: 'median percentage error'
+                },
+                labels: {
+                    format: '{value}'
+                }
+            },
+
+            yAxis: [{
+                labels: {
+                    align: 'left'
+                },
+                title: {
+                    text: '...'
+                },
+                lineWidth: 1,
+                height: '48.5%'
+            }, {
+                labels: {
+                    align: 'left'
+                },
+                title: {
+                    text: '...'
+                },
+                lineWidth: 1,
+                height: '48.5%',
+                top: '50%',
+                offset: 0
+            }]
+
+        });
+
 
 
     }).fail(function () {
