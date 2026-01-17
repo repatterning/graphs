@@ -206,7 +206,13 @@ function generateChart(fileNameKey) {
                 height: '48.5%',
                 top: '50%',
                 offset: 0
-            }]
+            }],
+
+            plotOptions: {
+                series: {
+                    turboThreshold: 4000
+                }
+            },
 
         });
 
