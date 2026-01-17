@@ -69,8 +69,8 @@ function generateChart(fileNameKey) {
 
             for (let j = 0; j < source[i]['data'].length; j += 1) {
                 training.push({
-                    x: source[i]['data'][j][tr_mpe], // median percentage error
-                    y: source[i]['data'][j][tr_r_mse], // root median square error
+                    x: source[i]['data'][j][tr_r_mse], // root median square error
+                    y: source[i]['data'][j][tr_mpe], // median percentage error
                     name: source[i]['data'][j][tr_sn] + '<br/>', // station name / catchment name
                     description:  Highcharts.numberFormat(source[i]['data'][j][tr_mpe], 4) + '<br/>' +
                         '<b>root median square error:</b> ' + Highcharts.numberFormat(source[i]['data'][j][tr_r_mse], 4) + '<br/>'
@@ -100,8 +100,8 @@ function generateChart(fileNameKey) {
 
             for (let j = 0; j < source[i]['data'].length; j += 1) {
                 testing.push({
-                    x: source[i]['data'][j][te_mpe], // median percentage error
-                    y: source[i]['data'][j][te_r_mse], // root median square error
+                    x: source[i]['data'][j][te_r_mse], // root median square error
+                    y: source[i]['data'][j][te_mpe], // median percentage error
                     name: source[i]['data'][j][te_sn] + '<br/>', // station name / catchment name
                     description:  Highcharts.numberFormat(source[i]['data'][j][te_mpe], 4) + '<br/>' +
                         '<b>root median square error:</b> ' + Highcharts.numberFormat(source[i]['data'][j][te_r_mse], 4) + '<br/>'
