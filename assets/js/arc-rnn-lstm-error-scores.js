@@ -3,102 +3,193 @@
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var endpoint = document.getElementById("endpoint").getAttribute("url")
+var endpoint = document.getElementById("endpoint").getAttribute("url");
 
 
-$.getJSON(endpoint + '/aggregates.json', function (data) {
+$.getJSON(endpoint + '/statements.json', function (source) {
 
     // https://api.highcharts.com/highstock/plotOptions.series.dataLabels
     // https://api.highcharts.com/class-reference/Highcharts.Point#.name
     // https://api.highcharts.com/highstock/tooltip.pointFormat
 
-    let source = data;
 
-    var __training = [],
-        __testing = [];
+    let __training = source['training'],
+        __testing = source['testing'];
 
-    // per catchment
-    for (let i = 0; i < source.length; i += 1) {
+    let training = [],
+        testing = [];
 
+    // Training
+    for (let i = 0; i < __training.length; i += 1) {
 
-        // splits
-        var training = [],
-            testing = [];
-
+        let data = [];
 
         // training metrics: per gauge station
-        let ctr = source[i]['training']['columns'];
+        let ctr = __training[i]['columns'];
         let tr_sn = ctr.indexOf('station_name'),
             tr_mpe = ctr.indexOf('median_pe'),
-            tr_r_mse = ctr.indexOf('r_median_se');
+            tr_r_mse = ctr.indexOf('r_median_se'),
+            tr_cn = ctr.indexOf('catchment_name');
 
-        for (let j = 0; j < source[i]['data'].length; j += 1) {
-            training.push({
-                x: source[i]['data'][j][tr_r_mse], // root median square error
-                y: source[i]['data'][j][tr_mpe], // median percentage error
-                name: source[i]['data'][j][tr_sn] + '<br/>', // station name / catchment name
-                description:  Highcharts.numberFormat(source[i]['data'][j][tr_mpe], 4) + '<br/>' +
-                    '<b>root median square error:</b> ' + Highcharts.numberFormat(source[i]['data'][j][tr_r_mse], 4) + '<br/>'
+        for (let j = 0; j < __training[i]['data'].length; j += 1) {
+            data.push({
+                x: __training[i]['data'][j][tr_r_mse], // root median square error
+                y: __training[i]['data'][j][tr_mpe], // median percentage error
+                name: __training[i]['data'][j][tr_sn], // station name / catchment name
+                description: __training[i]['data'][j][tr_cn] + '<br/>' +
+                    '<b>root m.s.e.:</b> {point.x:,.4f}, ' + '<b>median p.e.:</b> {point.y:,.4f}<br/>'
             });
         }
 
-        __training.push({
+        training.push({
             type: 'scatter',
-            name: source[i]['catchment_name'],
-            data: training,
-            className: source[i]['catchment_name'], // for point classification by catchment
+            name: __training[i]['catchment_name'],
+            data: data,
+            visible: true,
+            className: __training[i]['catchment_name'], // for point classification by catchment
             tooltip: {
                 pointFormat: '<br/>' +
                     '<b>gauge station:</b> {point.name}<br/>' +
-                    '<b>catchment:</b> {series.name}' +
-                    '<b>median percentage error:</b> {point.description}'
-
-            }
-        });
-
-
-        // testing metrics: per gauge station
-        let cte = source[i]['testing']['columns'];
-        let te_sn = cte.indexOf('station_name'),
-            te_mpe = cte.indexOf('median_pe'),
-            te_r_mse = cte.indexOf('r_median_se');
-
-        for (let j = 0; j < source[i]['data'].length; j += 1) {
-            testing.push({
-                x: source[i]['data'][j][te_r_mse], // root median square error
-                y: source[i]['data'][j][te_mpe], // median percentage error
-                name: source[i]['data'][j][te_sn] + '<br/>', // station name / catchment name
-                description:  Highcharts.numberFormat(source[i]['data'][j][te_mpe], 4) + '<br/>' +
-                    '<b>root median square error:</b> ' + Highcharts.numberFormat(source[i]['data'][j][te_r_mse], 4) + '<br/>'
-            });
-        }
-
-        __testing.push({
-            type: 'scatter',
-            name: source[i]['catchment_name'],
-            data: testing,
-            className: source[i]['catchment_name'], // for point classification by catchment
-            tooltip: {
-                pointFormat: '<br/>' +
-                    '<b>gauge station:</b> {point.name}<br/>' +
-                    '<b>catchment:</b> {series.name}' +
-                    '<b>median percentage error:</b> {point.description}'
-
+                    '<b>catchment name:</b> {point.description}'
             }
         });
 
     }
 
+    // Testing
+    for (let i = 0; i < __testing.length; i += 1) {
 
-    // formatting: numbers
-    Highcharts.setOptions({
-        lang: {
-            thousandsSep: ','
+        let data = [];
+
+        // testing metrics: per gauge station
+        let cte = __testing[i]['columns'];
+        let te_sn = cte.indexOf('station_name'),
+            te_mpe = cte.indexOf('median_pe'),
+            te_r_mse = cte.indexOf('r_median_se'),
+            te_cn = cte.indexOf('catchment_name');
+
+        for (let j = 0; j < __testing[i]['data'].length; j += 1) {
+            data.push({
+                x: __testing[i]['data'][j][te_r_mse], // root median square error
+                y: __testing[i]['data'][j][te_mpe], // median percentage error
+                name: __testing[i]['data'][j][te_sn], // station name / catchment name
+                description: __testing[i]['data'][j][te_cn] + '<br/>' +
+                    '<b>root m.s.e.:</b> {point.x:,.4f}, ' + '<b>median p.e.:</b> {point.y:,.4f}<br/>'
+            });
         }
-    });
+
+        testing.push({
+            type: 'scatter',
+            name: __testing[i]['catchment_name'],
+            data: data,
+            visible: true,
+            className: __testing[i]['catchment_name'], // for point classification by catchment
+            tooltip: {
+                pointFormat: '<br/>' +
+                    '<b>gauge station:</b> {point.name}<br/>' +
+                    '<b>catchment name:</b> {point.description}'
+            },
+            yAxis: 1
+        });
+
+    }
+
+
 
     // Draw
     Highcharts.chart('container0002', {
+
+        chart: {
+            type: 'scatter',
+            zoomType: 'xy',
+            width: 585,
+            height: 665,
+            marginRight: 225,
+            marginBottom: 155
+        },
+
+        legend: {
+            enabled: true,
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            maxHeight: 200,
+            floating: true,
+            y: 85
+        },
+
+        title: {
+            text: 'Error Metrics'
+        },
+
+        subtitle: {
+            useHTML: true,
+            text: '<p>median percentage errors vs. root median square errors</p>'
+        },
+
+        time: {
+            timezone: 'Europe/London'
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: ['viewFullscreen', 'printChart', 'separator',
+                        'downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG', 'separator',
+                        'downloadXLS', 'downloadCSV']
+                }
+            }
+        },
+
+        xAxis: {
+            title: {
+                text: 'root median square<br>error'
+            },
+            labels: {
+                format: '{value}'
+            }
+        },
+
+        yAxis: [{
+            labels: {
+                align: 'left'
+            },
+            title: {
+                text: '<p>training stage</p><br><br>'
+            },
+            lineWidth: 0,
+            height: '41.5%'
+        }, {
+            labels: {
+                align: 'left'
+            },
+            title: {
+                text: '<p>testing stage</p><br><br>'
+            },
+            lineWidth: 0,
+            height: '41.5%',
+            top: '50%',
+            offset: 0
+        }],
+
+        plotOptions: {
+            series: {
+                turboThreshold: 4000
+            }
+        },
+
+        series: training.concat(testing)
+
+    });
+
+/*
+
+    // Draw
+    Highcharts.chart('container0003', {
 
         chart: {
             type: 'scatter',
@@ -144,7 +235,7 @@ $.getJSON(endpoint + '/aggregates.json', function (data) {
 
         xAxis: {
             title: {
-                text: 'median percentage error'
+                text: 'root median square<br>error'
             },
             labels: {
                 format: '{value}'
@@ -156,7 +247,7 @@ $.getJSON(endpoint + '/aggregates.json', function (data) {
                 align: 'left'
             },
             title: {
-                text: 'median percentage error:<br>training stage'
+                text: 'median percentage<br>error<br>'
             },
             lineWidth: 1,
             height: '48.5%'
@@ -165,7 +256,7 @@ $.getJSON(endpoint + '/aggregates.json', function (data) {
                 align: 'left'
             },
             title: {
-                text: 'median percentage error:<br>testing stage'
+                text: 'median percentage<br>error<br>'
             },
             lineWidth: 1,
             height: '48.5%',
@@ -179,17 +270,17 @@ $.getJSON(endpoint + '/aggregates.json', function (data) {
             }
         },
 
-        series: [
-            __training, __testing
-        ]
+        series: training
 
     });
 
 
+*/
 
-}).fail(function () {
-    console.log("Missing");
-    $('#container0002').empty();
+
+
+
+
 });
 
 
