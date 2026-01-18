@@ -13,11 +13,15 @@ $.getJSON(endpoint + '/statements.json', function (source) {
     // https://api.highcharts.com/highstock/tooltip.pointFormat
 
 
+    // The raw data
     let __training = source['training'],
         __testing = source['testing'];
 
+
+    // For building data arrays
     let training = [],
         testing = [];
+
 
     // Training
     for (let i = 0; i < __training.length; i += 1) {
@@ -56,6 +60,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
 
     }
 
+    
     // Testing
     for (let i = 0; i < __testing.length; i += 1) {
 
@@ -185,100 +190,6 @@ $.getJSON(endpoint + '/statements.json', function (source) {
         series: training.concat(testing)
 
     });
-
-/*
-
-    // Draw
-    Highcharts.chart('container0003', {
-
-        chart: {
-            type: 'scatter',
-            zoomType: 'xy'
-        },
-
-        legend: {
-            enabled: true,
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'top',
-            maxHeight: 200,
-            floating: true,
-            y: 85
-        },
-
-        title: {
-            text: 'Error Metrics'
-        },
-
-        subtitle: {
-            useHTML: true,
-            text: '<p>training & testing stages</p>'
-        },
-
-        time: {
-            timezone: 'Europe/London'
-        },
-
-        credits: {
-            enabled: false
-        },
-
-        exporting: {
-            buttons: {
-                contextButton: {
-                    menuItems: ['viewFullscreen', 'printChart', 'separator',
-                        'downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG', 'separator',
-                        'downloadXLS', 'downloadCSV']
-                }
-            }
-        },
-
-        xAxis: {
-            title: {
-                text: 'root median square<br>error'
-            },
-            labels: {
-                format: '{value}'
-            }
-        },
-
-        yAxis: [{
-            labels: {
-                align: 'left'
-            },
-            title: {
-                text: 'median percentage<br>error<br>'
-            },
-            lineWidth: 1,
-            height: '48.5%'
-        }, {
-            labels: {
-                align: 'left'
-            },
-            title: {
-                text: 'median percentage<br>error<br>'
-            },
-            lineWidth: 1,
-            height: '48.5%',
-            top: '50%',
-            offset: 0
-        }],
-
-        plotOptions: {
-            series: {
-                turboThreshold: 4000
-            }
-        },
-
-        series: training
-
-    });
-
-
-*/
-
-
-
 
 
 });
