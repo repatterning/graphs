@@ -60,7 +60,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
 
     }
 
-    
+
     // Testing
     for (let i = 0; i < __testing.length; i += 1) {
 
