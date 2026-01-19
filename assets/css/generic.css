@@ -483,6 +483,7 @@ since it must be aligned with the content */
 .tabs {
     display: flex;
     padding: 1rem 1rem 0;
+    font-weight: 600;
 }
 
 .tabs>.nav {
@@ -508,11 +509,13 @@ since it must be aligned with the content */
 :has(#training:checked) [for="training"],
 :has(#testing:checked) [for="testing"] {
     cursor: pointer;
-    background-color: rgb(255 255 255 / 80%);
     transform: scale(1.1);
     margin-top: -0.3rem;
     padding-top: 0.75rem;
     z-index: 30;
+    color: #696cff;
+    font-variant: small-caps;
+    font-weight: 600;
 }
 
 .content {
