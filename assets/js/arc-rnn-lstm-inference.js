@@ -1,9 +1,13 @@
+// noinspection DuplicatedCode
+
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var url = '../warehouse/arc-rnn-lstm-inference/menu/menu.json';
+var endpoint = document.getElementById("endpoint").getAttribute("url")
+var url = endpoint + '/menu/menu.json';
 
 
+// Dropdown: Launch
 $.getJSON(url, function (data) {
 
     $.each(data, function (key, entry) {
@@ -20,7 +24,7 @@ $.getJSON(url, function (data) {
 });
 
 
-// Dropdown
+// Dropdown: Select
 dropdown.on('change', function (e) {
 
     $('#option_selector_title').remove();
@@ -37,7 +41,7 @@ dropdown.on('change', function (e) {
 // Generate graphs
 function generateChart(fileNameKey){
 
-    $.getJSON('../warehouse/arc-rnn-lstm-inference/points/' + fileNameKey + '.json', function (source)  {
+    $.getJSON(endpoint + '/points/' + fileNameKey + '.json', function (source)  {
 
         // https://api.highcharts.com/highstock/plotOptions.series.dataLabels
         // https://api.highcharts.com/class-reference/Highcharts.Point#.name
@@ -118,17 +122,17 @@ function generateChart(fileNameKey){
             },
 
             chart: {
-                zoomType: 'x'
-                // borderWidth: 2,
-                // marginRight: 100
+                zoomType: 'xy',
+                width: 535,
+                height: 595
             },
 
             title: {
-                text: 'Predictions: ' + optionSelected
+                text: 'Inference: ' + optionSelected
             },
 
             subtitle: {
-                text: '<p>River Level Prediction</p> <br/><br/>'
+                text: '<p>River Level Predictions/Forecasts</p> <br/><br/>'
             },
 
             time: {
@@ -298,19 +302,7 @@ function generateChart(fileNameKey){
                     },
                     visible: true
                 }
-            ],
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 700
-                    },
-                    chartOptions: {
-                        rangeSelector: {
-                            inputEnabled: false
-                        }
-                    }
-                }]
-            }
+            ]
         });
 
     }).fail(function() {

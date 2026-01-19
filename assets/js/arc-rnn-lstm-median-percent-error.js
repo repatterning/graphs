@@ -1,9 +1,13 @@
+// noinspection DuplicatedCode
+
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var url = '../warehouse/arc-rnn-lstm-metrics/aggregates/catchments.json';
+var endpoint = document.getElementById("endpoint").getAttribute("url")
+var url = endpoint + '/catchments.json';
 
 
+// Dropdown: Launch
 $.getJSON(url, function (data) {
 
     $.each(data, function (key, entry) {
@@ -20,7 +24,7 @@ $.getJSON(url, function (data) {
 });
 
 
-// Dropdown
+// Dropdown: Select
 dropdown.on('change', function (e) {
 
     $('#option_selector_title').remove();
@@ -37,21 +41,19 @@ dropdown.on('change', function (e) {
 // Generate graphs
 function generateChart(fileNameKey) {
 
+
     // Relative to Amazon S3 (Simple Storage Service) Set Up
-    $.getJSON('../warehouse/arc-rnn-lstm-metrics/aggregates/aggregates.json', function (data) {
+    $.getJSON(endpoint + '/aggregates.json', function (data) {
 
         // https://api.highcharts.com/highstock/plotOptions.series.dataLabels
         // https://api.highcharts.com/class-reference/Highcharts.Point#.name
         // https://api.highcharts.com/highstock/tooltip.pointFormat
 
-
         let source = data[fileNameKey];
-
 
         // splits
         var training = [],
             testing = [];
-
 
         // training
         let ctr = source['training']['columns'];
@@ -67,7 +69,6 @@ function generateChart(fileNameKey) {
         for (let i = 0; i < source['training']['data'].length; i += 1) {
             training.push(source['training']['data'][i][tr_mpe]);
         }
-
 
         // testing
         let cte = source['testing']['columns'];
@@ -91,7 +92,17 @@ function generateChart(fileNameKey) {
             chart: {
                 type: 'bar',
                 zoomType: 'xy',
-                lineWidth: 0.5
+                lineWidth: 0.5,
+                events: {
+                    load: function() {
+                        let barHeight = 20;
+                        this.update({
+                            chart: {
+                                height: barHeight * this.pointCount + (this.chartHeight - this.plotHeight)
+                            }
+                        })
+                    }
+                }
             },
 
 
@@ -139,7 +150,7 @@ function generateChart(fileNameKey) {
                     x: 0
                 },
                 title: {
-                    text: 'median<br>percentage errors',
+                    text: 'median percentage errors<br>',
                     x: 0
                 },
                 gridLineWidth: 0.25,
@@ -150,15 +161,14 @@ function generateChart(fileNameKey) {
             },
 
             plotOptions: {
-                column: {
+                bar: {
                     pointPadding: 0.2,
-                    pointWidth: 13,
-                    borderWidth: 0
+                    pointWidth: 5,
+                    borderWidth: 0,
                 },
                 series: {
-
+                    groupPadding: 0.25
                 }
-
             },
 
             tooltip: {
@@ -167,7 +177,7 @@ function generateChart(fileNameKey) {
 
             series: [
                 {
-                    type: 'column',
+                    type: 'bar',
                     name: 'training stage',
                     data: training,
                     color: '#000000',
@@ -177,7 +187,7 @@ function generateChart(fileNameKey) {
                     }
                 },
                 {
-                    type: 'column',
+                    type: 'bar',
                     name: 'testing stage',
                     data: testing,
                     color: '#ff8c00',

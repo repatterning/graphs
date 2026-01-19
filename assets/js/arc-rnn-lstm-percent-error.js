@@ -1,9 +1,13 @@
+// noinspection DuplicatedCode
+
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
-var url = '../warehouse/arc-rnn-lstm-metrics/disaggregates/menu/menu.json';
+var endpoint = document.getElementById("endpoint").getAttribute("url")
+var url = endpoint + '/menu/menu.json';
 
 
+// Dropdown: Launch
 $.getJSON(url, function (data) {
 
     $.each(data, function (key, entry) {
@@ -20,7 +24,7 @@ $.getJSON(url, function (data) {
 });
 
 
-// Dropdown
+// Dropdown: Select
 dropdown.on('change', function (e) {
 
     $('#option_selector_title').remove();
@@ -37,7 +41,7 @@ dropdown.on('change', function (e) {
 // Generate graphs
 function generateChart(fileNameKey) {
 
-    $.getJSON('../warehouse/arc-rnn-lstm-metrics/disaggregates/points/' + fileNameKey + '.json', function (source) {
+    $.getJSON(endpoint + '/points/' + fileNameKey + '.json', function (source) {
 
         // https://api.highcharts.com/highstock/plotOptions.series.dataLabels
         // https://api.highcharts.com/class-reference/Highcharts.Point#.name
@@ -126,11 +130,13 @@ function generateChart(fileNameKey) {
             chart: {
 
                 zoomType: 'xy',
-                inverted: true
+                inverted: true,
+                height: 365,
+                width: 495
             },
 
             title: {
-                text: 'Model of: ' + optionSelected
+                text: optionSelected
             },
 
             subtitle: {

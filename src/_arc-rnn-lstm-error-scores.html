@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 
+<!--suppress JSUnresolvedLibraryURL -->
 <html lang="en" data-assets-path="../assets/" >
 
 <head>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
   <meta name="description" content="" />
@@ -19,7 +21,7 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
-  <title>Latest Warning Area: Predictions</title>
+  <title>RNN LSTM: Error Scores</title>
 
 </head>
 
@@ -30,43 +32,44 @@
   <div class="grid-item"></div>
   <div class="grid-item">
 
-    <h4><span style="margin-left: 1.05rem;">River Levels /</span> Latest Warning Area: Predictions</h4>
+    <h4><span style="margin-left: 1.05rem;">RNN LSTM / </span> Error Scores</h4>
 
-    <table style="width: 69%; margin-left: 1.25rem; margin-right: auto; margin-top: 5px;">
-        <colgroup>
-          <col span="1" style="width: 100%;">
-        </colgroup>
-        <tr><td>
+    <table style="width: 69%; margin-left: 1.05rem; margin-right: auto; margin-top: 5px;">
+      <colgroup>
+        <col span="1" style="width: 100%;">
+      </colgroup>
+      <tr>
+        <td>
 
           <br><br>
 
-          <details><summary style="color: #696cff; margin-top: -20px"> Graph Notes</summary>
-            <p><br>The predictions vis-a-via the latest warning area. Each graph's title denotes <i>Predictions: River Level Gauge Location/Catchment Area</i>. Each river level measuring device is located within a <a href="https://waterlevels.sepa.org.uk/" target="_blank">SEPA</a> (Scottish Environment Protection Agency) river gauge catchment area.  The forecasts bands hint at our degree of uncertainty.  The river level values are the values relative to Ordnance Datum, i.e., relative water level + gauge datum.  The predictions can be substantially improved by including known predictive factors, using an ensemble of models, and much more; the different models investigated for this exercise can be the starting point of an ensemble.<br><br>For short-time-horizon decisions.
-            <br></p>
-          </details>
+          <nav class="tabs">
+            <label class="nav" for="training">TRAINING</label>
+            <label class="nav" for="testing">TESTING</label>
+          </nav>
+          <article class="content">
+            <section>
+              <div><div id="container0002" style="width: 695px; align-items: self-start; margin-left: 35px;"></div></div>
+            </section>
+            <section>
+              <div><div id="container0004" style="width: 695px; align-items: self-start; margin-left: 35px;"></div></div>
+            </section>
+            <input type="radio" name="tabs" id="training" hidden checked />
+            <input type="radio" name="tabs" id="testing" hidden />
+          </article>
 
-          </td></tr>
-        <tr>
-          <td><br><br>
-            <!-- <label for="option_selector"></label> -->
-            <select id="option_selector" style="width: 300px;">
-              <!-- <option id="option_selector_title">Please select a ...</option> -->
-            </select>
-            <script>
-                $(document).ready(function () {
-                    $("#option_selector").select2();
-                });
-            </script>
+          <script id="endpoint"
+                  url="../warehouse/arc-rnn-lstm-metrics/aggregates"
+                  src="../assets/js/arc-rnn-lstm-error-scores.js"  type="text/javascript"></script>
 
-            <br><br><br>
+          <br><br>
 
-            <div><div id="container0002" style="margin: 0 5px 0 5px;"></div></div>
-            <script src="../assets/js/arc-state-space-mixture.js" type="text/javascript"></script><br><br>
-          </td>
-        </tr>
-      </table>
+        </td>
+      </tr>
+    </table>
 
   </div>
+
   <div class="grid-item"></div>
   <div class="grid-item"></div>
 
@@ -74,6 +77,7 @@
   <div class="grid-item"></div>
 
 </div>
+
 
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>

@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-  <title>Warning Area</title>
+  <title>Preview</title>
 
   <meta name="description" content="" />
 
@@ -91,7 +91,7 @@
         <!-- Content -->
 
         <div class="container-xxl flex-grow-1 container-p-y">
-          <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">River Levels /</span> Warning: Predictions, etc.</h4>
+          <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">River Levels /</span> Preview</h4>
 
           <div class="row" style="margin-bottom: 450px;">
             <div class="col-md-12">
@@ -103,81 +103,49 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" href="javascript:void(0);">
-                    <i class="bx bx-fingerprint me-1"></i> Warning: Predictions, etc.</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="in-river-risks.html">
-                    <i class="bx bx-abacus me-1"></i> Risks: Rates of Change</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="in-river-drift.html">
-                    <i class="bx bx-abacus me-1"></i> Drift</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="in-river-contrasts.html">
-                    <i class="bx bx-network-chart me-1"></i> Contrasts</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="in-river-split.html">
-                    <i class="bx bx-network-chart me-1"></i> Measures: Split</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="in-river-continuous.html">
-                    <i class="bx bx-network-chart me-1"></i> Measures: Continuous</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="in-river-extrema.html">
-                    <i class="bx bx-network-chart me-1"></i> Extrema</a>
+                    <i class="bx bx-dna me-1"></i> Preview</a>
                 </li>
               </ul>
 
               <div class="card mb-4">
 
-                <div style="margin-left: 35px; margin-top: 25px; color: #696cff">
-                  <p id="state" style="color: #696cff">
-                    <script>$.getJSON("../warehouse/warning/times.json", function (data){
-                        let cells = "",
-                            elements = document.getElementById('state');
-                        if (data['testing']) {
-                            cells = "<h4 style='font-variant: small-caps'>Latest Test</h4>";
-                        } else {
-                            cells = "<h4 style='font-variant: small-caps'>Latest/Most Recent Warning Period</h4>";
-                        }
-                        elements.innerHTML = cells;
-                    });
-                    </script>
-                  </p>
-                  <p>Outwith warning periods, random test runs will occur; the title automatically updates accordingly.</p>
-                </div>
-
-                <table class="briefings" style="width: 65%">
+                <table class="briefings" style="width: 330px">
                   <colgroup>
-                    <col span="1" style="width: 19.5%;">
-                    <col span="1" style="width: 43.5%">
+                    <col span="1" style="width: 125px;">
+                    <col span="1" style="width: 435px;">
                   </colgroup>
                   <tr>
-                    <td>
-                      <p id="dates" style="color: #696cff">
-                        <script>$.getJSON("../warehouse/warning/times.json", function (data){
-                            let cells = "",
-                                elements = document.getElementById('dates');
-                            cells = data['starting'] + " &Rarr; " + data['ending'];
-                            elements.innerHTML = cells;
-                        });</script>
-                      </p>
-                    </td>
-                    <td><p>The latest, most recent, <a href="https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings" target="_blank">weather warning period.</a>
-                      </p></td>
+                    <td>Models</td><td><a href="_arc-rnn-lstm-estimates.html" onclick="window.open('_arc-rnn-lstm-estimates.html', 'newwindow', 'width=900,height=895'); return false;">The training & testing stage estimates per model.</a></td>
                   </tr>
                   <tr>
-                    <td><p><a href="/src/_arc-state-space-mixture.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/src/_arc-state-space-mixture.html', 'newwindow', 'width=1200,height=835'); return false;">Predictions</a></p></td>
-                    <td><p>The predictions in relation to the latest/most-recent weather warning area.  If a mix of amber and yellow warnings, for example, the focus will be stations within the amber warning areas.</p></td>
+                    <td>Errors</td>
+                    <td>
+                      <p>The corresponding training & testing stage errors.</p>
+
+                      <p>Model error transparency is critical to decision-making.  The links below lead to error graphs.  In the case of graphs summarising <i>overarching errors</i>, the hypothesis/expectation is that</p>
+
+                      <blockquote style="margin-left: 25px;">
+                        ... the further a model's error point is from the graph origin, i.e., $(0, 0)$, the more erroneous it might be, hence the more cautious we should be vis-à-vis inferences depending on the model.
+                      </blockquote>
+
+                      <p>The <i>pointwise percentage error distribution graphs</i> per model provide granular errors.</p>
+
+                      <ul>
+                        <li><a href="_arc-rnn-lstm-error-scores.html"
+                               onclick="window.open('_arc-rnn-lstm-error-scores.html', 'newwindow', 'width=900,height=825'); return false;">overarching
+                          error scores</a></li>
+                        <li><a href="_arc-rnn-lstm-error-percentiles.html"
+                               onclick="window.open('_arc-rnn-lstm-error-percentiles.html', 'newwindow', 'width=900,height=825'); return false;">overarching
+                          error percentiles</a></li>
+                        <li><a href="_arc-rnn-lstm-percent-error.html"
+                               onclick="window.open('_arc-rnn-lstm-percent-error.html', 'newwindow', 'width=900,height=635'); return false;">pointwise
+                          percentage error distributions per model</a></li>
+                      </ul>
+                    </td>
                   </tr>
                   <tr>
-                    <td>
-                      <p><a href="/warehouse/distributions/maps/assets.html" class="btn btn-sm btn-outline-primary" onclick="window.open('/warehouse/distributions/maps/assets.html', 'newwindow', 'width=999,height=690'); return false;">Assets</a></p>
-                    </td>
-                    <td>A map pinpointing assets, e.g., gauge stations, care homes.  Use the collapsed control panel, on the right hand side, to focus on assets within a catchment of interest.  The assets of a few random catchments are displayed by default.<br><br></td>
+                    <td>Inference</td>
+                    <td><a href="_arc-rnn-lstm-inference.html" onclick="window.open('_arc-rnn-lstm-inference.html', 'newwindow', 'width=900,height=795'); return false;">Inference</a></td>
                   </tr>
                 </table>
 
@@ -234,18 +202,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script src="https://code.highcharts.com/stock/highstock.js"></script>
-<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/stock/modules/data.js"></script>
-<script src="https://code.highcharts.com/stock/highcharts-more.js"></script>
-
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-<script src="https://code.highcharts.com/modules/boost.js"></script>
-<script src="https://code.highcharts.com/modules/bullet.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/annotations.js"></script>
 
 <!-- end build -->
 
