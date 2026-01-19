@@ -29,8 +29,8 @@ function __instances(elements) {
                 y: elements[i]['data'][j][tr_mpe], // median percentage error
                 name: elements[i]['data'][j][tr_sn], // station name / catchment name
                 description: elements[i]['data'][j][tr_cn] + '<br/>' +
-                    '<b>root m.s.e.:</b> ' + Highcharts.numberFormat(elements[i]['data'][j][tr_r_mse], 4) + ' <br/>' +
-                    '<b>median p.e.:</b> ' + Highcharts.numberFormat(elements[i]['data'][j][tr_mpe], 4) + ' <br/>'
+                    '<b>root m.s.e.:</b> ' + Highcharts.numberFormat(elements[i]['data'][j][tr_r_mse], 4) + 'm <br/>' +
+                    '<b>median p.e.:</b> ' + Highcharts.numberFormat(elements[i]['data'][j][tr_mpe], 4) + '% <br/>'
             });
         }
 
