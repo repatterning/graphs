@@ -112,18 +112,36 @@
                 <table class="briefings" style="width: 330px">
                   <colgroup>
                     <col span="1" style="width: 125px;">
-                    <col span="1" style="width: 300px;">
+                    <col span="1" style="width: 435px;">
                   </colgroup>
                   <tr>
-                    <td>Models</td><td><a href="_arc-rnn-lstm-estimates.html" onclick="window.open('_arc-rnn-lstm-estimates.html', 'newwindow', 'width=900,height=895'); return false;">point estimates</a></td>
+                    <td>Models</td><td><a href="_arc-rnn-lstm-estimates.html" onclick="window.open('_arc-rnn-lstm-estimates.html', 'newwindow', 'width=900,height=895'); return false;">The training & testing stage estimates per model.</a></td>
                   </tr>
                   <tr>
                     <td>Errors</td>
-                    <td><ul>
-                      <li> <a href="_arc-rnn-lstm-error-scores.html" onclick="window.open('_arc-rnn-lstm-error-scores.html', 'newwindow', 'width=900,height=825'); return false;">overarching error scores</a></li>
-                      <li><a href="_arc-rnn-lstm-error-percentiles.html" onclick="window.open('_arc-rnn-lstm-error-percentiles.html', 'newwindow', 'width=900,height=825'); return false;">overarching error percentiles</a></li>
-                      <li><a href="_arc-rnn-lstm-percent-error.html" onclick="window.open('_arc-rnn-lstm-percent-error.html', 'newwindow', 'width=900,height=635'); return false;">model percentage error distributions</a></li>
-                    </ul></td>
+                    <td>
+                      <p>The corresponding training & testing stage errors.</p>
+
+                      <p>Model error transparency is critical to decision-making.  The links below lead to error graphs.  In the case of graphs summarising <i>overarching errors</i>, the hypothesis/expectation is that</p>
+
+                      <blockquote style="margin-left: 25px;">
+                        ... the further a model's error point is from the graph origin, i.e., $(0, 0)$, the more erroneous it might be, hence the more cautious we should be vis-à-vis inferences depending on the model.
+                      </blockquote>
+
+                      <p>The <i>pointwise percentage error distribution graphs</i> per model provide granular errors.</p>
+
+                      <ul>
+                        <li><a href="_arc-rnn-lstm-error-scores.html"
+                               onclick="window.open('_arc-rnn-lstm-error-scores.html', 'newwindow', 'width=900,height=825'); return false;">overarching
+                          error scores</a></li>
+                        <li><a href="_arc-rnn-lstm-error-percentiles.html"
+                               onclick="window.open('_arc-rnn-lstm-error-percentiles.html', 'newwindow', 'width=900,height=825'); return false;">overarching
+                          error percentiles</a></li>
+                        <li><a href="_arc-rnn-lstm-percent-error.html"
+                               onclick="window.open('_arc-rnn-lstm-percent-error.html', 'newwindow', 'width=900,height=635'); return false;">pointwise
+                          percentage error distributions per model</a></li>
+                      </ul>
+                    </td>
                   </tr>
                   <tr>
                     <td>Inference</td>
