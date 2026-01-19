@@ -96,7 +96,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
 
         subtitle: {
             useHTML: true,
-            text: '<p>percentage errors: $90^{th}$ percentile vs. $10^{th}$ percentile</p>',
+            text: '<p>error percentiles: $90^{th}$ percentile vs. $10^{th}$ percentile</p>',
             x: -65
         },
 
@@ -121,12 +121,11 @@ $.getJSON(endpoint + '/statements.json', function (source) {
         xAxis: {
             title: {
                 useHTML: true,
-                text: 'lower whisker<br>$10^th \mathcal{p}$'
+                text: 'lower whisker: $10^th$ <i>percentile</i>'
             },
             labels: {
                 format: '{value}'
-            },
-            min: 0
+            }
         },
 
         yAxis: {
@@ -135,7 +134,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
             },
             title: {
                 useHTML: true,
-                text: 'upper whisker<br>$90^th \mathcal{p}$<br><br>'
+                text: 'upper whisker: $90^th <i>percentile</i><br><br>'
             },
             lineWidth: 0,
             offset: 35
@@ -203,7 +202,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
 
         subtitle: {
             useHTML: true,
-            text: '<p>percentage errors: $90^{th}$ percentile vs. $10^{th}$ percentile</p>',
+            text: '<p>error percentiles: $90^{th}$ percentile vs. $10^{th}$ percentile</p>',
             x: -65
         },
 
@@ -228,12 +227,11 @@ $.getJSON(endpoint + '/statements.json', function (source) {
         xAxis: {
             title: {
                 useHTML: true,
-                text: 'lower whisker<br>$10^th \mathcal{p}$'
+                text: 'lower whisker: $10^{th}$ <i>percentile</i>'
             },
             labels: {
                 format: '{value}'
-            },
-            min: 0
+            }
         },
 
         yAxis: {
@@ -242,7 +240,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
             },
             title: {
                 useHTML: true,
-                text: 'upper whisker<br>$90^th \mathcal{p}$<br><br>'
+                text: 'upper whisker: $90^{th}$ <i>percentile</i><br><br>'
             },
             lineWidth: 0,
             offset: 35
