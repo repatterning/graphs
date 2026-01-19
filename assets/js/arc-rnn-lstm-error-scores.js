@@ -133,7 +133,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
                 align: 'left'
             },
             title: {
-                text: 'TRAINING<br><br>'
+                text: 'median percentage error<br><br>'
             },
             lineWidth: 0,
             offset: 35
@@ -223,7 +223,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
                 align: 'left'
             },
             title: {
-                text: 'TESTING<br><br>'
+                text: 'median percentage error<br><br>'
             },
             lineWidth: 0,
             offset: 35
