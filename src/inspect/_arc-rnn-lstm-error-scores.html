@@ -42,12 +42,25 @@
         <td>
 
           <br><br>
+          
+          <nav class="tabs">
+            <label class="nav" for="training">TRAINING</label>
+            <label class="nav" for="testing">TESTING</label>
+          </nav>
+          <article class="content">
+            <section>
+              <div><div id="container0002" style="width: 695px; align-items: self-start; margin-left: 35px;"></div></div>
+            </section>
+            <section>
+              <div><div id="container0004" style="width: 695px; align-items: self-start; margin-left: 35px;"></div></div>
+            </section>
+            <input type="radio" name="tabs" id="training" hidden checked />
+            <input type="radio" name="tabs" id="testing" hidden />
+          </article>
 
           <script id="endpoint"
                   url="../../../warehouse-t/arc-rnn-lstm-metrics/aggregates"
-                  tag="training"
                   src="../../assets/js/arc-rnn-lstm-error-scores.js"  type="text/javascript"></script>
-          <div><div id="container0002" style="width: 695px; align-items: self-start; margin-left: 35px;"></div></div>
 
           <br><br>
 
