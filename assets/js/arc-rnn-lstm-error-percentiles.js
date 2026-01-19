@@ -121,7 +121,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
         xAxis: {
             title: {
                 useHTML: true,
-                text: 'lower whisker: $10^th$ <i>percentile</i>'
+                text: 'lower whisker: $10^{th}$ <i>percentile</i>'
             },
             labels: {
                 format: '{value}'
@@ -134,7 +134,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
             },
             title: {
                 useHTML: true,
-                text: 'upper whisker: $90^th <i>percentile</i><br><br>'
+                text: 'upper whisker: $90^{th}$ <i>percentile</i><br><br>'
             },
             lineWidth: 0,
             offset: 35
