@@ -90,7 +90,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
         },
 
         title: {
-            text: 'Error Metrics',
+            text: 'Error Percentiles',
             x: -60
         },
 
@@ -196,7 +196,7 @@ $.getJSON(endpoint + '/statements.json', function (source) {
         },
 
         title: {
-            text: 'Error Metrics',
+            text: 'Error Percentiles',
             x: -60
         },
 
