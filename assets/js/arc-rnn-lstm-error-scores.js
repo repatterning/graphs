@@ -152,6 +152,21 @@ $.getJSON(endpoint + '/statements.json', function (source) {
             }
         },
 
+        tooltip: {
+            fixed: true,
+            useHTML: true,
+            style: {
+                fontSize: 12
+            },
+            position: {
+                align: 'left',
+                verticalAlign: 'bottom',
+                relativeTo: 'spacingBox',
+                x: 400,
+                y: 0
+            }
+        },
+
         series: training
 
     });
@@ -239,6 +254,21 @@ $.getJSON(endpoint + '/statements.json', function (source) {
             },
             series: {
                 turboThreshold: 4000
+            }
+        },
+
+        tooltip: {
+            fixed: true,
+            useHTML: true,
+            style: {
+                fontSize: 12
+            },
+            position: {
+                align: 'left',
+                verticalAlign: 'bottom',
+                relativeTo: 'spacingBox',
+                x: 400,
+                y: 0
             }
         },
 
