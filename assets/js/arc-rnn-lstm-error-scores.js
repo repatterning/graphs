@@ -182,6 +182,13 @@ $.getJSON(endpoint + '/statements.json', function (source) {
         }],
 
         plotOptions: {
+            scatter: {
+                jitter: {
+                    x: 0.005,
+                    y: 0.005
+                },
+
+            },
             series: {
                 turboThreshold: 4000
             }
