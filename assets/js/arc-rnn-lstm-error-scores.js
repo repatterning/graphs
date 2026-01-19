@@ -90,12 +90,14 @@ $.getJSON(endpoint + '/statements.json', function (source) {
         },
 
         title: {
-            text: 'Error Metrics'
+            text: 'Error Metrics',
+            x: -60
         },
 
         subtitle: {
             useHTML: true,
-            text: '<p>median percentage errors vs. root median square errors</p>'
+            text: '<p>median percentage errors vs. root median square errors</p>',
+            x: -65
         },
 
         time: {
@@ -178,12 +180,14 @@ $.getJSON(endpoint + '/statements.json', function (source) {
         },
 
         title: {
-            text: 'Error Metrics'
+            text: 'Error Metrics',
+            x: -60
         },
 
         subtitle: {
             useHTML: true,
-            text: '<p>median percentage errors vs. root median square errors</p>'
+            text: '<p>median percentage errors vs. root median square errors</p>',
+            x: -65
         },
 
         time: {
