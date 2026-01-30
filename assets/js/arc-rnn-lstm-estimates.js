@@ -3,6 +3,7 @@
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
+var tag = document.getElementById("endpoint").getAttribute("tag")
 var endpoint = document.getElementById("endpoint").getAttribute("url")
 var url = endpoint + '/menu/menu.json';
 
@@ -56,9 +57,10 @@ function generateChart(fileNameKey){
             t_estimate = [],
             t_percentage = [],
             groupingUnits = [[
-                'hour',                         // unit name
+                tag,                         // unit name
                 [1]                            // allowed multiples
             ]];
+
 
 
         let ctr = source['training'].columns;
