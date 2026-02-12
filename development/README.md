@@ -3,7 +3,7 @@
 
 ### Remote Development
 
-Build via
+Image
 
 ```shell
 docker build . --file .devcontainer/Dockerfile -t dynamic
