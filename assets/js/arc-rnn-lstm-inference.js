@@ -3,6 +3,7 @@
 var Highcharts;
 var optionSelected;
 var dropdown = $('#option_selector');
+var tag = document.getElementById("endpoint").getAttribute("tag")
 var endpoint = document.getElementById("endpoint").getAttribute("url")
 var url = endpoint + '/menu/menu.json';
 
@@ -54,7 +55,7 @@ function generateChart(fileNameKey){
             percentages = [],
             forecasts = [],
             groupingUnits = [[
-                'hour',                         // unit name
+                tag,                         // unit name
                 [1]                            // allowed multiples
             ]];
 
@@ -62,7 +63,7 @@ function generateChart(fileNameKey){
         let ctr = source['estimates'].columns;
         let mr = ctr.indexOf('measure'),
             er = ctr.indexOf('e_measure'),
-            ape = ctr.indexOf('ape');
+            pe = ctr.indexOf('p_error');
 
         for (var i = 0; i < source['estimates'].data.length; i += 1) {
 
@@ -78,7 +79,7 @@ function generateChart(fileNameKey){
 
             percentages.push([
                 source['estimates'].data[i][0], // date
-                source['estimates'].data[i][ape] // absolute percentage error
+                source['estimates'].data[i][pe] // absolute percentage error
             ]);
         }
 
@@ -187,7 +188,7 @@ function generateChart(fileNameKey){
                     x: 5
                 },
                 title: {
-                    text: 'APE<br>(%)',
+                    text: 'PE<br>(%)',
                     align: 'middle',
                     x: 7
                 },
@@ -285,7 +286,7 @@ function generateChart(fileNameKey){
                 },
                 {
                     type: 'spline',
-                    name: 'Absolute Percentage Error (APE)',
+                    name: 'Percentage Error (PE)',
                     data: percentages,
                     marker: {
                         enabled: false
