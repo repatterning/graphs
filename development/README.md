@@ -3,6 +3,12 @@
 
 ### Remote Development
 
+Build via
+
+```shell
+docker build . --file .devcontainer/Dockerfile -t dynamic
+```
+
 Launch an interactive environment via
 
 ```shell
