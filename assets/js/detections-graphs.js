@@ -76,10 +76,10 @@ function generateChart(fileNameKey) {
             ]];
 
         let original = __sequence(source['estimates'], 'original'),
-            plausible = __sequence(source['p_anomalies'], 'p_anomaly'),
+            plausible = __sequence(source['p_anomalies'], 'original'),
             gaps = __sequence(source['gaps'], 'gap'),
             asymptotes = __sequence(source['asymptotes'], 'asymptote'),
-            extremes = __sequence(source['extremes'], 'extreme');
+            extremes = __sequence(source['extremes'], 'original');
 
         Highcharts.setOptions({
             lang: {
@@ -111,14 +111,6 @@ function generateChart(fileNameKey) {
                 width: 435,
                 height: 450
             },
-
-            colorAxis: [{
-                stops: [
-                    [0, '#ffa500'],
-                    [0.5, '#000000'],
-                    [1, '#722f37']
-                ]
-            }],
 
             title: {
                 text: source['station_name']
@@ -221,6 +213,7 @@ function generateChart(fileNameKey) {
                     data: original,
                     type: 'spline',
                     turboThreshold: 4000,
+                    yAxis: 0,
                     dataGrouping: {
                         enabled: true,
                         units: [[
