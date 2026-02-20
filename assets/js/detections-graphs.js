@@ -1,4 +1,4 @@
-// noinspection DuplicatedCode
+// noinspection DuplicatedCode,ES6ConvertVarToLetConst
 
 var Highcharts;
 var optionSelected;
@@ -108,8 +108,12 @@ function generateChart(fileNameKey) {
 
             chart: {
                 zoomType: 'xy',
-                width: 435,
-                height: 450
+                width: 465,
+                height: 535
+            },
+
+            legend: {
+                enabled: true
             },
 
             title: {
@@ -152,7 +156,7 @@ function generateChart(fileNameKey) {
                     text: 'series<br>(metres)',
                     x: 0
                 },
-                height: '47%',
+                height: '45%',
                 lineWidth: 2,
                 resize: {
                     enabled: true
@@ -166,7 +170,7 @@ function generateChart(fileNameKey) {
                     text: 'asymptotes:<br>flat lines',
                     x: 0
                 },
-                top: '50%',
+                top: '47%',
                 height: '23.5%',
                 offset: 0,
                 lineWidth: 2
@@ -179,7 +183,7 @@ function generateChart(fileNameKey) {
                     text: 'gaps<br>& missing',
                     x: 0
                 },
-                top: '75%',
+                top: '72.5%',
                 height: '23.5%',
                 offset: 0,
                 lineWidth: 2
@@ -194,6 +198,7 @@ function generateChart(fileNameKey) {
 
             tooltip: {
                 split: true,
+                shared: true,
                 dateTimeLabelFormats: {
                     millisecond: "%A, %e %b, %H:%M:%S.%L",
                     second: "%A, %e %b, %H:%M:%S",
@@ -237,9 +242,13 @@ function generateChart(fileNameKey) {
                     }
                 },
                 {
-                    type: 'spline',
+                    type: 'scatter',
                     name: 'flat lines',
                     data: asymptotes,
+                    marker: {
+                        symbol: 'square',
+                        radius: 2
+                    },
                     color: '#43270F',
                     yAxis: 1,
                     dataGrouping: {
@@ -247,7 +256,7 @@ function generateChart(fileNameKey) {
                     },
                     tooltip: {
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f} m<br/>'
+                            '{point.y}<br/>'
                     }
                 },
                 {
@@ -261,13 +270,17 @@ function generateChart(fileNameKey) {
                     },
                     tooltip: {
                         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {series.name} </b>: ' +
-                            '{point.y:,.2f} m<br/>'
+                            '{point.y}<br/>'
                     }
                 },
                 {
                     type: 'scatter',
                     name: 'plausible anomalies',
                     data: plausible,
+                    marker: {
+                        symbol: 'circle',
+                        radius: 2
+                    },
                     color: '#780222',
                     yAxis: 0,
                     dataGrouping: {
@@ -282,6 +295,10 @@ function generateChart(fileNameKey) {
                     type: 'scatter',
                     name: 'beyond 5% | 95%',
                     data: extremes,
+                    marker: {
+                        symbol: 'circle',
+                        radius: 2
+                    },
                     color: '#A08E23',
                     yAxis: 0,
                     dataGrouping: {
