@@ -137,7 +137,6 @@ dist
 
 # Exclude
 script.sh
-schema.sh
 approve.sh
 .idea
 warehouse
